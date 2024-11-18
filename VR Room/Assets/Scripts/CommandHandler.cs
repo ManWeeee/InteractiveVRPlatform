@@ -13,7 +13,7 @@ namespace Assets.Scripts
         private Stack<ICommand> m_redoCommands = new Stack<ICommand>();
 
         public static CommandHandler Instance => m_instance;
-        // TODO: Change on the hood the detail should hide only after interaction and not after hover 
+
         public void Awake()
         {
             if(m_instance)
@@ -24,30 +24,31 @@ namespace Assets.Scripts
         public void ExecuteCommand(ICommand command)
         {
             m_undoCommands.Push(command);
+            m_redoCommands.Clear();
             command.Execute();
         }
 
         public void UndoCommand()
         {
-            if (m_redoCommands.Count < 0)
-            {
-                return;
-            }
-
-            var command = m_redoCommands.Pop();
-            m_undoCommands.Push(command);
-            command.Undo();
-        }
-
-        public void RedoCommand()
-        {
-            if (m_undoCommands.Count < 0)
+            if (m_undoCommands.Count == 0)
             {
                 return;
             }
 
             var command = m_undoCommands.Pop();
             m_redoCommands.Push(command);
+            command.Undo();
+        }
+
+        public void RedoCommand()
+        {
+            if (m_redoCommands.Count == 0)
+            {
+                return;
+            }
+
+            var command = m_redoCommands.Pop();
+            m_undoCommands.Push(command);
             command.Execute();
         }
     }

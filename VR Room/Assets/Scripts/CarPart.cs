@@ -11,8 +11,6 @@ namespace Assets.Scripts
     {
         public Action Pressed;
         private CommandHandler m_commandHandler;
-
-
         public void Start()
         {
             m_commandHandler = CommandHandler.Instance;
@@ -22,6 +20,7 @@ namespace Assets.Scripts
         {
             var hideCommand = new HideCommand(gameObject);
             m_commandHandler.ExecuteCommand(hideCommand);
+            Pressed?.Invoke();
         }
     }
 }
