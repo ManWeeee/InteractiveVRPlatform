@@ -1,10 +1,7 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts;
-using Unity.VisualScripting;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Assets.Scripts
@@ -12,20 +9,25 @@ namespace Assets.Scripts
     [RequireComponent(typeof(XRSimpleInteractable), typeof(Collider))]
     public class CarPartVR : MonoBehaviour
     {
-        private UnityAction Pressed;
+        private Action Pressed;
         private CommandHandler m_commandHandler;
-        [SerializeField] private XRSimpleInteractable m_xrSimpleInteractable;
+        private XRSimpleInteractable m_xrSimpleInteractable;
+        private List<CarPartVR> m_dependableParts;
 
         public void Start()
         {
             m_commandHandler = CommandHandler.Instance;
             m_xrSimpleInteractable = GetComponent<XRSimpleInteractable>();
-            m_xrSimpleInteractable.selectEntered.AddListener(OnSelectEntered);
+            m_xrSimpleInteractable.selectExited.AddListener(OnSelectExit);
+            m_dependableParts = (GetComponentsInChildren<CarPartVR>()).ToList();
         }
 
-        private void OnSelectEntered(SelectEnterEventArgs args)
+        private void OnSelectExit(SelectExitEventArgs args)
         {
-            HidePart();
+            if (m_dependableParts.Count == 0)
+            {
+                HidePart();
+            }
         }
 
         public void HidePart()
