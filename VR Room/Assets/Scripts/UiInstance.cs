@@ -18,11 +18,6 @@ namespace Assets.Scripts
             if (m_actionProperty.action.WasPressedThisFrame())
             {
                 m_uiObject.SetActive(!m_uiObject.activeSelf);
-
-                if (m_uiObject.activeSelf == false)
-                {
-                    return;
-                }
             }
         }
     }
