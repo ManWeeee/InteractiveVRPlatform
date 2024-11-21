@@ -1,19 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Assets.Scripts;
 using UnityEngine;
 
 public class Part : CarPart
 {
 
-    public override void StartAssemble()
+    public override async Task StartAssemble()
     {
-        throw new System.NotImplementedException();
+        await Assemble();
     }
 
-    public override void StartDisassemble()
+    private async Task Assemble()
     {
-        throw new System.NotImplementedException();
+        await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION);
     }
 
+    public override async Task StartDisassemble()
+    {
+        await Disassemble();
+    }
+    private async Task Disassemble()
+    {
+        await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION);
+        var command = new HideCommand(gameObject);
+        CommandHandler.ExecuteCommand(command);
+    }
 }

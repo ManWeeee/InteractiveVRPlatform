@@ -21,10 +21,10 @@ namespace Assets.Scripts
             m_instance = this;
         } 
 
-        public void ExecuteCommand(ICommand command)
+        public static void ExecuteCommand(ICommand command)
         {
-            m_undoCommands.Push(command);
-            m_redoCommands.Clear();
+            Instance.m_undoCommands.Push(command);
+            Instance.m_redoCommands.Clear();
             command.Execute();
         }
 

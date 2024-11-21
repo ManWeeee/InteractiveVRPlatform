@@ -1,90 +1,132 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Assets.Scripts
 {
+    [RequireComponent(typeof(XRSimpleInteractable))]
     public class CarPartInteractable : MonoBehaviour, IXRSimpleInteractable
     {
-        [SerializeField]
-        private HoverMaterials m_materials;
+        [SerializeField] private HoverMaterials m_materials;
+        [SerializeField] private List<CarPartInteractable> m_parentParts;
+        [SerializeField] private List<CarPartInteractable> m_dependableParts;
 
-        private CarPart m_part;
+        [SerializeField] private CarPart m_part;
         private Renderer m_renderer;
         private Material m_originalMaterial;
         private XRSimpleInteractable m_interactable;
-        private List<CarPartInteractable> m_dependableParts = new List<CarPartInteractable>();
-
-        public Action HoverEntered;
-        public Action HoverExited;
+        //TODO: remove an object from dependable script when it is disabled, and again, when it is enabled
+        public UnityAction<HoverEnterEventArgs> HoverEntered;
+        public UnityAction<HoverExitEventArgs> HoverExited;
+        public Action<CarPartInteractable> DetailDisabled;
 
         private void Start()
         {
-            Debug.Log(gameObject.name + " Start Method");
+            Initialize();
+        }
+
+        private void Initialize()
+        {
             m_part = GetComponent<CarPart>();
+
             m_interactable = GetComponent<XRSimpleInteractable>();
             m_interactable.hoverEntered.AddListener(OnHoverEntered);
             m_interactable.hoverExited.AddListener(OnHoverExited);
-            if (TryGetComponent<Renderer>(out m_renderer))
+            m_interactable.selectExited.AddListener(OnSelectExited);
+
+            m_renderer = GetComponentInChildren<Renderer>();
+            if (m_renderer != null)
             {
                 m_originalMaterial = m_renderer.material;
             }
-
-            m_dependableParts = (GetComponentsInChildren<CarPartInteractable>()).ToList();
-            Debug.Log(m_dependableParts.Count);
-            //foreach (var item in m_dependableParts)
-            //{
-            //    AddListener(item);
-            //}
-
+            if (m_dependableParts.Count == 0)
+            {
+                return;
+            }
+            foreach (var part in m_dependableParts)
+            {
+                part.SetParent(this);
+            }
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             m_interactable.hoverEntered.RemoveListener(OnHoverEntered);
             m_interactable.hoverExited.RemoveListener(OnHoverExited);
         }
 
-        /*private void AddListener(IXRSimpleInteractable part)
+        public void SetParent(CarPartInteractable parent)
         {
-            HoverEntered += part.OnHoverEntered;
-            HoverExited += part.OnHoverExited;
+            m_parentParts.Add(parent);
+            DetailDisabled += parent.ReleaseChildren;
+            parent.HoverEntered += OnHoverEntered;
+            parent.HoverExited += OnHoverExited;
         }
-        */
 
+        public void ReleaseParent()
+        {
+            
+        }
+
+        public void SetChildren(CarPartInteractable partInteractable)
+        {
+            m_dependableParts.Add(partInteractable);
+        }
+
+        public void ReleaseChildren(CarPartInteractable partInteractable)
+        {
+            m_dependableParts.Remove(partInteractable);
+        }
+        
         public void OnHoverEntered(HoverEnterEventArgs args)
         {
             if (!m_renderer)
+            {
                 return;
-            if(m_dependableParts.Count == 1)
+            }
+
+            if(m_dependableParts.Count == 0)
             {
                 m_renderer.material = m_materials.ReadonlyRightMaterial;
             }
             else
             {
                 m_renderer.material = m_materials.ReadonlyWrongMaterial;
-                //HoverEntered?.Invoke();
+                HoverEntered?.Invoke(args);
             }
         }
 
         public void OnHoverExited(HoverExitEventArgs args)
         {
-            var renderer = GetComponent<MeshRenderer>();
-            renderer.material = m_originalMaterial;
-            //HoverExited?.Invoke(args);
+            if (m_renderer == null)
+            {
+                return;
+            }
+            m_renderer.material = m_originalMaterial;
+            HoverExited?.Invoke(args);
         }
 
         public void OnSelectEntered(SelectEnterEventArgs args)
         {
-            throw new NotImplementedException();
+            
+            return;
         }
 
         public void OnSelectExited(SelectExitEventArgs args)
         {
-            throw new NotImplementedException();
+            if (m_dependableParts.Count == 0)
+            {
+                DetailDisabled?.Invoke(this);
+                m_part.StartDisassemble();
+            }
+        }
+
+        private void OnDestroy()
+        {
+            m_interactable.hoverEntered.RemoveListener(OnHoverEntered);
+            m_interactable.hoverExited.RemoveListener(OnHoverExited);
         }
     }
 }
