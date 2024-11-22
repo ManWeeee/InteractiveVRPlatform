@@ -65,11 +65,6 @@ namespace Assets.Scripts
             parent.HoverExited += OnHoverExited;
         }
 
-        public void ReleaseParent()
-        {
-            
-        }
-
         public void SetChildren(CarPartInteractable partInteractable)
         {
             m_dependableParts.Add(partInteractable);
@@ -118,7 +113,7 @@ namespace Assets.Scripts
         {
             if (m_dependableParts.Count == 0)
             {
-                // turn off the XrSimpleInteractable
+                m_interactable.enabled = false;
                 DetailDisabled?.Invoke(this);
                 m_part.StartDisassemble();
             }

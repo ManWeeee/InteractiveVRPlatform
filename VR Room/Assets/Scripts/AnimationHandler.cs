@@ -15,12 +15,9 @@ namespace Assets.Scripts
 
         public async Task PlayAnimationAndWait(string animationName)
         {
-            //m_animator.Play(animationName);
             m_animator.SetTrigger(animationName);
 
             await WaitForAnimation(m_animator, animationName);
-
-            Debug.Log($"Animation {animationName} has finished.");
         }
 
         private async Task WaitForAnimation(Animator animator, string animationName)
