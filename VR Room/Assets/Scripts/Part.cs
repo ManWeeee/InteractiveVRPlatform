@@ -14,7 +14,7 @@ public class Part : CarPart
 
     private async Task Assemble()
     {
-        await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION);
+        await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION_NAME);
     }
 
     public override async Task StartDisassemble()
@@ -23,7 +23,7 @@ public class Part : CarPart
     }
     private async Task Disassemble()
     {
-        await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION);
+        await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION_NAME);
         var command = new HideCommand(gameObject);
         CommandHandler.ExecuteCommand(command);
     }

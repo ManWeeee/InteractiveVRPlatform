@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.XR.Interaction.Toolkit;
+
 
 namespace Assets.Scripts
 {
@@ -18,8 +13,8 @@ namespace Assets.Scripts
             m_animationHandler = GetComponentInChildren<AnimationHandler>();
         }
 
-        protected const string DISASSEMBLE_ANIMATION = "Disassemble";
-        protected const string ASSEMBLE_ANIMATION = "Assemble";
+        protected const string DISASSEMBLE_ANIMATION_NAME = "Disassemble";
+        protected const string ASSEMBLE_ANIMATION_NAME = "Assemble";
 
         public abstract Task StartAssemble();
 

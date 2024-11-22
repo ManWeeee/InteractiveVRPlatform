@@ -118,6 +118,7 @@ namespace Assets.Scripts
         {
             if (m_dependableParts.Count == 0)
             {
+                // turn off the XrSimpleInteractable
                 DetailDisabled?.Invoke(this);
                 m_part.StartDisassemble();
             }
