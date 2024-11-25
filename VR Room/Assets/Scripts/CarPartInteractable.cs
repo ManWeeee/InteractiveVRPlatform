@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -10,69 +11,41 @@ namespace Assets.Scripts
     public class CarPartInteractable : MonoBehaviour, IXRSimpleInteractable
     {
         [SerializeField] private HoverMaterials m_materials;
-        [SerializeField] private List<CarPartInteractable> m_parentParts;
-        [SerializeField] private List<CarPartInteractable> m_dependableParts;
-
         [SerializeField] private CarPart m_part;
+
         private Renderer m_renderer;
         private Material m_originalMaterial;
         private XRSimpleInteractable m_interactable;
-        //TODO: remove an object from dependable script when it is disabled, and again, when it is enabled
+
         public UnityAction<HoverEnterEventArgs> HoverEntered;
         public UnityAction<HoverExitEventArgs> HoverExited;
-        public Action<CarPartInteractable> DetailDisabled;
 
-        private void Start()
+        private void Awake()
         {
             Initialize();
         }
-
         private void Initialize()
         {
             m_part = GetComponent<CarPart>();
-
             m_interactable = GetComponent<XRSimpleInteractable>();
-            m_interactable.hoverEntered.AddListener(OnHoverEntered);
-            m_interactable.hoverExited.AddListener(OnHoverExited);
-            m_interactable.selectExited.AddListener(OnSelectExited);
-
             m_renderer = GetComponentInChildren<Renderer>();
             if (m_renderer != null)
             {
                 m_originalMaterial = m_renderer.material;
             }
-            if (m_dependableParts.Count == 0)
-            {
-                return;
-            }
-            foreach (var part in m_dependableParts)
-            {
-                part.SetParent(this);
-            }
+        }
+
+        private void OnEnable()
+        {
+            m_interactable.hoverEntered.AddListener(OnHoverEntered);
+            m_interactable.hoverExited.AddListener(OnHoverExited);
+            m_interactable.selectExited.AddListener(OnSelectExited);
         }
 
         private void OnDisable()
         {
             m_interactable.hoverEntered.RemoveListener(OnHoverEntered);
             m_interactable.hoverExited.RemoveListener(OnHoverExited);
-        }
-
-        public void SetParent(CarPartInteractable parent)
-        {
-            m_parentParts.Add(parent);
-            DetailDisabled += parent.ReleaseChildren;
-            parent.HoverEntered += OnHoverEntered;
-            parent.HoverExited += OnHoverExited;
-        }
-
-        public void SetChildren(CarPartInteractable partInteractable)
-        {
-            m_dependableParts.Add(partInteractable);
-        }
-
-        public void ReleaseChildren(CarPartInteractable partInteractable)
-        {
-            m_dependableParts.Remove(partInteractable);
         }
         
         public void OnHoverEntered(HoverEnterEventArgs args)
@@ -82,14 +55,14 @@ namespace Assets.Scripts
                 return;
             }
 
-            if(m_dependableParts.Count == 0)
-            {
-                m_renderer.material = m_materials.ReadonlyRightMaterial;
-            }
-            else
+            if(m_part.HasDependableParts)
             {
                 m_renderer.material = m_materials.ReadonlyWrongMaterial;
                 HoverEntered?.Invoke(args);
+            }
+            else
+            {
+                m_renderer.material = m_materials.ReadonlyRightMaterial;
             }
         }
 
@@ -111,10 +84,9 @@ namespace Assets.Scripts
 
         public void OnSelectExited(SelectExitEventArgs args)
         {
-            if (m_dependableParts.Count == 0)
+            if (!m_part.HasDependableParts)
             {
                 m_interactable.enabled = false;
-                DetailDisabled?.Invoke(this);
                 m_part.StartDisassemble();
             }
         }
