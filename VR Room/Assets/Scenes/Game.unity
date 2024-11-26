@@ -744,9 +744,9 @@ MonoBehaviour:
   m_PlayHapticsOnHoverEntered: 1
   m_HapticHoverEnterIntensity: 0.154
   m_HapticHoverEnterDuration: 0.15
-  m_PlayHapticsOnHoverExited: 1
+  m_PlayHapticsOnHoverExited: 0
   m_HapticHoverExitIntensity: 0.138
-  m_HapticHoverExitDuration: 0.15
+  m_HapticHoverExitDuration: 0.05
   m_PlayHapticsOnHoverCanceled: 0
   m_HapticHoverCancelIntensity: 0
   m_HapticHoverCancelDuration: 0

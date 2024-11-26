@@ -11,7 +11,6 @@ public class Part : CarPart
     private CarPartInteractable m_interactable;
     private AudioSource m_audioSource;
 
-
     public CarPartInteractable CarPartInteractable => m_interactable;
 
     protected override void Awake()
@@ -73,8 +72,17 @@ public class Part : CarPart
         {
             return;
         }
-        m_audioSource.PlayOneShot(m_partInfo.DisassembleAudioClip);
-        await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION_NAME);
+
+        if (m_partInfo)
+        {
+            m_audioSource.PlayOneShot(m_partInfo.DisassembleAudioClip);
+        }
+
+        if (m_animationHandler)
+        {
+            await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION_NAME);
+        }
+
         Disassembled?.Invoke(this);
         var command = new HideCommand(gameObject);
         CommandHandler.ExecuteCommand(command);
