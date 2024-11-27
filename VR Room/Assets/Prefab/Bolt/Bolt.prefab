@@ -29,14 +29,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 785422568368525793}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.6872207, w: 0.7264488}
-  m_LocalPosition: {x: -16.650076, y: -4.6840925, z: -5.035679}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2853770191955753911}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 86.821}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &1576184407756913115
 AudioSource:
   m_ObjectHideFlags: 0
@@ -146,6 +146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animationHandler: {fileID: 0}
+  m_parentParts: []
+  m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
 --- !u!114 &8364469668438306144
 MonoBehaviour:
@@ -262,8 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
-  m_parentParts: []
-  m_dependableParts: []
   m_part: {fileID: 0}
 --- !u!135 &1372508489344152067
 SphereCollider:
@@ -284,8 +284,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.07204561
-  m_Center: {x: 0.13845536, y: 9.783949e-10, z: 0}
+  m_Radius: 0.114828035
+  m_Center: {x: 0.034802556, y: 0, z: 0}
 --- !u!1 &6978613104878865382
 GameObject:
   m_ObjectHideFlags: 0

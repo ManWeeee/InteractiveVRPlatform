@@ -148,8 +148,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8198096111026065972}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.70604044, w: 0.70817155}
-  m_LocalPosition: {x: -28.884628, y: -2.3695147, z: 0.92001027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -271,8 +271,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
-  m_parentParts: []
-  m_dependableParts: []
   m_part: {fileID: 0}
 --- !u!82 &3196151031583419120
 AudioSource:
@@ -383,6 +381,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animationHandler: {fileID: 0}
+  m_parentParts: []
+  m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
 --- !u!135 &3753723963971369996
 SphereCollider:
@@ -404,4 +404,4 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.09336781
-  m_Center: {x: 0.13307427, y: 1.7819229e-11, z: 0}
+  m_Center: {x: 0.03, y: 1.7819229e-11, z: 0}
