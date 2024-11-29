@@ -128,10 +128,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8547073943874710249}
-  - component: {fileID: 1757571018324544627}
   - component: {fileID: 9005954075848098447}
   - component: {fileID: 835718279556347468}
   - component: {fileID: 7087247916436672447}
+  - component: {fileID: 4736109448414068240}
   m_Layer: 0
   m_Name: RubberGasket
   m_TagString: Untagged
@@ -147,36 +147,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7907604529354093423}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5139119, y: 0.52513605, z: -0.47113883, w: 0.4880112}
-  m_LocalPosition: {x: -8.368126, y: -2.008701, z: -7.038165}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5632992895030982264}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1757571018324544627
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7907604529354093423}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6386105740786517273, guid: bf3f642e51d48e84fa714bf4891285a6, type: 3}
 --- !u!82 &9005954075848098447
 AudioSource:
   m_ObjectHideFlags: 0
@@ -288,7 +266,7 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
-  m_partInfo: {fileID: 0}
+  m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
 --- !u!114 &7087247916436672447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -391,5 +369,26 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
   m_part: {fileID: 0}
+  m_renderers: []
+--- !u!65 &4736109448414068240
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7907604529354093423}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.02271957, y: 0.1265889, z: 0.111514926}
+  m_Center: {x: 0.0071929097, y: -0.0017703921, z: 0.0019106641}

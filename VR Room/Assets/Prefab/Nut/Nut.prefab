@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1280115777719545989}
-  - component: {fileID: 1581756035450473630}
   - component: {fileID: 1058587745404966872}
   - component: {fileID: 2971895489329339766}
   - component: {fileID: 6536364411157350080}
@@ -28,36 +27,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 616732798554225188}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.64616024, y: -0.22657925, z: 0.20621458, w: 0.6990096}
-  m_LocalPosition: {x: -8.368261, y: -2.0110178, z: -7.0092583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6180475425973130713}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1581756035450473630
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616732798554225188}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2985539491399919301, guid: bf3f642e51d48e84fa714bf4891285a6, type: 3}
 --- !u!82 &1058587745404966872
 AudioSource:
   m_ObjectHideFlags: 0
@@ -272,8 +249,8 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
   m_part: {fileID: 0}
+  m_renderers: []
 --- !u!1 &7737564602147458786
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +264,7 @@ GameObject:
   - component: {fileID: 3173918633877866603}
   - component: {fileID: 5360430522372808034}
   - component: {fileID: 414347779454915615}
+  - component: {fileID: 1595874683008679388}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -393,3 +371,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 0}
+--- !u!64 &1595874683008679388
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7737564602147458786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2985539491399919301, guid: bf3f642e51d48e84fa714bf4891285a6, type: 3}
