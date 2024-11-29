@@ -17,6 +17,8 @@ namespace Assets.Scripts
 
         protected Action<Part> Disassembled;
 
+        public List<Part> ReadOnlyParentPartsList => m_parentParts;
+
         public bool HasDependableParts => m_dependableParts.Count > 0;
 
 

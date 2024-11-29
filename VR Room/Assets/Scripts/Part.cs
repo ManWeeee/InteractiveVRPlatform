@@ -8,24 +8,17 @@ public class Part : CarPart
 {
     [SerializeField] private PartInfo m_partInfo;
 
-    private CarPartInteractable m_interactable;
     private AudioSource m_audioSource;
-
-    public CarPartInteractable CarPartInteractable => m_interactable;
 
     protected override void Awake()
     {
         base.Awake();
         m_audioSource = GetComponent<AudioSource>();
-        m_interactable = GetComponent<CarPartInteractable>();
-    }
-    private void Start()
-    {
         if (!HasDependableParts)
         {
             return;
         }
-        foreach (var part in m_dependableParts )
+        foreach (var part in m_dependableParts)
         {
             part.SetParent(this);
         }
@@ -34,8 +27,6 @@ public class Part : CarPart
     public void SetParent(Part parent)
     {
         m_parentParts.Add(parent);
-        parent.CarPartInteractable.HoverEntered += CarPartInteractable.OnHoverEntered;
-        parent.CarPartInteractable.HoverExited += CarPartInteractable.OnHoverExited;
         Disassembled += parent.ReleaseChildren;
     }
 

@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 126040572064447430}
   - component: {fileID: 248231500235967447}
   - component: {fileID: 480042142455273169}
-  - component: {fileID: 1051576904178741161}
   - component: {fileID: 4534611529462825275}
   m_Layer: 0
   m_Name: AufsatzLinearAustragen
@@ -171,7 +170,7 @@ MonoBehaviour:
   m_parentParts: []
   m_dependableParts: []
   m_partInfo: {fileID: 0}
---- !u!114 &1051576904178741161
+--- !u!114 &4534611529462825275
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -180,7 +179,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3498176235773780275}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -273,18 +272,6 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4534611529462825275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3498176235773780275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
   m_part: {fileID: 0}
 --- !u!1 &7995075140092501916

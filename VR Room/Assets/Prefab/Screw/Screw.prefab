@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8069253258473650526}
   - component: {fileID: 4344802580636591747}
   - component: {fileID: 4315113089152791740}
-  - component: {fileID: 2389705364694780148}
   - component: {fileID: 8342564033524190663}
   - component: {fileID: 3642907156651125397}
   m_Layer: 0
@@ -71,8 +70,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animationHandler: {fileID: 0}
+  m_parentParts: []
+  m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
---- !u!114 &2389705364694780148
+--- !u!114 &8342564033524190663
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -81,7 +82,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1689671282624167913}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -90,7 +91,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -174,21 +175,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &8342564033524190663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1689671282624167913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
-  m_parentParts: []
-  m_dependableParts: []
   m_part: {fileID: 0}
 --- !u!82 &3642907156651125397
 AudioSource:

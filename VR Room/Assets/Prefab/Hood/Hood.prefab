@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2841181683653790784}
   - component: {fileID: 6514969949487300241}
-  - component: {fileID: 4607776657965850565}
   - component: {fileID: 4067716643857168940}
   - component: {fileID: 3882715093798554645}
   - component: {fileID: 3026424725617053216}
@@ -178,7 +177,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1545850104686583575, guid: bf3f642e51d48e84fa714bf4891285a6, type: 3}
---- !u!114 &4607776657965850565
+--- !u!114 &4067716643857168940
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,7 +186,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2822445496818248509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
+  m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -280,21 +279,7 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4067716643857168940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2822445496818248509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
-  m_parentParts: []
-  m_dependableParts: []
   m_part: {fileID: 0}
 --- !u!114 &3882715093798554645
 MonoBehaviour:
@@ -309,6 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animationHandler: {fileID: 0}
+  m_parentParts: []
+  m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: 049f8e95ffbcc754aaf52ee0776fc8e0, type: 2}
 --- !u!82 &3026424725617053216
 AudioSource:
