@@ -1,49 +1,41 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Cysharp.Threading.Tasks;
-using UnityEngine.UI;
 
-namespace Assets.SceneLoader
+namespace SceneManagement
 {
     public class SceneLoader : MonoBehaviour
     {
         [SerializeField] private Canvas m_loadingScreen;
-        [SerializeField] private Slider m_progressBar;
+        [SerializeField] private Camera m_loadingCamera;
+        [SerializeField] private SceneGroup[] m_sceneGroups;
 
-        private readonly string bootstrapSceneName = "BootstrapScene";
+        
+        public readonly SceneGroupManager SceneGroupManager = new();
 
-        private async UniTask LoadSceneAsync(string sceneName)
+        private void Awake()
         {
-            var loadOperation = SceneManager.LoadSceneAsync(sceneName);
-            loadOperation.allowSceneActivation = false;
-
-            while (loadOperation.progress < 0.9f)
-            {
-                if (m_progressBar != null)
-                    m_progressBar.value = loadOperation.progress;
-
-                await UniTask.Yield();
-            }
-
-            loadOperation.allowSceneActivation = true;
-            await UniTask.WaitUntil(() => loadOperation.isDone);
+            SceneGroupManager.OnSceneLoaded += sceneName => Debug.Log($"Scene {sceneName} is finished loading");
+            SceneGroupManager.OnSceneUnloaded += sceneName => Debug.Log($"Scene {sceneName} is finished unloading");
+            SceneGroupManager.OnSceneGroupLoaded += () => Debug.Log("All scenes are finished loading");
         }
 
-        private async UniTask UnloadSceneAsync()
+        async void Start()
         {
-            var scene = SceneManager.GetActiveScene();
+            await LoadSceneGroup(0);
+        }
 
-            
-            if (scene.name == "Bootstrap")
-            {
-                return;
-            }
+        private async UniTask LoadSceneGroup(int index)
+        {
+            EnableLoadingScreen();
+            await SceneGroupManager.LoadSceneGroup(m_sceneGroups[index]);
+            EnableLoadingScreen(false);
+        }
 
-            if (scene.isLoaded)
-            {
-                var unloadOperation = SceneManager.UnloadSceneAsync(scene);
-                await UniTask.WaitUntil(() => unloadOperation.isDone);
-            }
+        private void EnableLoadingScreen(bool enable = true)
+        {
+            m_loadingCamera.gameObject.SetActive(enable);
+            m_loadingScreen.gameObject.SetActive(enable);
         }
     }
 }

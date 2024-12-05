@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using Assets.Scripts;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class Part : CarPart
 {
     [SerializeField] private PartInfo m_partInfo;
@@ -48,7 +47,7 @@ public class Part : CarPart
 
     private async Task Assemble()
     {
-        m_audioSource.PlayOneShot(m_partInfo.AssembleAudioClip);
+        //m_audioSource.PlayOneShot(m_partInfo.AssembleAudioClip);
         await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION_NAME);
     }
 
@@ -64,10 +63,10 @@ public class Part : CarPart
             return;
         }
 
-        if (m_partInfo)
+        /*if (m_partInfo)
         {
             m_audioSource.PlayOneShot(m_partInfo.DisassembleAudioClip);
-        }
+        }*/
 
         if (m_animationHandler)
         {
