@@ -49,7 +49,7 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
-  m_partInfo: {fileID: 0}
+  m_partInfo: {fileID: 11400000, guid: c0bfc9cf06d4d994c9751a9bf06bef20, type: 2}
 --- !u!114 &3632125783658989351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1554311126199534579}
-  m_Mesh: {fileID: 1189680163227048707, guid: bf3f642e51d48e84fa714bf4891285a6, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &6521931580468734771
 MeshRenderer:
   m_ObjectHideFlags: 0

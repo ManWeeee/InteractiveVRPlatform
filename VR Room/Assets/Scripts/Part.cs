@@ -7,12 +7,16 @@ public class Part : CarPart
 {
     [SerializeField] private PartInfo m_partInfo;
 
-    private AudioSource m_audioSource;
+    public PartInfo PartInfo
+    {
+        get => m_partInfo;
+        set => m_partInfo = value;
+    }
 
     protected override void Awake()
     {
         base.Awake();
-        m_audioSource = GetComponent<AudioSource>();
+        GetComponentInChildren<MeshFilter>().mesh = m_partInfo.PartMesh;
         if (!HasDependableParts)
         {
             return;

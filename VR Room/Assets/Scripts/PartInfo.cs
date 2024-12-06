@@ -7,8 +7,22 @@ namespace Assets.Scripts
     {
         [SerializeField] private AudioClip m_disassembleSound;
         [SerializeField] private AudioClip m_assembleSound;
+        [SerializeField] private Mesh m_partMesh;
 
-        public AudioClip DisassembleAudioClip => m_disassembleSound;
-        public AudioClip AssembleAudioClip => m_assembleSound;
+        public AudioClip DisassembleAudioClip
+        {
+            get => m_disassembleSound;
+            set => m_disassembleSound = value;
+        }
+        public AudioClip AssembleAudioClip
+        {
+            get=> m_assembleSound;
+            set => m_assembleSound = value;
+        }
+        public Mesh PartMesh
+        {
+            get => m_partMesh;
+            set => m_partMesh = value;
+        }
     }
 }
