@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 9190678894866502629}
   - component: {fileID: 5670344031275026627}
   - component: {fileID: 3099344627565532858}
+  - component: {fileID: 4507758175034743914}
   m_Layer: 0
   m_Name: HexBoltGradeB_ISO4015_M12x80x30_C
   m_TagString: Untagged
@@ -295,3 +296,15 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.09951611
   m_Center: {x: 0.060479477, y: 0, z: 0}
+--- !u!114 &4507758175034743914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4808454823201906258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

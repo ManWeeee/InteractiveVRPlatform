@@ -1,54 +1,54 @@
-using Assets.Scripts;
-using UnityEditor;
-using UnityEngine;
+//using Assets.Scripts;
+//using UnityEditor;
+//using UnityEngine;
 
-public class PartInfoGenerator : Editor
-{
-    [MenuItem("Tools/Generate and Assign Part Info")]
-    public static void GenerateAndAssignPartInfo()
-    {
-        string savePath = "Assets/Gasket/";
+//public class PartInfoGenerator : Editor
+//{
+//    [MenuItem("Tools/Generate and Assign Part Info")]
+//    public static void GenerateAndAssignPartInfo()
+//    {
+//        string savePath = "Assets/Gasket/";
 
-        if (!AssetDatabase.IsValidFolder(savePath))
-        {
-            AssetDatabase.CreateFolder("Assets", "Gasket");
-        }
+//        if (!AssetDatabase.IsValidFolder(savePath))
+//        {
+//            AssetDatabase.CreateFolder("Assets", "Gasket");
+//        }
 
-        Object[] selectedPrefabs = Selection.objects;
+//        Object[] selectedPrefabs = Selection.objects;
 
-        foreach (Object prefab in selectedPrefabs)
-        {
-            if (prefab is GameObject prefabGO)
-            {
-                // Create ScriptableObject
-                var partInfo = ScriptableObject.CreateInstance<PartInfo>();
-                var part = prefabGO.GetComponent<Part>();
+//        foreach (Object prefab in selectedPrefabs)
+//        {
+//            if (prefab is GameObject prefabGO)
+//            {
+//                // Create ScriptableObject
+//                var partInfo = ScriptableObject.CreateInstance<PartInfo>();
+//                var part = prefabGO.GetComponent<Part>();
                 
-                partInfo.AssembleAudioClip = null;
-                partInfo.DisassembleAudioClip = null;
-                partInfo.PartMesh = prefabGO.GetComponentInChildren<MeshFilter>().sharedMesh;
-                part.GetComponentInChildren<MeshFilter>().sharedMesh = null;
+//                partInfo.AssembleAudioClip = null;
+//                partInfo.DisassembleAudioClip = null;
+//                partInfo.PartMesh = prefabGO.GetComponentInChildren<MeshFilter>().sharedMesh;
+//                part.GetComponentInChildren<MeshFilter>().sharedMesh = null;
 
-                string assetName = prefab.name + "_PartInfo.asset";
-                string assetPath = savePath + assetName;
+//                string assetName = prefab.name + "_PartInfo.asset";
+//                string assetPath = savePath + assetName;
 
-                AssetDatabase.CreateAsset(partInfo, assetPath);
-                AssetDatabase.SaveAssets();
+//                AssetDatabase.CreateAsset(partInfo, assetPath);
+//                AssetDatabase.SaveAssets();
 
-                // Assign ScriptableObject to prefab
+//                // Assign ScriptableObject to prefab
                 
-                if (part != null)
-                {
-                    part.PartInfo = partInfo;
+//                if (part != null)
+//                {
+//                    part.PartInfo = partInfo;
                     
-                    PrefabUtility.SavePrefabAsset(prefabGO);
-                }
+//                    PrefabUtility.SavePrefabAsset(prefabGO);
+//                }
 
-                Debug.Log($"Created and assigned PartInfo for {prefab.name}.");
-            }
-        }
+//                Debug.Log($"Created and assigned PartInfo for {prefab.name}.");
+//            }
+//        }
 
-        AssetDatabase.Refresh();
-        Debug.Log("Finished generating and assigning PartInfo.");
-    }
-}
+//        AssetDatabase.Refresh();
+//        Debug.Log("Finished generating and assigning PartInfo.");
+//    }
+//}

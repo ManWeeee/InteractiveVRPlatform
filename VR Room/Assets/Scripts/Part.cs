@@ -16,7 +16,11 @@ public class Part : CarPart
     protected override void Awake()
     {
         base.Awake();
-        GetComponentInChildren<MeshFilter>().mesh = m_partInfo.PartMesh;
+        if (m_partInfo != null)
+        {
+            GetComponentInChildren<MeshFilter>().mesh = m_partInfo.PartMesh;
+        }
+
         if (!HasDependableParts)
         {
             return;

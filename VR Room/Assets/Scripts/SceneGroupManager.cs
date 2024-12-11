@@ -24,7 +24,7 @@ namespace SceneManagement
 
             int sceneCount = SceneManager.sceneCount;
             
-            for (int i = 0; i < sceneCount - 1; ++i)
+            for (int i = 0; i <= sceneCount - 1; ++i)
             {
                 loadedScenes.Add(SceneManager.GetSceneAt(i).name);
             }
@@ -43,6 +43,11 @@ namespace SceneManagement
                 OnSceneLoaded?.Invoke(sceneData.Name);
             }
 
+            while (!operationGroup.IsDone)
+            {
+                await UniTask.Delay(100);
+            }
+
             Scene activeScene = SceneManager.GetSceneByName(m_activeSceneGroup.FindSceneByType(SceneType.ActiveScene));
             if (activeScene.IsValid())
             {
@@ -55,15 +60,15 @@ namespace SceneManagement
         private async UniTask UnloadSceneGroup()
         {
             var scenes = new List<string>();
-            
-            var activeScene = SceneManager.GetActiveScene();
 
             int sceneCount = SceneManager.sceneCount;
-            for (int i = 0; i < sceneCount - 1; ++i)
+            for (int i = 0; i <= sceneCount - 1; i++)
             {
                 var sceneAt = SceneManager.GetSceneAt(i);
+                Debug.Log($"Scene {sceneAt.name} unloading cycle");
                 if (!sceneAt.isLoaded)
                 {
+                    Debug.Log($"Scene {sceneAt.name} is not loaded fully");
                     continue;
                 }
 
@@ -73,6 +78,7 @@ namespace SceneManagement
                     continue;
                 }
                 scenes.Add(sceneName);
+                Debug.Log($"Scene {sceneName} started should be unloaded");
             }
 
             var operationGroup = new AsyncOperationGroup(scenes.Count);

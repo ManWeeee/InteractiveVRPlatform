@@ -10,22 +10,24 @@ namespace SceneManagement
         [SerializeField] private Camera m_loadingCamera;
         [SerializeField] private SceneGroup[] m_sceneGroups;
 
-        
         public readonly SceneGroupManager SceneGroupManager = new();
+
+        public int SceneGroupSize => m_sceneGroups.Length;
 
         private void Awake()
         {
+            Container.Register(this);
             SceneGroupManager.OnSceneLoaded += sceneName => Debug.Log($"Scene {sceneName} is finished loading");
             SceneGroupManager.OnSceneUnloaded += sceneName => Debug.Log($"Scene {sceneName} is finished unloading");
             SceneGroupManager.OnSceneGroupLoaded += () => Debug.Log("All scenes are finished loading");
         }
-
+        //TODO: Find out why the scenes are loaded and old ones do not deleted
         async void Start()
         {
             await LoadSceneGroup(0);
         }
 
-        private async UniTask LoadSceneGroup(int index)
+        public async UniTask LoadSceneGroup(int index)
         {
             EnableLoadingScreen();
             await SceneGroupManager.LoadSceneGroup(m_sceneGroups[index]);

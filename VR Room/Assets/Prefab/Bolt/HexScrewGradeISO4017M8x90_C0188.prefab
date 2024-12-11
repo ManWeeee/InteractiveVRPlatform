@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 690559943216350311}
   - component: {fileID: 2136386418955830759}
   - component: {fileID: 2811944215458530726}
+  - component: {fileID: 5918589989195026309}
   m_Layer: 0
   m_Name: HexScrewGradeISO4017M8x90_C0188
   m_TagString: Untagged
@@ -295,3 +296,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.030516874, y: 0.12690301, z: 0.14656886}
   m_Center: {x: 0.00012834556, y: 0.0018950552, z: -0.0017613173}
+--- !u!114 &5918589989195026309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3298166006244337660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
