@@ -152,7 +152,6 @@ GameObject:
   - component: {fileID: 3449519818492889779}
   - component: {fileID: 5810316372029036165}
   - component: {fileID: 7257529806331732623}
-  - component: {fileID: -2910359652296486210}
   m_Layer: 0
   m_Name: SocketHeadCapScrewISO4762M3x6
   m_TagString: Untagged
@@ -296,15 +295,3 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
---- !u!114 &-2910359652296486210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2018016431315559445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

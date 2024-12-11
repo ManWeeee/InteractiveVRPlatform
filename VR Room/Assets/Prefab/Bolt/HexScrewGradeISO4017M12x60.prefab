@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 139038755195889281}
   - component: {fileID: 8886891456855806517}
   - component: {fileID: 4094393916518414708}
-  - component: {fileID: 5093163364270759310}
   m_Layer: 0
   m_Name: HexScrewGradeISO4017M12x60
   m_TagString: Untagged
@@ -296,15 +295,3 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.107941784
   m_Center: {x: 0.07109592, y: 0, z: 0}
---- !u!114 &5093163364270759310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7284744200720601687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

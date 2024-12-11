@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9014769209709872309}
   - component: {fileID: 3654470228912108178}
   - component: {fileID: 4718543236337984956}
-  - component: {fileID: -7602959781617283896}
   m_Layer: 0
   m_Name: SocketHeadCapScrewM6
   m_TagString: Untagged
@@ -177,18 +176,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.063550785
   m_Center: {x: 0.028996244, y: 0, z: 0}
---- !u!114 &-7602959781617283896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6025275444383376330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6164975144860233406
 GameObject:
   m_ObjectHideFlags: 0

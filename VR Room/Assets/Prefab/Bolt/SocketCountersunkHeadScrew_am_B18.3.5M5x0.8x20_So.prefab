@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1964165349927277669}
   - component: {fileID: 8421962236069905696}
   - component: {fileID: 2710236090448149211}
-  - component: {fileID: -7473347335079612736}
   m_Layer: 0
   m_Name: SocketCountersunkHeadScrew_am_B18.3.5M5x0.8x20_So
   m_TagString: Untagged
@@ -155,18 +154,6 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
---- !u!114 &-7473347335079612736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5091444638705869948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8631543617142493655
 GameObject:
   m_ObjectHideFlags: 0

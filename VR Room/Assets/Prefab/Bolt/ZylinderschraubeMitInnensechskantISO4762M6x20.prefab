@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2715463212695247470}
   - component: {fileID: 7055061243476935235}
   - component: {fileID: 5699449962378532491}
-  - component: {fileID: 7366111365706926551}
   m_Layer: 0
   m_Name: ZylinderschraubeMitInnensechskantISO4762M6x20
   m_TagString: Untagged
@@ -155,18 +154,6 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
---- !u!114 &7366111365706926551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3175624730608616433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3822690064216493407
 GameObject:
   m_ObjectHideFlags: 0

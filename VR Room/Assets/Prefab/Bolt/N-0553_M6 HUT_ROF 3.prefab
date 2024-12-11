@@ -153,7 +153,6 @@ GameObject:
   - component: {fileID: 4545838428028573266}
   - component: {fileID: 4297457759702811721}
   - component: {fileID: 7109151742835414359}
-  - component: {fileID: -1943253888863435900}
   m_Layer: 0
   m_Name: N-0553_M6 HUT_ROF 3
   m_TagString: Untagged
@@ -297,15 +296,3 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
---- !u!114 &-1943253888863435900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5701461877618677141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ae742bddaa88854ca0a3a9dc76b9b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
