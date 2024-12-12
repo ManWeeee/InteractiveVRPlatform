@@ -1,3 +1,4 @@
+using System;
 using Cysharp.Threading.Tasks;
 using SceneManagement;
 using TMPro;
@@ -6,13 +7,15 @@ using UnityEngine;
 public class SceneManipulator : MonoBehaviour
 {
     [SerializeField] private SceneLoader m_loader;
-    [SerializeField] private TextMeshProUGUI m_text;
+    private SceneData m_chosenScene;
     private int m_index = 1;
+
+    public Action<SceneData> SceneChanged;
 
     private void Start()
     {
         m_loader = Container.GetInstance<SceneLoader>();
-        m_text.text = m_index.ToString();
+        ChangeChosenScene(m_index);
     }
 
     public void NextIndex()
@@ -22,21 +25,33 @@ public class SceneManipulator : MonoBehaviour
         {
             m_index = m_loader.SceneGroupSize - 1;
         }
-        Debug.Log(m_index);
-        m_text.text = m_index.ToString();
+
+        ChangeChosenScene(m_index);
     }
 
     public void PreviousIndex()
     {
         m_index--;
         if (m_index < 1)
+        {
             m_index = 1;
-        Debug.Log(m_index);
-        m_text.text = m_index.ToString();
+        }
+
+        ChangeChosenScene(m_index);
     }
 
     public async void Select()
     { 
         await m_loader.LoadSceneGroup(m_index);
+    }
+
+    private void ChangeChosenScene(int index)
+    {
+        if (!m_loader)
+        {
+            return;
+        }
+        m_chosenScene = m_loader.GetActiveScene(index);
+        SceneChanged?.Invoke(m_chosenScene);
     }
 }

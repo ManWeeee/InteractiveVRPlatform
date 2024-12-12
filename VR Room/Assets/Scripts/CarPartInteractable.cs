@@ -14,7 +14,7 @@ namespace Assets.Scripts
         private List<Material> m_defaultMaterials = new List<Material>();
 
         public Action<HoverEnterEventArgs> HoverEntered;
-        public Action HoverExited;
+        public Action<HoverExitEventArgs> HoverExited;
 
         protected override void Awake()
         {
@@ -47,7 +47,7 @@ namespace Assets.Scripts
             foreach (var part in m_part.ReadOnlyParentPartsList)
             {
                 part.GetComponent<CarPartInteractable>().HoverEntered += OnHoverEntering;
-                part.GetComponent<CarPartInteractable>().HoverExited += SetRendererMaterialsToDefault;
+                part.GetComponent<CarPartInteractable>().HoverExited += OnHoverExiting;
             }
         }
         protected override void OnHoverEntering(HoverEnterEventArgs args)
@@ -65,6 +65,7 @@ namespace Assets.Scripts
         {
             base.OnHoverExiting(args);
             OnHoverExit();
+            HoverExited?.Invoke(args);
         }
 
         protected override void OnSelectExiting(SelectExitEventArgs args)
@@ -94,7 +95,6 @@ namespace Assets.Scripts
                 return;
             }
             SetRendererMaterialsToDefault();
-            HoverExited?.Invoke();
         }
 
         public void ChangeMaterial(Material material)

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Cysharp.Threading.Tasks;
+using UnityEngine.SceneManagement;
 
 namespace SceneManagement
 {
@@ -38,6 +39,11 @@ namespace SceneManagement
         {
             m_loadingCamera.gameObject.SetActive(enable);
             m_loadingScreen.gameObject.SetActive(enable);
+        }
+
+        public SceneData GetActiveScene(int index)
+        {
+            return m_sceneGroups[index].FindSceneDataByType(SceneType.ActiveScene);
         }
     }
 }
