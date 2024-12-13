@@ -51,7 +51,7 @@ public class SceneManipulator : MonoBehaviour
         {
             return;
         }
-        m_chosenScene = m_loader.GetActiveScene(index);
+        m_chosenScene = m_loader.GetActiveSceneFromGroup(index);
         SceneChanged?.Invoke(m_chosenScene);
     }
 }

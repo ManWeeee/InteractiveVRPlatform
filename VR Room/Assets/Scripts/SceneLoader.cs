@@ -22,7 +22,7 @@ namespace SceneManagement
             SceneGroupManager.OnSceneUnloaded += sceneName => Debug.Log($"Scene {sceneName} is finished unloading");
             SceneGroupManager.OnSceneGroupLoaded += () => Debug.Log("All scenes are finished loading");
         }
-        //TODO: Find out why the scenes are loaded and old ones do not deleted
+
         async void Start()
         {
             await LoadSceneGroup(0);
@@ -41,7 +41,7 @@ namespace SceneManagement
             m_loadingScreen.gameObject.SetActive(enable);
         }
 
-        public SceneData GetActiveScene(int index)
+        public SceneData GetActiveSceneFromGroup(int index)
         {
             return m_sceneGroups[index].FindSceneDataByType(SceneType.ActiveScene);
         }

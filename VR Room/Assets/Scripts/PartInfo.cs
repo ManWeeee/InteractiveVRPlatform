@@ -22,7 +22,7 @@ namespace Assets.Scripts
         public Mesh PartMesh
         {
             get => m_partMesh;
-            set => m_partMesh = value;
+            private set => m_partMesh = value;
         }
     }
 }

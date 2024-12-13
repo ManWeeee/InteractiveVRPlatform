@@ -24,7 +24,7 @@ namespace SceneManagement
 
             int sceneCount = SceneManager.sceneCount;
             
-            for (int i = 0; i <= sceneCount - 1; ++i)
+            for (int i = 0; i < sceneCount; ++i)
             {
                 loadedScenes.Add(SceneManager.GetSceneAt(i).name);
             }
@@ -62,7 +62,7 @@ namespace SceneManagement
             var scenes = new List<string>();
 
             int sceneCount = SceneManager.sceneCount;
-            for (int i = 0; i <= sceneCount - 1; i++)
+            for (int i = 0; i < sceneCount; i++)
             {
                 var sceneAt = SceneManager.GetSceneAt(i);
                 Debug.Log($"Scene {sceneAt.name} unloading cycle");
