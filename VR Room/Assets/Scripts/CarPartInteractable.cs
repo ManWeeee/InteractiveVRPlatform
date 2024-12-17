@@ -29,17 +29,17 @@ namespace Assets.Scripts
             GetMaterialsFromRenderers();
         }
 
+        protected void Start()
+        {
+            SubscribeToParentEvents();
+        }
+
         private void GetMaterialsFromRenderers()
         {
             foreach (var renderer in m_renderers)
             {
                 m_defaultMaterials.Add(renderer.material);
             }
-        }
-
-        protected void Start()
-        {
-            SubscribeToParentEvents();
         }
 
         private void SubscribeToParentEvents()
@@ -50,6 +50,7 @@ namespace Assets.Scripts
                 part.GetComponent<CarPartInteractable>().HoverExited += OnHoverExiting;
             }
         }
+
         protected override void OnHoverEntering(HoverEnterEventArgs args)
         {
             base.OnHoverEntering(args);

@@ -20,6 +20,15 @@ public static class Container
         Debug.Log($"Registered instance of type {typeof(T)}");
     }
 
+    public static void Unregister<T>() where T : class
+    {
+        if (DependenciesDictionary.TryGetValue(typeof(T), out var instance))
+        {
+            Debug.Log($"Unregistered instance of type {typeof(T)}");
+            DependenciesDictionary.Remove(typeof(T));
+        }
+    }
+
     public static T GetInstance<T>() where T : class
     {
         if (DependenciesDictionary.TryGetValue(typeof(T), out var instance))

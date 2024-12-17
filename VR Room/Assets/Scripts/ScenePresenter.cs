@@ -1,6 +1,4 @@
 using SceneManagement;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Video;
@@ -29,6 +27,7 @@ public class ScenePresenter : MonoBehaviour
     {
         m_description.text = m_currentScene.Description;
     }
+
     private void UpdateAndPlayVideoClip()
     {
         if (!m_currentScene.PreviewVideoClip)

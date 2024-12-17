@@ -5,7 +5,7 @@ public class CarFactory : MonoBehaviour
     [SerializeField] private GameObject m_carGameObject;
     [SerializeField] private Transform m_spawnPosition;
 
-    private void Start()
+    private void Awake()
     {
         CreateInstance();
     }

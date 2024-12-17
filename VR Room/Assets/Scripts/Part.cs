@@ -10,7 +10,7 @@ public class Part : CarPart
     public PartInfo PartInfo
     {
         get => m_partInfo;
-        set => m_partInfo = value;
+        private set => m_partInfo = value;
     }
 
     protected override void Awake()

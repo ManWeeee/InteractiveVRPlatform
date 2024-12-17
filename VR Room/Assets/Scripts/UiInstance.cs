@@ -1,24 +1,36 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Assets.Scripts;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Assets.Scripts
+public class UiInstance : MonoBehaviour, IUiInstance
 {
-    public class UiInstance : MonoBehaviour
+
+    public Action<UiInstance> DestroyAction;
+    public GameObject UiObject
     {
-        [SerializeField] private GameObject m_uiObject;
-        [SerializeField] private InputActionProperty m_actionProperty;
+        get;
+        private set;
+    }
 
-        void Update()
-        {
-            ChangeVisibility();
-        }
+    private void Start()
+    {
+        UiObject = this.gameObject;
+    }
 
-        private void ChangeVisibility()
-        {
-            if (m_actionProperty.action.WasPressedThisFrame())
-            {
-                m_uiObject.SetActive(!m_uiObject.activeSelf);
-            }
-        }
+    public void UpdateUi()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void SetPosition(Vector3 position)
+    {
+        UiObject.transform.position = position;
+    }
+
+    private void OnDestroy()
+    {
+        DestroyAction?.Invoke(this);
     }
 }

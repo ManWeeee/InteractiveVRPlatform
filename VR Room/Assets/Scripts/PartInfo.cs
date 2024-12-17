@@ -12,12 +12,12 @@ namespace Assets.Scripts
         public AudioClip DisassembleAudioClip
         {
             get => m_disassembleSound;
-            set => m_disassembleSound = value;
+            private set => m_disassembleSound = value;
         }
         public AudioClip AssembleAudioClip
         {
             get=> m_assembleSound;
-            set => m_assembleSound = value;
+            private set => m_assembleSound = value;
         }
         public Mesh PartMesh
         {

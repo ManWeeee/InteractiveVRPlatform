@@ -8,6 +8,11 @@ namespace Assets.Scripts
     {
         [SerializeField] private Transform m_target;
 
+        public void SetTarget(Transform transform)
+        {
+            m_target = transform;
+        }
+
         private void LateUpdate()
         {
             transform.LookAt(m_target.position);

@@ -65,7 +65,6 @@ namespace SceneManagement
             for (int i = 0; i < sceneCount; i++)
             {
                 var sceneAt = SceneManager.GetSceneAt(i);
-                Debug.Log($"Scene {sceneAt.name} unloading cycle");
                 if (!sceneAt.isLoaded)
                 {
                     Debug.Log($"Scene {sceneAt.name} is not loaded fully");
@@ -78,7 +77,6 @@ namespace SceneManagement
                     continue;
                 }
                 scenes.Add(sceneName);
-                Debug.Log($"Scene {sceneName} started should be unloaded");
             }
 
             var operationGroup = new AsyncOperationGroup(scenes.Count);
