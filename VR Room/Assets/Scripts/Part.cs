@@ -6,7 +6,6 @@ using UnityEngine;
 public class Part : CarPart
 {
     [SerializeField] private PartInfo m_partInfo;
-
     public PartInfo PartInfo
     {
         get => m_partInfo;

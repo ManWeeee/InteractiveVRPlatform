@@ -14,6 +14,11 @@ public class UiInstance : MonoBehaviour, IUiInstance
         private set;
     }
 
+    private void Awake()
+    {
+        Container.GetInstance<UiManager>().RegisterUI(this);
+    }
+
     private void Start()
     {
         UiObject = this.gameObject;

@@ -15,6 +15,11 @@ namespace Assets.Scripts
 
         private void LateUpdate()
         {
+            if (!m_target) 
+            {
+                return;
+            }
+
             transform.LookAt(m_target.position);
             transform.forward *= -1;
         }

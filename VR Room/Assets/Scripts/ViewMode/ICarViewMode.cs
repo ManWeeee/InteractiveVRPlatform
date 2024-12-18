@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface ICarViewMode
 {
-    public void EnterMode(GameObject car);
-    public void UpdateMode(GameObject car);
-    public void ExitMode(GameObject car);
+    public void EnterMode(Car car);
+    public void UpdateMode(Car car);
+    public void ExitMode(Car car);
 }

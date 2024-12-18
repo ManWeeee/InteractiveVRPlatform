@@ -15,6 +15,10 @@ public class UiManager : MonoBehaviour
 
     private List<UiInstance> m_loadedUIs = new();
 
+    private void Awake()
+    {
+        Container.Register<UiManager>(this);
+    }
     private void Start()
     {
         Container.GetInstance<SceneLoader>().SceneGroupManager.OnSceneGroupLoaded += MakeAllUiInvisible;
@@ -30,7 +34,12 @@ public class UiManager : MonoBehaviour
 
     public void RegisterUI(UiInstance instance)
     {
+        if (m_loadedUIs.Contains(instance))
+        {
+            return;
+        }
         m_loadedUIs.Add(instance);
+        instance.DestroyAction += UnregisterUi;
     }
 
     public void UnregisterUi(UiInstance instance)
@@ -53,25 +62,25 @@ public class UiManager : MonoBehaviour
 
     public void ChangeUiVisibility(IUiInstance instance)
     {
-        instance.UiObject.SetActive(!instance.UiObject.activeSelf);
         instance.SetPosition(Camera.main.transform.position + Camera.main.transform.forward * m_uiOffset);
         if (instance.UiObject.TryGetComponent<Billboard>(out Billboard billboard))
         {
             billboard.SetTarget(Camera.main.transform);
         }
+        instance.UiObject.SetActive(!instance.UiObject.activeSelf);
     }
 
     private void MakeAllUiInvisible()
     {
-        var ui = Resources.FindObjectsOfTypeAll<UiInstance>();
-        foreach (var item in ui)
+        foreach (var item in m_loadedUIs)
         {
+            Debug.Log($"Ui {item.gameObject.name} is now should become invisible");
             if (item.UiObject.activeSelf == true)
             {
-                RegisterUI(item);
-                item.DestroyAction += UnregisterUi;
+                
                 ChangeUiVisibility(item);
             }
+            Debug.Log($"Ui {item.gameObject.name} become invisible");
         }
     }
 

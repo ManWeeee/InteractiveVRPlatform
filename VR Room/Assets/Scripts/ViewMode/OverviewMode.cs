@@ -6,25 +6,17 @@ using UnityEngine;
 
 public class OverviewMode : ICarViewMode
 {
-    List<CarPart> _parts = new List<CarPart>();
-    public void EnterMode(GameObject car)
+    public void EnterMode(Car car)
     {
-        _parts = car.GetComponentsInChildren<CarPart>().ToList();
-        foreach (var part in _parts)
-        {
-            if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
-            {
-                interactable.enabled = false;
-            }
-        }
+        car.DisableInteraction();
     }
 
-    public void UpdateMode(GameObject car)
+    public void UpdateMode(Car car)
     {
         return;
     }
 
-    public void ExitMode(GameObject car)
+    public void ExitMode(Car car)
     {
         return;
     }

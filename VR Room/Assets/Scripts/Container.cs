@@ -37,7 +37,7 @@ public static class Container
             return instance as T;
         }
 
-        Debug.LogError($"Instance of type {typeof(T)} not found in container.");
+        Debug.LogWarning($"Instance of type {typeof(T)} not found in container.");
         return null;
     }
 }

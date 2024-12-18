@@ -113,13 +113,12 @@ namespace Assets.Scripts
             }
         }
 
-        private void SetRendererMaterialsTo(Material material)
+        public void SetRendererMaterialsTo(Material material)
         {
             foreach (var renderer in m_renderers)
             {
                 renderer.material = material;
             }
         }
-
     }
 }

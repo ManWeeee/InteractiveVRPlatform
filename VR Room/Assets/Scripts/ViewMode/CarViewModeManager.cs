@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CarViewModeManager : MonoBehaviour
 {
-    [SerializeField] private GameObject car;
+    [SerializeField] private Car car;
 
     private ICarViewMode currentMode;
 
