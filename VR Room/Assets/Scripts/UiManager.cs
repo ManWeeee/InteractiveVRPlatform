@@ -17,11 +17,14 @@ public class UiManager : MonoBehaviour
 
     private void Awake()
     {
-        Container.Register<UiManager>(this);
+        Container.Register(this);
     }
     private void Start()
     {
-        Container.GetInstance<SceneLoader>().SceneGroupManager.OnSceneGroupLoaded += MakeAllUiInvisible;
+        if(Container.TryGetInstance<SceneLoader>(out var loader))
+        {
+            loader.SceneGroupManager.OnSceneGroupLoaded += MakeAllUiInvisible;
+        }
     }
 
     private void Update()
@@ -86,6 +89,9 @@ public class UiManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        Container.GetInstance<SceneLoader>().SceneGroupManager.OnSceneGroupLoaded -= MakeAllUiInvisible;
+        if(Container.TryGetInstance<SceneLoader>(out var loader))
+        {
+            loader.SceneGroupManager.OnSceneGroupLoaded -= MakeAllUiInvisible;
+        }
     }
 }

@@ -40,4 +40,16 @@ public static class Container
         Debug.LogWarning($"Instance of type {typeof(T)} not found in container.");
         return null;
     }
+
+    public static bool TryGetInstance<T>(out T instance) where T : class
+    {
+        if (DependenciesDictionary.TryGetValue(typeof(T), out var instance1))
+        {
+            instance = instance1 as T;
+            Debug.Log($"Retrieved instance of type {typeof(T)}");
+            return true;
+        }
+        instance = null;
+        return false;
+    }
 }

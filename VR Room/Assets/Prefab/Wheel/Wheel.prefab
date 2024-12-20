@@ -192,6 +192,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 1
   m_partInfo: {fileID: 11400000, guid: a9addb909cffa8c458add2d2d46dfcf9, type: 2}
 --- !u!114 &7458303540522335395
 MonoBehaviour:

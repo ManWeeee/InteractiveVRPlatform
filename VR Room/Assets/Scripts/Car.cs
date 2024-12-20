@@ -6,37 +6,58 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    [SerializeField] private bool m_inTutorial;
     [SerializeField] private Material m_inactiveMaterial;
-
-    List<CarPart> _parts = new List<CarPart>();
-    private void Start()
+    [SerializeField] private CarPartType m_brokenPartsType;
+    private List<CarPart> m_parts = new List<CarPart>();
+    private void Awake()
     {
-        _parts = GetComponentsInChildren<CarPart>().ToList();
-        if (m_inTutorial)
+        Debug.Log($"Parts amount = {m_parts.Count}");
+        m_parts = GetComponentsInChildren<CarPart>().ToList();
+        if(Container.TryGetInstance<LevelManager>(out var manager))
         {
-            List<CarPart> parts = new();
-            foreach (var part in _parts) {
-                if (part.IsBroken)
-                {
-                    parts.AddRange(part.GetAllDependableParts());
-                }
-                else
-                {
-                    if(!parts.Contains(part))
-                        part.GetComponent<CarPartInteractable>().SetRendererMaterialsTo(m_inactiveMaterial);
-                }
-            }
-            DisableInteraction();
-            _parts = parts;
-            EnableInteraction();
+            SetBrokenPartsType(manager.LevelInfo.brokenPartType);
         }
     }
 
+    private void Start()
+    {
+        var parts = GetBrokenParts();
+        DisableInteraction();
+        if (parts.Count > 0)
+        {
+            m_parts = parts;
+        }
+        EnableInteraction();
+    }
 
+    public void SetBrokenPartsType(CarPartType brokenPartsType)
+    {
+        m_brokenPartsType = brokenPartsType;
+        Debug.Log("Broken Parts are set");
+    }
+
+    private List<CarPart> GetBrokenParts()
+    {
+        Debug.Log($"Start to set broken parts");
+        List<CarPart> parts = new();
+        foreach (var part in m_parts)
+        {
+            if (part.GetCarPartType == m_brokenPartsType)
+            {
+                parts.AddRange(part.GetAllDependableParts());
+            }
+            else
+            {
+                if (!parts.Contains(part))
+                    part.GetComponent<CarPartInteractable>().SetRendererMaterialsTo(m_inactiveMaterial);
+            }
+        }
+        Debug.Log($"Broken parts amount = {parts.Count}");
+        return parts;
+    }
     public void DisableInteraction()
     {
-        foreach (var part in _parts)
+        foreach (var part in m_parts)
         {
             if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
@@ -47,7 +68,7 @@ public class Car : MonoBehaviour
 
     public void EnableInteraction()
     {
-        foreach (var part in _parts)
+        foreach (var part in m_parts)
         {
             if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {

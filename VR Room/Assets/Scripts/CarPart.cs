@@ -14,6 +14,7 @@ namespace Assets.Scripts
         [SerializeField] protected List<Part> m_parentParts;
         [SerializeField] protected List<Part> m_dependableParts;
         [SerializeField] protected bool m_isBroken = false;
+        [SerializeField] CarPartType m_partType;
 
         protected const string DISASSEMBLE_ANIMATION_NAME = "Disassemble";
         protected const string ASSEMBLE_ANIMATION_NAME = "Assemble";
@@ -23,7 +24,12 @@ namespace Assets.Scripts
         public List<Part> ReadOnlyParentPartsList => m_parentParts;
 
         public bool HasDependableParts => m_dependableParts.Count > 0;
-        public bool IsBroken => m_isBroken;
+        public bool IsBroken 
+        {
+            get => m_isBroken;
+            set => m_isBroken = value;
+        }
+        public CarPartType GetCarPartType => m_partType;
 
         protected virtual void Awake()
         {
