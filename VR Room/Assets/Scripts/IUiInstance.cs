@@ -8,7 +8,7 @@ namespace Assets.Scripts
     {
         public GameObject UiObject { get; }
 
-        public void UpdateUi();
+        public abstract void UpdateUi();
 
         public void SetPosition(Vector3 position);
     }

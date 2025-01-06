@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class UiInstance : MonoBehaviour, IUiInstance
 {
-
     public Action<UiInstance> DestroyAction;
     public GameObject UiObject
     {
@@ -14,22 +13,18 @@ public class UiInstance : MonoBehaviour, IUiInstance
         private set;
     }
 
-    private void Awake()
-    {
-        Container.GetInstance<UiManager>().RegisterUI(this);
-    }
-
-    private void Start()
+    protected virtual void Awake()
     {
         UiObject = this.gameObject;
+        //Container.GetInstance<UiManager>().RegisterUI(this);
     }
 
-    public void UpdateUi()
+    public virtual void UpdateUi()
     {
-        throw new System.NotImplementedException();
+        throw new NotImplementedException();
     }
 
-    public void SetPosition(Vector3 position)
+    public virtual void SetPosition(Vector3 position)
     {
         UiObject.transform.position = position;
     }

@@ -19,6 +19,7 @@ namespace Assets.Scripts
             if(m_instance)
                 return;
             m_instance = this;
+            Container.Register(this);
         } 
 
         public static void ExecuteCommand(ICommand command)
