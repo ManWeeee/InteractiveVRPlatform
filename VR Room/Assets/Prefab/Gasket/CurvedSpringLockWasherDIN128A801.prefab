@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6611626090296223714}
   - component: {fileID: 7246497999807896424}
   - component: {fileID: 3224112351808620170}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CurvedSpringLockWasherDIN128A801
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 7a84c776d00154a45970e9078ee876d3, type: 2}
 --- !u!114 &3224112351808620170
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 8371412430468171062}
   - component: {fileID: 2625798617467048764}
   - component: {fileID: 2936094056762476585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GAP.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6365083770258067329}
   - component: {fileID: 547245415354383343}
   - component: {fileID: 8994720604776825214}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScheibeISO7093_801
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 715afc1ea90c03d4eb51af934dcd03d0, type: 2}
 --- !u!114 &8994720604776825214
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 2586305643562223383}
   - component: {fileID: 5546928950240401773}
   - component: {fileID: 5275475859964465814}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BASE-REVOLVE.082
   m_TagString: Untagged
   m_Icon: {fileID: 0}

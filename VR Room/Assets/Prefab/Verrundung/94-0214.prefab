@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6428687814938674238}
   - component: {fileID: 1367095444967837315}
   - component: {fileID: 4811379483805507803}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-0214
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 3490c2ec0d572aa4684b77b95322f752, type: 2}
 --- !u!114 &4811379483805507803
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 5064804483031382603}
   - component: {fileID: 3055976388827508091}
   - component: {fileID: 1309462932613522421}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: N.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

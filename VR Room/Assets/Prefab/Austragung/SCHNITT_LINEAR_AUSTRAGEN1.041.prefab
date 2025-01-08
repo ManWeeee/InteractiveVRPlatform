@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2044435314858497099}
   - component: {fileID: 9020375834020072725}
   - component: {fileID: 300988209926781132}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT_LINEAR_AUSTRAGEN1.041
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &300988209926781132
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3270012362071484983}
   - component: {fileID: 7688416111539743349}
   - component: {fileID: 5451452431858385355}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.041
   m_TagString: Untagged
   m_Icon: {fileID: 0}

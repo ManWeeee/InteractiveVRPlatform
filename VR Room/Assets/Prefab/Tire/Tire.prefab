@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2908901893656217820}
   - component: {fileID: 8656255012561174593}
   - component: {fileID: 5365894126510629252}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,6 +72,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &5365894126510629252
 MonoBehaviour:
@@ -190,7 +192,7 @@ GameObject:
   - component: {fileID: 4633794598987314448}
   - component: {fileID: 3365832939921707336}
   - component: {fileID: 2714388040312442266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TireVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

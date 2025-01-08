@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7903716142781759075}
   - component: {fileID: 7035870034950866545}
   - component: {fileID: 5745408416170489864}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-02193_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 95aee801a8d800b4099b3b4ad1035a89, type: 2}
 --- !u!114 &5745408416170489864
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 6193351286018432175}
   - component: {fileID: 6712730093213657633}
   - component: {fileID: 796350613683216963}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _BN 10649 3060965 HEXALOBULAR SOCKET PAN WASHER HEAD SCREW M6X1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

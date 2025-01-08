@@ -89,7 +89,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    private void CreateUi(GameObject uiPrefab)
+    public void CreateUi(GameObject uiPrefab)
     {
         var existingInstance = m_CreatedUiPrefabs.TryGetValue(uiPrefab, out UiInstance uiInstance);
         if(existingInstance)

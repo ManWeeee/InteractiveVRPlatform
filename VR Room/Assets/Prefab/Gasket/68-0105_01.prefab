@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7655054758085015461}
   - component: {fileID: 1414076776583152988}
   - component: {fileID: 6919791218514350393}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 68-0105_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 7c352bb7d96b4e94c90db72c7342621c, type: 2}
 --- !u!114 &6919791218514350393
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3954935069469382488}
   - component: {fileID: 8473205028025051910}
   - component: {fileID: 6682618214302580420}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LINEAR AUSTRAGEN1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

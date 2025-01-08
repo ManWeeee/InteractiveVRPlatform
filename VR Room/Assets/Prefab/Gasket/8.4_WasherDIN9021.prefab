@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7435790084232674898}
   - component: {fileID: 7990521772627138021}
   - component: {fileID: 2122801156090541173}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BASE-REVOLVE.362
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 3033424790575069024}
   - component: {fileID: 4534725135334191976}
   - component: {fileID: 8921302215976945409}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 8.4_WasherDIN9021
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +191,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 56083a77456f33f42a236dc3fbcbe855, type: 2}
 --- !u!114 &8921302215976945409
 MonoBehaviour:

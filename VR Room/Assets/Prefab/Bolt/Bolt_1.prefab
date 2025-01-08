@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7956226676879812802}
   - component: {fileID: 4813867013057390728}
   - component: {fileID: 6006859730809078734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AUFSATZ-LINEAR AUSTRAGEN2.020
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 4461595859904000480}
   - component: {fileID: 948130208508182098}
   - component: {fileID: 3753723963971369996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bolt_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,6 +273,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 9e52acf6c59baa748b2a29238d114e61, type: 2}
 --- !u!135 &3753723963971369996
 SphereCollider:

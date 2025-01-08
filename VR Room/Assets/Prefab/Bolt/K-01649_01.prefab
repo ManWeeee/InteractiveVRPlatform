@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6706309061737614725}
   - component: {fileID: 4964634974586639824}
   - component: {fileID: 2511015499753187628}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-01649_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 690a8282e843c7b44a924733f0bdeb4a, type: 2}
 --- !u!114 &2511015499753187628
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 7146695138027780604}
   - component: {fileID: 1823702218504183053}
   - component: {fileID: 5547937046311738595}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M5 GEWINDEBOHRUNG1.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

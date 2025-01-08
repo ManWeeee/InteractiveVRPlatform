@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8146846715724948056}
   - component: {fileID: 3847904946637713834}
   - component: {fileID: 8864621694324379244}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _SFS FN 329 283814 SENKSCHRAUBE ISO 14581 STAHL 8.8 VERZINK.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 3372081506088856699}
   - component: {fileID: 316623585421194811}
   - component: {fileID: 4840392530119027684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-16014_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 874df6b5995b86843b7e4bbcc50d71a7, type: 2}
 --- !u!114 &4840392530119027684
 MonoBehaviour:

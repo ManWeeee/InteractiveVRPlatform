@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2535382878469894818}
   - component: {fileID: 8291488641426481594}
   - component: {fileID: 7769084841522354795}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-1054_M6x20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 6df423e53cf8b1e41995f2a37e997388, type: 2}
 --- !u!114 &7769084841522354795
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 4134344245588059656}
   - component: {fileID: 2947843395173370887}
   - component: {fileID: 3329096555274282181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ROTATION1.075
   m_TagString: Untagged
   m_Icon: {fileID: 0}

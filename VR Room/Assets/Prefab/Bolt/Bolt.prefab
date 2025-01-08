@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 668416653284461906}
   - component: {fileID: 376682478162403359}
   - component: {fileID: 1372508489344152067}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bolt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 60af7e2b30c329e48b645455d4ea0840, type: 2}
 --- !u!114 &376682478162403359
 MonoBehaviour:
@@ -189,7 +191,7 @@ GameObject:
   - component: {fileID: 6499147631231944478}
   - component: {fileID: 556538052143216018}
   - component: {fileID: 3558019750855660855}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FASE1.174
   m_TagString: Untagged
   m_Icon: {fileID: 0}

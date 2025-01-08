@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 330805061}
   - component: {fileID: 330805060}
   - component: {fileID: 330805059}
+  - component: {fileID: 330805064}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -842,6 +843,35 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_ButtonPressPoint: 0.5
+--- !u!114 &330805064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330805057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPartLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  uiManager: {fileID: 0}
+  menuButtonAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Menu Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: d6e515ea-c3b6-446f-890a-fbc36bdaffed
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -7661013000225644801, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &368140166
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +886,7 @@ GameObject:
   - component: {fileID: 368140170}
   - component: {fileID: 368140169}
   - component: {fileID: 368140168}
+  - component: {fileID: 368140173}
   m_Layer: 0
   m_Name: LeftHand Controller
   m_TagString: Untagged
@@ -1514,6 +1545,35 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 0}
   m_ButtonPressPoint: 0.5
+--- !u!114 &368140173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368140166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carPartLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  uiManager: {fileID: 0}
+  menuButtonAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Menu Button
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 401ee439-3641-4ffc-b0ae-7c1a6505ccf1
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -7661013000225644801, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!1 &437178768
 GameObject:
   m_ObjectHideFlags: 0

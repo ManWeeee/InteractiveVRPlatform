@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 241937471023142779}
   - component: {fileID: 3439177038157890213}
   - component: {fileID: 6266873105893613232}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-00713
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 1b709d4f428dba94da3939085a8eb4b5, type: 2}
 --- !u!114 &3439177038157890213
 MonoBehaviour:
@@ -189,7 +191,7 @@ GameObject:
   - component: {fileID: 8986102390785751738}
   - component: {fileID: 2381992932978167148}
   - component: {fileID: 1098396632947326257}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FASE1.076
   m_TagString: Untagged
   m_Icon: {fileID: 0}

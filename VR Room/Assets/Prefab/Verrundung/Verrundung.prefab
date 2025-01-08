@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 647944816984767248}
   - component: {fileID: 470694244052923995}
   - component: {fileID: 1808583863876888489}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Verrundung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 31077822a1a87b94495956b682f7de6e, type: 2}
 --- !u!114 &1808583863876888489
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 7476715607956990262}
   - component: {fileID: 4081914867979643040}
   - component: {fileID: 9220657665776640282}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VERRUNDUNG1.089
   m_TagString: Untagged
   m_Icon: {fileID: 0}

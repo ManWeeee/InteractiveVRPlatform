@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3053057699574474728}
   - component: {fileID: 6192152371928250806}
   - component: {fileID: 1818405039949288334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SechskantSicherungsmutterISO7040M4C01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 51a60166b93a9f74da887d280f1242d8, type: 2}
 --- !u!114 &1818405039949288334
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 9058895506859627262}
   - component: {fileID: 6641307535392680812}
   - component: {fileID: 7748517293456947969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TORQUEELEMENT.146
   m_TagString: Untagged
   m_Icon: {fileID: 0}

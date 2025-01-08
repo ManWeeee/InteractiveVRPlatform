@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2178419863842666848}
   - component: {fileID: 8197737273438223762}
   - component: {fileID: 7509666048612730844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEADFILLET.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1376692829140728485}
   - component: {fileID: 653036979250563763}
   - component: {fileID: 4740650436546283606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HexScrewISO8676M12x1.5x25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: e0c4240a571927e40a71c65b8751da7e, type: 2}
 --- !u!114 &653036979250563763
 MonoBehaviour:

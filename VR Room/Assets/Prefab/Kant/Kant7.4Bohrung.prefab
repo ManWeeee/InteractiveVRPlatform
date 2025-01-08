@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1493450466192397656}
   - component: {fileID: 128946176101788171}
   - component: {fileID: 4152535135088302159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Kant7.4Bohrung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
 --- !u!114 &4152535135088302159
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 2126181611908380192}
   - component: {fileID: 468040970459838056}
   - component: {fileID: 8660619367930523517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.074
   m_TagString: Untagged
   m_Icon: {fileID: 0}

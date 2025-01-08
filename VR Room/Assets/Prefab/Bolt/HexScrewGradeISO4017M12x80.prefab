@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2684754279117572836}
   - component: {fileID: 5618154059227552120}
   - component: {fileID: 6440474861899118615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEADFILLET.029
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5427305660048662309}
   - component: {fileID: 8898658110255621944}
   - component: {fileID: 5750009922545318695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HexScrewGradeISO4017M12x80
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 655ba59546f6479439fe9a0249afe910, type: 2}
 --- !u!114 &8898658110255621944
 MonoBehaviour:

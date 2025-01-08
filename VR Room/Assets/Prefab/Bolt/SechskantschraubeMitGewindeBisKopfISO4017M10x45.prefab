@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 458190501391253870}
   - component: {fileID: 668401996803309924}
   - component: {fileID: 8354337081109693873}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SechskantschraubeMitGewindeBisKopfISO4017M10x45
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 6bde91c5be274d54195f53c545757d89, type: 2}
 --- !u!114 &668401996803309924
 MonoBehaviour:
@@ -189,7 +191,7 @@ GameObject:
   - component: {fileID: 6152543741029131812}
   - component: {fileID: 8796138768755326598}
   - component: {fileID: 1038540406530475767}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEADFILLET.136
   m_TagString: Untagged
   m_Icon: {fileID: 0}

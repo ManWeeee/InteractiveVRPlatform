@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9028653460162830804}
   - component: {fileID: 3004270221755209946}
   - component: {fileID: 7859768016553658601}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "FL\xC4CHE VERSCHIEBEN1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 4670660151475350054}
   - component: {fileID: 5794340503890909592}
   - component: {fileID: 5819098187058060254}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-00663_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +191,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &5819098187058060254
 MonoBehaviour:

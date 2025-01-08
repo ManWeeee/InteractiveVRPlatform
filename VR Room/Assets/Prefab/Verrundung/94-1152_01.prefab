@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7745302343849074119}
   - component: {fileID: 5074972194712352228}
   - component: {fileID: 1412694372055969882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FASE1.182
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 6415785773678553822}
   - component: {fileID: 6079142606878391510}
   - component: {fileID: 4683891981372460175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-1152_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +191,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 7274fd3607c28294daa5dc432b1be0b6, type: 2}
 --- !u!114 &4683891981372460175
 MonoBehaviour:

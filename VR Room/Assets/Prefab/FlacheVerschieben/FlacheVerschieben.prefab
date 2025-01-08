@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1955019081044309047}
   - component: {fileID: 2974812464850981956}
   - component: {fileID: 8851649891855698699}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FlacheVerschieben
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &8851649891855698699
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3197376522846192371}
   - component: {fileID: 6109939843226556867}
   - component: {fileID: 2564113026611592988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "FL\xC4CHE VERSCHIEBEN2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

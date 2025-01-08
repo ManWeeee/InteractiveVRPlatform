@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1280115777719545989}
   - component: {fileID: 2971895489329339766}
   - component: {fileID: 6536364411157350080}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Nut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: f0037f70ebac4d641a59573fd95e6a0d, type: 2}
 --- !u!114 &6536364411157350080
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 5360430522372808034}
   - component: {fileID: 414347779454915615}
   - component: {fileID: 1595874683008679388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

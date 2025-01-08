@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4452350716040156291}
   - component: {fileID: 8925191273013925121}
   - component: {fileID: 2790279119665572811}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BASE-REVOLVE.192
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2202976460849805413}
   - component: {fileID: 2862555200060600360}
   - component: {fileID: 8223160052227204784}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlainWasherLargeGradeISO7093_401
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: b7f85f8a1a93d2746a705035f1a59309, type: 2}
 --- !u!114 &8223160052227204784
 MonoBehaviour:

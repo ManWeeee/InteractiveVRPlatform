@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5965596595151680552}
   - component: {fileID: 5279648497574172130}
   - component: {fileID: 8533763779947529440}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GAP.025
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 5480116979696851677}
   - component: {fileID: 5194432171572933738}
   - component: {fileID: 6071767592413083130}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SpringWasherDIN128A401
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: e46139b89aa937d40926a44179e92884, type: 2}
 --- !u!114 &6071767592413083130
 MonoBehaviour:

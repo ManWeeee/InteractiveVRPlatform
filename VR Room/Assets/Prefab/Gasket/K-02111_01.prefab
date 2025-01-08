@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 661401078967395929}
   - component: {fileID: 995301711362526237}
   - component: {fileID: 8175988173060147765}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _SFS FN 525 112107 SCHEIBE DIN 125-1 ROSTFREIER STAHL   ROS.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 1557606935380846140}
   - component: {fileID: 3746731355853638457}
   - component: {fileID: 8152130370261428556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-02111_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: bd9d129c7fc1f774ba942b396e815bc4, type: 2}
 --- !u!114 &8152130370261428556
 MonoBehaviour:

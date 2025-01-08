@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3224634302619642634}
   - component: {fileID: 5758803007297111469}
   - component: {fileID: 8224741160450898934}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPIEGELN1.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3612282256529668474}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Underseat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 8335148219770119410}
   - component: {fileID: 1702581001528115533}
   - component: {fileID: 7934636016784932233}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 5618056862313835237}
   - component: {fileID: 456518783467957222}
   - component: {fileID: 4284933549366867049}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.013
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,7 +375,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3744667488514904041}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BaseUnderseat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 5098382112957085564}
   - component: {fileID: 8973491596433260746}
   - component: {fileID: 2876602853482667471}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.014
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 5515555132709362153}
   - component: {fileID: 2032739969518291923}
   - component: {fileID: 6404281105753963056}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.012
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 3513819816392415968}
   - component: {fileID: 76817708999187702}
   - component: {fileID: 28359970507537370}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2260309805672940944}
   - component: {fileID: 252793404529426311}
   - component: {fileID: 5842741084984657558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HexNutStyle2ISO4033M12_D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 7549e88419850894a933bc6ae65cd922, type: 2}
 --- !u!114 &5842741084984657558
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3512998104326543936}
   - component: {fileID: 1608915870883177663}
   - component: {fileID: 3504564608662664581}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ENDCHAMFER.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}

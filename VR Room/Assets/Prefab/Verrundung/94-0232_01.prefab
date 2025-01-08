@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 744848450597747772}
   - component: {fileID: 2027910891995771082}
   - component: {fileID: 6403594214062039799}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-0232_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 8caf06f07e7776c49bfb5dee5597e5af, type: 2}
 --- !u!114 &6403594214062039799
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3911235790581038552}
   - component: {fileID: 3715359352399194809}
   - component: {fileID: 7377442949698084591}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VERRUNDUNG1.109
   m_TagString: Untagged
   m_Icon: {fileID: 0}

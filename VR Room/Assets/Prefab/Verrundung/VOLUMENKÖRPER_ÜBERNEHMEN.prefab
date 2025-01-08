@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1594869236794404596}
   - component: {fileID: 7321723499569340867}
   - component: {fileID: 807419364468548862}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "VOLUMENK\xD6RPER_\xDCBERNEHMEN"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 4c08ad64fe06600479ed0dec1fc0ed5d, type: 2}
 --- !u!114 &807419364468548862
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 7579333993992334083}
   - component: {fileID: 7409050343882254520}
   - component: {fileID: 9081859058101206723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "VOLUMENK\xD6RPER \xDCBERNEHMEN1.003"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

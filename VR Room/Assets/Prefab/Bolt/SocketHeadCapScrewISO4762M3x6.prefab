@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7406196107421725500}
   - component: {fileID: 7803569925192154268}
   - component: {fileID: 6688148043972874944}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEX.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 3449519818492889779}
   - component: {fileID: 5810316372029036165}
   - component: {fileID: 7257529806331732623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SocketHeadCapScrewISO4762M3x6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: a70f02456a939b54e9cc2c4f92dbce28, type: 2}
 --- !u!114 &7257529806331732623
 MonoBehaviour:

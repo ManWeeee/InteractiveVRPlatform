@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7215190891616186884}
   - component: {fileID: 4945188390454601377}
   - component: {fileID: 3299137555958994070}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Austragung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,6 +72,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
 --- !u!114 &3299137555958994070
 MonoBehaviour:
@@ -190,7 +192,7 @@ GameObject:
   - component: {fileID: 6921812626752808275}
   - component: {fileID: 8729713821330598831}
   - component: {fileID: 412496684742049033}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AUSTRAGUNG
   m_TagString: Untagged
   m_Icon: {fileID: 0}

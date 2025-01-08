@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2638400951491482749}
   - component: {fileID: 61480715669118162}
   - component: {fileID: 806771739973183109}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: N-0538_M6 UT_ROF 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 94d41ab0bd201c04b9de10481a0d60d9, type: 2}
 --- !u!114 &806771739973183109
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 5604975192517333916}
   - component: {fileID: 6597510994070539377}
   - component: {fileID: 6789032825400398177}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M6 GEWINDEBOHRUNG1.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

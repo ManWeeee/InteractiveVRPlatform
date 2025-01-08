@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4446195177271724483}
   - component: {fileID: 8855204102139625572}
   - component: {fileID: 4593824039578929963}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TorqueNutISO7040M10N
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 486097d97a7688b4bb03e4af19a0524b, type: 2}
 --- !u!114 &4593824039578929963
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3312337413808468718}
   - component: {fileID: 3883745320568330638}
   - component: {fileID: 6170306844039561338}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TORQUEELEMENT.186
   m_TagString: Untagged
   m_Icon: {fileID: 0}

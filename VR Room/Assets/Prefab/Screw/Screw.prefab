@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4344802580636591747}
   - component: {fileID: 4315113089152791740}
   - component: {fileID: 8342564033524190663}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Screw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,6 +71,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: c3cb433d90d52814ca4483012ab972cd, type: 2}
 --- !u!114 &8342564033524190663
 MonoBehaviour:
@@ -189,7 +191,7 @@ GameObject:
   - component: {fileID: 5667662520865339102}
   - component: {fileID: 2010753354881304325}
   - component: {fileID: 763458716388198949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScrewVisuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

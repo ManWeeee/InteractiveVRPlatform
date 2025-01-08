@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3398329803241241629}
   - component: {fileID: 8653327492793184082}
   - component: {fileID: 1056759017697792351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E32"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8237456565275892555}
   - component: {fileID: 6326872389494343253}
   - component: {fileID: 6881780356131888734}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E14"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 5982353740212080071}
   - component: {fileID: 1847284540823308592}
   - component: {fileID: 5108150791712398623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E12"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 2203405270951362755}
   - component: {fileID: 7787512540379888164}
   - component: {fileID: 9146122086025764407}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E13"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 634217822914463129}
   - component: {fileID: 2647160426313378556}
   - component: {fileID: 2225036892168681730}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E27"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -542,7 +542,7 @@ GameObject:
   - component: {fileID: 3452396482980406049}
   - component: {fileID: 2560682746679724472}
   - component: {fileID: 6443974423205828278}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 7551814630389543277}
   - component: {fileID: 3015653540313951200}
   - component: {fileID: 15571252769078505}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E25"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 1965565631083741098}
   - component: {fileID: 3715839690764418952}
   - component: {fileID: 8414572356233834417}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VERRUNDUNG1.016
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -859,7 +859,7 @@ GameObject:
   - component: {fileID: 1282396952416806235}
   - component: {fileID: 7267498337493066424}
   - component: {fileID: 1874481828707933825}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +942,7 @@ GameObject:
   - component: {fileID: 4202707965522981272}
   - component: {fileID: 1266447581901690926}
   - component: {fileID: 973233058071508585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E6"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 7981166103850009678}
   - component: {fileID: 6540340365028239042}
   - component: {fileID: 888165100443109284}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E11"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1154,7 +1154,7 @@ GameObject:
   - component: {fileID: 3237681761281909745}
   - component: {fileID: 1470198869093143217}
   - component: {fileID: 4271082418706601395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 2022832014337596129}
   - component: {fileID: 4361513980930245144}
   - component: {fileID: 4378808719534302686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E29"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1366,7 +1366,7 @@ GameObject:
   - component: {fileID: 3605127528952245003}
   - component: {fileID: 9117606122542102936}
   - component: {fileID: 4362783308829617495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E33"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 1464928512194473410}
   - component: {fileID: 4617303285408639001}
   - component: {fileID: 9132117974414469892}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E36"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1577,7 +1577,7 @@ GameObject:
   - component: {fileID: 4812203746875211936}
   - component: {fileID: 6991726710716681958}
   - component: {fileID: 6610617447392358093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Seat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1615,6 +1615,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &6610617447392358093
 MonoBehaviour:
@@ -1732,7 +1734,7 @@ GameObject:
   - component: {fileID: 8385573428661714938}
   - component: {fileID: 6104714166350426542}
   - component: {fileID: 7761400687180658509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "IMPORT\xC9E9"
   m_TagString: Untagged
   m_Icon: {fileID: 0}

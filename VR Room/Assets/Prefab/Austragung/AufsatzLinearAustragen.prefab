@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 126040572064447430}
   - component: {fileID: 480042142455273169}
   - component: {fileID: 4534611529462825275}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AufsatzLinearAustragen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,6 +72,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &4534611529462825275
 MonoBehaviour:
@@ -190,7 +192,7 @@ GameObject:
   - component: {fileID: 3813296462648531812}
   - component: {fileID: 991179193587998358}
   - component: {fileID: 7466814802384629291}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}

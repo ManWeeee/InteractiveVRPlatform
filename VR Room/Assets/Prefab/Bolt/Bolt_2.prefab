@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5396080808031330919}
   - component: {fileID: 7993160669876579113}
   - component: {fileID: 5389564319210702506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FASE1.028
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 5480823902828039684}
   - component: {fileID: 3334683447304846863}
   - component: {fileID: 6983429870803869235}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bolt_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 9d3d6cf32f91852408dfc6280e518142, type: 2}
 --- !u!114 &3334683447304846863
 MonoBehaviour:

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1146863277225062581}
   - component: {fileID: 839903301890993926}
   - component: {fileID: 4469043811933307334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SPIEGELN2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 3663441218590221675}
   - component: {fileID: 2920240904939880977}
   - component: {fileID: 459709344474143828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-00890_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,6 +191,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &459709344474143828
 MonoBehaviour:

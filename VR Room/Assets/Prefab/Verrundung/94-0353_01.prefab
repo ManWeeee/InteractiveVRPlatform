@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1693425683747105567}
   - component: {fileID: 3951513754461802758}
   - component: {fileID: 977641966291612330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-0353_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: e937d6fb6375052449395d199c0b9f1f, type: 2}
 --- !u!114 &977641966291612330
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 8867360256731574835}
   - component: {fileID: 3278545630489410463}
   - component: {fileID: 6408749623849764045}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M10X1.0 GEWINDEBOHRUNG1.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

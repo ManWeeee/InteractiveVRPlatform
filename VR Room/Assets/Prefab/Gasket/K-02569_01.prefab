@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4188638553822157933}
   - component: {fileID: 6748287395227160741}
   - component: {fileID: 7097272913463779357}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-02569_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: ee8fa2408b70fab4784998edb27a35ff, type: 2}
 --- !u!114 &7097272913463779357
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 5301154780197603904}
   - component: {fileID: 234876066399008948}
   - component: {fileID: 8450541126533629507}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _SFS FN 524 132922 SCHEIBE DIN 9021 ROSTFREIER STAHL   ROST.017
   m_TagString: Untagged
   m_Icon: {fileID: 0}

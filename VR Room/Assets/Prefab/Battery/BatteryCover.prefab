@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5286958502660077282}
   - component: {fileID: 6268097147335624082}
   - component: {fileID: 6057157696142951488}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BatteryCover
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &6057157696142951488
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3160079911411823571}
   - component: {fileID: 7776470017611359934}
   - component: {fileID: 8343992759450461877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AUFSATZ-LINEAR AUSTRAGEN6.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

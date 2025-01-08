@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 146927608992875381}
   - component: {fileID: 6354621095452636491}
   - component: {fileID: 1802421486709156084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VERRUNDUNG2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 2332878231814354395}
   - component: {fileID: 6007327403142403986}
   - component: {fileID: 1072559381452028982}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-0393_01_Wie bearbeitet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 38af484e30ef7c047bc0a6853b3e9ff8, type: 2}
 --- !u!114 &1072559381452028982
 MonoBehaviour:

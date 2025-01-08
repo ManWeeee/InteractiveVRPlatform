@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9112216515429040013}
   - component: {fileID: 3753316259483805510}
   - component: {fileID: 5518315905566479828}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M10_ISO7041_M10_N
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 5a6020ae5e7f6574a87bff0c98a46820, type: 2}
 --- !u!114 &5518315905566479828
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 3032709618360486791}
   - component: {fileID: 2219912214998717277}
   - component: {fileID: 5172574393970459596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TORQUEELEMENT.203
   m_TagString: Untagged
   m_Icon: {fileID: 0}

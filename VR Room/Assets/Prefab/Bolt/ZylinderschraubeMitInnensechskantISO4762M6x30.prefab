@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8489404997784307090}
   - component: {fileID: 1794059058599572920}
   - component: {fileID: 2754409762859585915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ZylinderschraubeMitInnensechskantISO4762M6x30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 0c394d3db9819b845a1d06e37d3bb6df, type: 2}
 --- !u!114 &2754409762859585915
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 5126561125321794510}
   - component: {fileID: 5227050618204287092}
   - component: {fileID: 3125737811446487989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEX.045
   m_TagString: Untagged
   m_Icon: {fileID: 0}

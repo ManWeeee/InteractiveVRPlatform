@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5826628302618428700}
   - component: {fileID: 2471009362166773000}
   - component: {fileID: 8525273200246376190}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: AUFSATZ-LINEAR AUSTRAGEN1.065
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 7066348891968591590}
   - component: {fileID: 4556826230797653129}
   - component: {fileID: 4576576849202391460}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: N-0270_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 829a5a7c04d2f6548b629b61f6850e3e, type: 2}
 --- !u!114 &4576576849202391460
 MonoBehaviour:

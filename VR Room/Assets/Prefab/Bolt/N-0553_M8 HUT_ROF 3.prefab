@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2839266570389151829}
   - component: {fileID: 173877490592024549}
   - component: {fileID: 9122703082456593969}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: N-0553_M8 HUT_ROF 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 1e9eefe45f8f93945832dce89bcd76b7, type: 2}
 --- !u!114 &9122703082456593969
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 4786437724344574919}
   - component: {fileID: 572104562255476448}
   - component: {fileID: 6010120793537144053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M8 GEWINDEBOHRUNG1.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

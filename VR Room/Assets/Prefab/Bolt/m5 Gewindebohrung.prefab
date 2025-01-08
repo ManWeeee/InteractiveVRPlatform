@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 16088579537137703}
   - component: {fileID: 6069586160725595036}
   - component: {fileID: 5790283194230375958}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: m5 Gewindebohrung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 10e0e8481e1178b4698d7e3b686443a7, type: 2}
 --- !u!114 &6069586160725595036
 MonoBehaviour:
@@ -189,7 +191,7 @@ GameObject:
   - component: {fileID: 5813259159415329491}
   - component: {fileID: 6675478047228355944}
   - component: {fileID: 3924629812794632759}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M5 GEWINDEBOHRUNG1.011
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8692056200308723824}
   - component: {fileID: 2532882632243901285}
   - component: {fileID: 3632125783658989351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-02150_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: c0bfc9cf06d4d994c9751a9bf06bef20, type: 2}
 --- !u!114 &3632125783658989351
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 7621906810647798349}
   - component: {fileID: 7943421720262400959}
   - component: {fileID: 6880290870021068456}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _SFS FN 123 117095 ZYLINDERSCHRAUBE DIN 912 ROSTFREIER STAH.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

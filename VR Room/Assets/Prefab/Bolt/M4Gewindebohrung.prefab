@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1433500215931956112}
   - component: {fileID: 261723523374547310}
   - component: {fileID: 545764451551906157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M4GEWINDEBOHRUNG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 7613244118948199863}
   - component: {fileID: 6266514890152426962}
   - component: {fileID: 1371144818475293425}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: M4Gewindebohrung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 1fca486f592210644b66098142acc10e, type: 2}
 --- !u!114 &6266514890152426962
 MonoBehaviour:

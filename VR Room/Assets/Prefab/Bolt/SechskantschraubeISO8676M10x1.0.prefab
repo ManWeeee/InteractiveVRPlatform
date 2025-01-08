@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6400436282048845005}
   - component: {fileID: 2796500160395484477}
   - component: {fileID: 5238661648180088947}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HEADFILLET.067
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 1045976804440981196}
   - component: {fileID: 2416009208199929777}
   - component: {fileID: 5129543777364430950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SechskantschraubeISO8676M10x1.0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,6 +169,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 1efbc026a38d80e4f9ed46d45484f5fd, type: 2}
 --- !u!114 &2416009208199929777
 MonoBehaviour:

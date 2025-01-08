@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3992273167811585339}
   - component: {fileID: 5769952253157671993}
   - component: {fileID: 7817715207359585016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-02183_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 363451283d6c4e548b270c94d6401b5d, type: 2}
 --- !u!114 &7817715207359585016
 MonoBehaviour:
@@ -168,7 +170,7 @@ GameObject:
   - component: {fileID: 7416101750592980375}
   - component: {fileID: 7064338832851404190}
   - component: {fileID: 5585897521379737577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _SFS FN 389 291893 SENKSCHRAUBE ISO 14581 ROSTFREIER STAHL .003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

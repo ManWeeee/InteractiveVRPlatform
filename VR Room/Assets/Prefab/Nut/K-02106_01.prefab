@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1814950252223926271}
   - component: {fileID: 7861719026166896502}
   - component: {fileID: 7209188178326574707}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: _SFS FN 176 125379 SECHSKANTMUTTER DIN 985 ROSTFREIER STAHL.019
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -152,7 +152,7 @@ GameObject:
   - component: {fileID: 3021254318845586266}
   - component: {fileID: 6195252452535917363}
   - component: {fileID: 4342938048112465188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: K-02106_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -190,6 +190,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 11400000, guid: 91bfaef1254b4224291c48b533eea786, type: 2}
 --- !u!114 &4342938048112465188
 MonoBehaviour:

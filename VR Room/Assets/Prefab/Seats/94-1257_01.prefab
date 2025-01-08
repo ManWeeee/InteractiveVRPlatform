@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6783024756185993228}
   - component: {fileID: 4727868807492751165}
   - component: {fileID: 7482983665378223838}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: 94-1257_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,6 +49,8 @@ MonoBehaviour:
   m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
+  m_isBroken: 0
+  m_partType: 0
   m_partInfo: {fileID: 0}
 --- !u!114 &7482983665378223838
 MonoBehaviour:
@@ -166,7 +168,7 @@ GameObject:
   - component: {fileID: 3896235826005323275}
   - component: {fileID: 8589675343454445544}
   - component: {fileID: 8560695649585375517}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: SCHNITT-LINEAR AUSTRAGEN1.010
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +274,7 @@ GameObject:
   - component: {fileID: 744329933967690873}
   - component: {fileID: 1835977077907660610}
   - component: {fileID: 3030901027062073152}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "FL\xC4CHE VERSCHIEBEN1.002"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +379,7 @@ GameObject:
   - component: {fileID: 4658763972502291066}
   - component: {fileID: 6126320267828276430}
   - component: {fileID: 5402900753545911915}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
