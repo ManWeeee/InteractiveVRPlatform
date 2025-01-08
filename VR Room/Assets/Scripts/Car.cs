@@ -7,6 +7,7 @@ using UnityEngine;
 public class Car : MonoBehaviour
 {
     [SerializeField] private Material m_inactiveMaterial;
+    [SerializeField] private Material m_highlightedMaterial;
     [SerializeField] private CarPartType m_brokenPartsType;
     private List<CarPart> m_parts = new List<CarPart>();
     private void Awake()
@@ -19,60 +20,100 @@ public class Car : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        var parts = GetBrokenParts();
-        DisableInteraction();
-        if (parts.Count > 0)
-        {
-            m_parts = parts;
-        }
-        EnableInteraction();
-    }
-
     public void SetBrokenPartsType(CarPartType brokenPartsType)
     {
         m_brokenPartsType = brokenPartsType;
         Debug.Log("Broken Parts are set");
     }
 
-    private List<CarPart> GetBrokenParts()
-    {
-        Debug.Log($"Start to set broken parts");
-        List<CarPart> parts = new();
-        foreach (var part in m_parts)
-        {
-            if (part.GetCarPartType == m_brokenPartsType)
-            {
-                parts.AddRange(part.GetAllDependableParts());
-            }
-            else
-            {
-                if (!parts.Contains(part))
-                    part.GetComponent<CarPartInteractable>().SetRendererMaterialsTo(m_inactiveMaterial);
-            }
-        }
-        Debug.Log($"Broken parts amount = {parts.Count}");
-        return parts;
-    }
-    public void DisableInteraction()
+    public void EnableInteractionToAll()
     {
         foreach (var part in m_parts)
         {
-            if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            if(part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
-                interactable.enabled = false;
+                EnableInteraction(interactable);
             }
         }
     }
 
-    public void EnableInteraction()
+    public void DisableInteractionToAll()
+    {
+        foreach (var part in m_parts)
+        {
+            if (part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            {
+                interactable.SetInteraction();
+            }
+        }
+    }
+
+    
+
+    public void EnableInteraction(CarPartInteractable interactable)
+    {
+        interactable.enabled = true;
+    }
+
+    public void EnterOverviewMode()
+    {
+        Debug.Log("Entered Overview Mode");
+        foreach (var part in m_parts)
+        {
+            if(part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            {
+                interactable.ResetRendererMaterialsToDefault();
+                interactable.SetInteraction();
+            }
+        }
+    }
+
+    public void EnterInspectionMode()
+    {
+        List<CarPart> parts = new();
+        foreach (var part in m_parts)
+        {
+            if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            {
+                return;
+            }
+            if (part.GetCarPartType == m_brokenPartsType)
+            {
+                parts.AddRange(part.GetAllDependableParts());
+                interactable.SetRendererMaterialToSelf(m_highlightedMaterial);
+            }
+            else
+            {
+                if (!parts.Contains(part))
+                {
+                    interactable.SetRendererMaterialsTo(m_inactiveMaterial);
+                }
+            }
+            interactable.SetInteraction();
+        }
+    }
+
+    public void EnterDisassemblyMode()
+    {
+        Debug.Log("Entered Disassembly mode");
+        foreach (var part in m_parts)
+        {
+            if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            {
+                interactable.ResetRendererMaterialsToDefault();
+                interactable.SetInteraction(true);
+            }
+        }
+    }
+
+    public void ExitDisassemblyMode()
     {
         foreach (var part in m_parts)
         {
             if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
-                interactable.enabled = true;
+                interactable.ResetRendererMaterialsToDefault();
+                interactable.SetInteraction();
             }
         }
     }

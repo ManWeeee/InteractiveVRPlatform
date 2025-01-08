@@ -6,9 +6,11 @@ using UnityEngine;
 
 public class OverviewMode : ICarViewMode
 {
+    public bool CanInteractWithParts { get => false;}
+
     public void EnterMode(Car car)
     {
-        car.DisableInteraction();
+        car.EnterOverviewMode();
     }
 
     public void UpdateMode(Car car)

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class CarViewModeManager : MonoBehaviour
 {
-    [SerializeField] private Car car;
+    private Car car;
 
     private ICarViewMode currentMode;
 
@@ -17,6 +17,7 @@ public class CarViewModeManager : MonoBehaviour
 
     private void Start()
     {
+        car = GetComponent<Car>();
         SetMode(new OverviewMode());
     }
 

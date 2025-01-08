@@ -18,10 +18,15 @@ public class ModeSwitcher : MonoBehaviour
         m_viewModeManager.SetMode(new OverviewMode());
     }
 
-    /*private void SwitchToInspection()
+    public void SwitchToAssembly()
     {
-        //m_viewModeManager.SetMode(new PartInspectionMode());
-    }*/
+       // m_viewModeManager.SetMode(new AssemlyMode());
+    }
+
+    public void SwitchToInspection()
+    {
+        m_viewModeManager.SetMode(new InspectionMode());
+    }
 
     public void SwitchToDisassembly()
     {

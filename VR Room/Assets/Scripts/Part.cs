@@ -54,12 +54,15 @@ public class Part : CarPart
 
     private async Task Assemble()
     {
-        //m_audioSource.PlayOneShot(m_partInfo.AssembleAudioClip);
         await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION_NAME);
     }
 
     public override async Task StartDisassemble()
     {
+        if (m_dependableParts.Count > 0)
+        {
+            return;
+        }
         await Disassemble();
     }
 
@@ -69,11 +72,6 @@ public class Part : CarPart
         {
             return;
         }
-
-        /*if (m_partInfo)
-        {
-            m_audioSource.PlayOneShot(m_partInfo.DisassembleAudioClip);
-        }*/
 
         if (m_animationHandler)
         {

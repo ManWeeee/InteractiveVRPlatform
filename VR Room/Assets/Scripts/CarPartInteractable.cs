@@ -16,6 +16,9 @@ namespace Assets.Scripts
         public Action<HoverEnterEventArgs> HoverEntered;
         public Action<HoverExitEventArgs> HoverExited;
 
+        public bool CanDisassemble { get; set; }
+        public bool CanAssemble { get; set; }
+
         protected override void Awake()
         {
             base.Awake();
@@ -26,7 +29,7 @@ namespace Assets.Scripts
         {
             m_part = GetComponent<CarPart>();
             m_renderers = GetComponentsInChildren<Renderer>().ToList();
-            GetMaterialsFromRenderers();
+            m_defaultMaterials = GetMaterialsFromRenderers(m_renderers);
         }
 
         protected void Start()
@@ -34,12 +37,13 @@ namespace Assets.Scripts
             SubscribeToParentEvents();
         }
 
-        private void GetMaterialsFromRenderers()
+        private List<Material> GetMaterialsFromRenderers(List<Renderer> renderers)
         {
-            foreach (var renderer in m_renderers)
+            foreach (var renderer in renderers)
             {
                 m_defaultMaterials.Add(renderer.material);
             }
+            return m_defaultMaterials;
         }
 
         private void SubscribeToParentEvents()
@@ -54,16 +58,21 @@ namespace Assets.Scripts
         protected override void OnHoverEntering(HoverEnterEventArgs args)
         {
             base.OnHoverEntering(args);
-            if (args.interactorObject.transform.gameObject.TryGetComponent<InteractorInteractionInfo>(
-                    out InteractorInteractionInfo wrapper))
+            if (args.interactorObject.transform.gameObject.TryGetComponent<InteractionInfo>(
+                    out InteractionInfo interactionInfo) && CanAssemble || CanDisassemble)
             {
-                OnHoverEnter(wrapper.GetHoverMaterials);
+                OnHoverEnter(interactionInfo.GetHoverMaterials);
+                HoverEntered?.Invoke(args);
             }
-            HoverEntered?.Invoke(args);
         }
 
         protected override void OnHoverExiting(HoverExitEventArgs args)
         {
+            //TODO: Even if on hover entering nothing changed this part works, doing unecessary opearations
+            if(!CanAssemble && !CanDisassemble)
+            {
+                return;
+            }
             base.OnHoverExiting(args);
             OnHoverExit();
             HoverExited?.Invoke(args);
@@ -72,10 +81,13 @@ namespace Assets.Scripts
         protected override void OnSelectExiting(SelectExitEventArgs args)
         {
             base.OnSelectExiting(args);
-            if (!m_part.HasDependableParts)
+            if (CanDisassemble)
             {
-                //this.enabled = false;
                 m_part.StartDisassemble();
+            }
+            else if (CanAssemble)
+            {
+                m_part.StartAssemble();
             }
         }
 
@@ -95,7 +107,7 @@ namespace Assets.Scripts
             {
                 return;
             }
-            SetRendererMaterialsToDefault();
+            ResetRendererMaterialsToDefault();
         }
 
         public void ChangeMaterial(Material material)
@@ -103,7 +115,7 @@ namespace Assets.Scripts
             SetRendererMaterialsTo(material);
         }
 
-        private void SetRendererMaterialsToDefault()
+        public void ResetRendererMaterialsToDefault()
         {
             int defaultMaterialsIndex = 0;
             foreach (var renderer in m_renderers)
@@ -119,6 +131,17 @@ namespace Assets.Scripts
             {
                 renderer.material = material;
             }
+        }
+
+        public void SetRendererMaterialToSelf(Material material)
+        {
+            m_renderers[0].material = material;
+        }
+
+        public void SetInteraction(bool canDisassemble = false, bool canAssemble = false)
+        {
+            CanDisassemble = canDisassemble;
+            CanAssemble = canAssemble;
         }
     }
 }
