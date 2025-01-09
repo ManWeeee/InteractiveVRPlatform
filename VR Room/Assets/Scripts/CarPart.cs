@@ -19,10 +19,18 @@ namespace Assets.Scripts
         protected const string DISASSEMBLE_ANIMATION_NAME = "Disassemble";
         protected const string ASSEMBLE_ANIMATION_NAME = "Assemble";
 
-        protected Action<Part> Disassembled;
+        public Action<Part> Disassembled;
+        public Action<Part> Assembled;
 
         public List<Part> ReadOnlyParentPartsList => m_parentParts;
 
+        public bool CanBeAssembled
+        {
+            get
+            {
+                return m_parentParts != null && m_parentParts.All(part => part.gameObject.activeSelf);
+            }
+        }
         public bool HasDependableParts => m_dependableParts.Count > 0;
         public bool IsBroken 
         {

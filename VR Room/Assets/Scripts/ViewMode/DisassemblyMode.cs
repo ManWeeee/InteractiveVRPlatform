@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class DisassemblyMode : ICarViewMode
 {
-    public bool CanInteractWithParts => true;
 
     public void EnterMode(Car car)
     {
@@ -20,6 +19,6 @@ public class DisassemblyMode : ICarViewMode
 
     public void ExitMode(Car car)
     {
-        //car.ExitDisassemblyMode();
+        car.ExitDisassemblyMode();
     }
 }

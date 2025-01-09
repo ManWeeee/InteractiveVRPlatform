@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InspectionMode : ICarViewMode
 {
-    public bool CanInteractWithParts => throw new System.NotImplementedException();
 
     public void EnterMode(Car car)
     {
@@ -13,7 +12,7 @@ public class InspectionMode : ICarViewMode
 
     public void ExitMode(Car car)
     {
-        return;
+        car.ExitInspectionMode();
     }
 
     public void UpdateMode(Car car)
