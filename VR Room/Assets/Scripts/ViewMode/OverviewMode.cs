@@ -10,7 +10,7 @@ public class OverviewMode : ICarViewMode
 
     public void EnterMode(Car car)
     {
-        car.EnterOverviewMode();
+        car.StateManager.EnterOverviewMode();
     }
 
     public void UpdateMode(Car car)

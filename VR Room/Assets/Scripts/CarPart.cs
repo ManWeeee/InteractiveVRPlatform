@@ -1,7 +1,9 @@
+using Assets.Scripts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -10,54 +12,109 @@ namespace Assets.Scripts
 {
     public abstract class CarPart : MonoBehaviour, IAssemblyPart
     {
-        [SerializeField] protected AnimationHandler m_animationHandler;
-        [SerializeField] protected List<Part> m_parentParts;
-        [SerializeField] protected List<Part> m_dependableParts;
-        [SerializeField] protected bool m_isBroken = false;
-        [SerializeField] CarPartType m_partType;
+        [SerializeField] protected List<CarPart> m_parentParts;
+        [SerializeField] protected List<CarPart> m_dependableParts;
+        [SerializeField] protected PartInfo m_partInfo;
+       
+        protected CarPartAnimator m_animator;
+        protected PartState m_currentState;
 
-        protected const string DISASSEMBLE_ANIMATION_NAME = "Disassemble";
-        protected const string ASSEMBLE_ANIMATION_NAME = "Assemble";
-
-        protected Action<Part> Disassembled;
-
-        public List<Part> ReadOnlyParentPartsList => m_parentParts;
-
+        public List<CarPart> ReadOnlyParentPartsList => m_parentParts;
         public bool HasDependableParts => m_dependableParts.Count > 0;
-        public bool IsBroken 
+        
+        public PartInfo PartInfo
         {
-            get => m_isBroken;
-            set => m_isBroken = value;
+            get => m_partInfo;
+            set => m_partInfo = value;
         }
-        public CarPartType GetCarPartType => m_partType;
+
+        public bool CanBeAssembled
+        {
+            get
+            {
+                return m_parentParts != null && m_parentParts.All(part => part.gameObject.activeSelf);
+            }
+        }
+
+        public Action<CarPart> Disassembled;
+        public Action<CarPart> Assembled;
 
         protected virtual void Awake()
         {
-            m_animationHandler = GetComponentInChildren<AnimationHandler>();
+            m_animator = new(GetComponentInChildren<AnimationHandler>());
+            if (m_partInfo != null)
+            {
+                GetComponentInChildren<MeshFilter>().mesh = m_partInfo.PartMesh;
+            }
         }
 
         public List<CarPart> GetAllDependableParts()
         {
             List<CarPart> parts = new();
             parts.Add(this);
-            CollectAllPartsRecursive(this, parts);
+            CollectAllDependablePartsRecursive(this, parts);
             return parts;
         }
 
-        private void CollectAllPartsRecursive(CarPart part, List<CarPart> parts)
+        private void CollectAllDependablePartsRecursive(CarPart part, List<CarPart> parts)
         {
             foreach (var dependablePart in part.m_dependableParts)
             {
                 if (!parts.Contains(dependablePart)) // Avoid duplicates
                 {
                     parts.Add(dependablePart);
-                    CollectAllPartsRecursive(dependablePart, parts); // Recurse into dependencies
+                    CollectAllDependablePartsRecursive(dependablePart, parts);
                 }
             }
+        }
+
+        public virtual void SetParent(CarPart parent)
+        {
+            m_parentParts.Add(parent);
+            Disassembled += parent.ReleaseChildren;
+            Assembled += parent.SetChildren;
+        }
+
+        public virtual void SetChildren(CarPart partInteractable)
+        {
+            m_dependableParts.Add(partInteractable);
+        }
+
+        public virtual void ReleaseChildren(CarPart partInteractable)
+        {
+            m_dependableParts.Remove(partInteractable);
         }
 
         public abstract Task StartAssemble();
 
         public abstract Task StartDisassemble();
     }
+}
+
+public class PartState
+{
+    protected bool m_isBroken = false;
+    public bool IsBroken
+    {
+        get => m_isBroken;
+        set => m_isBroken = value;
+    }
+}
+
+public class CarPartAnimator
+{
+    [SerializeField] protected AnimationHandler m_animationHandler;
+
+    public AnimationHandler AnimationHandler => m_animationHandler;
+    public CarPartAnimator(AnimationHandler animationHandler)
+    {
+        m_animationHandler = animationHandler;
+    }
+
+    private const string DISASSEMBLE_ANIMATION_NAME = "Disassemble";
+    private const string ASSEMBLE_ANIMATION_NAME = "Assemble";
+
+    public string AssembleAnimationName => ASSEMBLE_ANIMATION_NAME;
+    public string DisassembleAnimationName => DISASSEMBLE_ANIMATION_NAME;
+
 }

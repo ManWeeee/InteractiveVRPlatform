@@ -188,12 +188,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89da294d42c444e8f6cdcab3d4f653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
-  m_isBroken: 0
-  m_partType: 0
-  m_partInfo: {fileID: 0}
+  m_partInfo: {fileID: 11400000, guid: 181daa07c8aebbd48b96e05a4de133e1, type: 2}
 --- !u!114 &6984572407647627553
 MonoBehaviour:
   m_ObjectHideFlags: 0

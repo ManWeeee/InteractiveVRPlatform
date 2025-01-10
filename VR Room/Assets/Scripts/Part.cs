@@ -5,21 +5,9 @@ using UnityEngine;
 
 public class Part : CarPart
 {
-    [SerializeField] private PartInfo m_partInfo;
-    public PartInfo PartInfo
-    {
-        get => m_partInfo;
-        private set => m_partInfo = value;
-    }
-
     protected override void Awake()
     {
         base.Awake();
-        if (m_partInfo != null)
-        {
-            GetComponentInChildren<MeshFilter>().mesh = m_partInfo.PartMesh;
-        }
-
         if (!HasDependableParts)
         {
             return;
@@ -29,37 +17,29 @@ public class Part : CarPart
             part.SetParent(this);
         }
     }
-
-    public void SetParent(Part parent)
-    {
-        m_parentParts.Add(parent);
-        Disassembled += parent.ReleaseChildren;
-    }
-
-    public void SetChildren(Part partInteractable)
-    {
-        m_dependableParts.Add(partInteractable);
-    }
-
-    public void ReleaseChildren(Part partInteractable)
-    {
-        m_dependableParts.Remove(partInteractable);
-    }
-
+    
     public override async Task StartAssemble()
     {
+        if (!CanBeAssembled)
+        {
+            return;
+        }
         await Assemble();
     }
 
 
     private async Task Assemble()
     {
-        await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION_NAME);
+        if (m_animator.AnimationHandler)
+        {
+            await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.AssembleAnimationName);
+        }
+        Assembled?.Invoke(this);
     }
 
     public override async Task StartDisassemble()
     {
-        if (m_dependableParts.Count > 0)
+        if (HasDependableParts)
         {
             return;
         }
@@ -68,18 +48,15 @@ public class Part : CarPart
 
     private async Task Disassemble()
     {
-        if (HasDependableParts)
+        if (m_animator.AnimationHandler)
         {
-            return;
-        }
-
-        if (m_animationHandler)
-        {
-            await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION_NAME);
+            await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.DisassembleAnimationName);
         }
 
         Disassembled?.Invoke(this);
-        var command = new HideCommand(gameObject);
-        CommandHandler.ExecuteCommand(command);
+        gameObject.SetActive(false);
+/*        var command = new HideCommand(gameObject);
+        CommandHandler.ExecuteCommand(command);*/
     }
 }
+
