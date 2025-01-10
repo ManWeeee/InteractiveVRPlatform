@@ -3,9 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 
 namespace Assets.Scripts
@@ -15,13 +13,13 @@ namespace Assets.Scripts
         [SerializeField] protected List<CarPart> m_parentParts;
         [SerializeField] protected List<CarPart> m_dependableParts;
         [SerializeField] protected PartInfo m_partInfo;
-       
+
         protected CarPartAnimator m_animator;
         protected PartState m_currentState;
 
         public List<CarPart> ReadOnlyParentPartsList => m_parentParts;
         public bool HasDependableParts => m_dependableParts.Count > 0;
-        
+
         public PartInfo PartInfo
         {
             get => m_partInfo;

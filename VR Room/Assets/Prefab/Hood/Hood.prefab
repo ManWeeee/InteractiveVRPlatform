@@ -292,9 +292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e89da294d42c444e8f6cdcab3d4f653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_animationHandler: {fileID: 0}
   m_parentParts: []
   m_dependableParts: []
-  m_isBroken: 0
-  m_partType: 0
-  m_partInfo: {fileID: 11400000, guid: 049f8e95ffbcc754aaf52ee0776fc8e0, type: 2}
+  m_partInfo: {fileID: 11400000, guid: b7630db88d0f87a41bd288c3987d3464, type: 2}

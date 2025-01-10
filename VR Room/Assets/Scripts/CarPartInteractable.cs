@@ -1,3 +1,4 @@
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,7 +84,7 @@ namespace Assets.Scripts
         protected override void OnSelectExiting(SelectExitEventArgs args)
         {
             base.OnSelectExiting(args);
-            
+
             if (CanDisassemble && !m_part.HasDependableParts)
             {
                 OnHoverExit();

@@ -21,7 +21,7 @@ public class Car : MonoBehaviour
         m_partManager = new(GetComponentsInChildren<CarPart>().ToList(), manager.LevelInfo.brokenPartType);
         m_stateManager = new(m_partManager, m_inactiveMaterial);
     }
-    
+
 }
 
 public class CarStateManager
@@ -177,8 +177,8 @@ public class CarPartManager
 {
     private CarPartType m_brokenPartsType;
     private List<CarPart> m_parts = new();
-    private List<CarPart> m_brokenParts = new ();
-    private List<CarPart> m_removedCarParts = new ();
+    private List<CarPart> m_brokenParts = new();
+    private List<CarPart> m_removedCarParts = new();
     public Action PartAssembled;
     public List<CarPart> AllParts => m_parts;
     public List<CarPart> BrokenParts => m_brokenParts;
@@ -210,13 +210,13 @@ public class CarPartManager
     }
 
     public void SetBrokenPartsType(CarPartType type) { m_brokenPartsType = type; }
-    
+
     public List<CarPart> GetBrokenPartsByType(CarPartType brokenPartsType, List<CarPart> carParts)
     {
         List<CarPart> parts = new();
         foreach (var part in carParts)
         {
-            if (part.PartInfo.GetCarPartType == m_brokenPartsType)
+            if (part.PartInfo && part.PartInfo.GetCarPartType == m_brokenPartsType)
             {
                 parts.AddRange(part.GetAllDependableParts());
             }

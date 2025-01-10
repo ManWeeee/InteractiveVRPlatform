@@ -1,7 +1,5 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Assets.Scripts;
-using UnityEngine;
 
 public class Part : CarPart
 {
@@ -17,7 +15,7 @@ public class Part : CarPart
             part.SetParent(this);
         }
     }
-    
+
     public override async Task StartAssemble()
     {
         if (!CanBeAssembled)
@@ -55,8 +53,7 @@ public class Part : CarPart
 
         Disassembled?.Invoke(this);
         gameObject.SetActive(false);
-/*        var command = new HideCommand(gameObject);
-        CommandHandler.ExecuteCommand(command);*/
+        /*        var command = new HideCommand(gameObject);
+                CommandHandler.ExecuteCommand(command);*/
     }
 }
-
