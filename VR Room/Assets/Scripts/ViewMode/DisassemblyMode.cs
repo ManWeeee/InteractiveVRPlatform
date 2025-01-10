@@ -9,7 +9,7 @@ public class DisassemblyMode : ICarViewMode
 
     public void EnterMode(Car car)
     {
-        car.EnterDisassemblyMode();
+        car.StateManager.EnterDisassemblyMode();
     }
 
     public void UpdateMode(Car car)
@@ -19,6 +19,6 @@ public class DisassemblyMode : ICarViewMode
 
     public void ExitMode(Car car)
     {
-        car.ExitDisassemblyMode();
+        car.StateManager.ExitDisassemblyMode();
     }
 }

@@ -58,6 +58,7 @@ namespace Assets.Scripts
         protected override void OnHoverEntering(HoverEnterEventArgs args)
         {
             base.OnHoverEntering(args);
+            //TODO: Store materials inside of CarPartInteractable, instead of InteractionInfo on Interactor
             if (args.interactorObject.transform.gameObject.TryGetComponent<InteractionInfo>(
                     out InteractionInfo interactionInfo) && CanDisassemble)
             {
@@ -69,7 +70,6 @@ namespace Assets.Scripts
         protected override void OnHoverExiting(HoverExitEventArgs args)
         {
             base.OnHoverExiting(args);
-            //TODO: Even if on hover entering nothing changed this part works, doing unecessary opearations
             if (!CanDisassemble)
             {
                 Debug.Log("Hover exiting BLOCKED as we are not in Disassembly mode");
@@ -83,13 +83,17 @@ namespace Assets.Scripts
         protected override void OnSelectExiting(SelectExitEventArgs args)
         {
             base.OnSelectExiting(args);
-            if (CanDisassemble)
+            
+            if (CanDisassemble && !m_part.HasDependableParts)
             {
+                OnHoverExit();
+                SetInteraction();
                 m_part.StartDisassemble();
             }
-            else if (CanAssemble)
+            else if (CanAssemble && m_part.CanBeAssembled)
             {
-                Debug.Log("Start Assembly from Interactable");
+                OnHoverExit();
+                SetInteraction();
                 m_part.StartAssemble();
             }
         }

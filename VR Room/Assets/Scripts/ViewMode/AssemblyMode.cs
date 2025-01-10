@@ -6,16 +6,16 @@ public class AssemblyMode : ICarViewMode
 {
     public void EnterMode(Car car)
     {
-        car.EnterAssemblyMode();
+        car.StateManager.EnterAssemblyMode();
     }
 
     public void ExitMode(Car car)
     {
-        car.ExitAssemblyMode();
+        car.StateManager.ExitAssemblyMode();
     }
 
     public void UpdateMode(Car car)
     {
-        car.UpdateAssemblyMode();
+        car.StateManager.UpdateAssemblyMode();
     }
 }
