@@ -7,19 +7,21 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class CarInteractor : MonoBehaviour
 {
-    [SerializeField] private UiManager m_uiManager;  // Reference to the UI Manager
-    [SerializeField] private InputActionProperty m_menuButtonAction;  // Button to trigger UI
+    [SerializeField] private LayerMask carPartLayer; // Only detect car parts
+    [SerializeField] private UiManager uiManager;  // Reference to the UI Manager
+    [SerializeField] private InputActionProperty menuButtonAction;  // Button to trigger UI
 
-    private XRBaseInteractor m_xRBaseInteractor;
-    private CarPart m_hoveredCarPart; 
+    private XRBaseInteractor xRBaseInteractor;
+    private CarPart hoveredCarPart; // Store the hovered car part
 
     void Start()
     {
-        m_uiManager = Container.GetInstance<UiManager>();
-        m_xRBaseInteractor = GetComponent<XRBaseInteractor>();
-        m_xRBaseInteractor.hoverEntered.AddListener(OnHoverEntered);
-        m_xRBaseInteractor.hoverExited.AddListener(OnHoverExited);
-        if (m_menuButtonAction == null)
+        xRBaseInteractor = GetComponent<XRBaseInteractor>();
+        xRBaseInteractor.hoverEntered.AddListener(OnHoverEntered);
+        xRBaseInteractor.hoverExited.AddListener(OnHoverExited);
+        uiManager = Container.GetInstance<UiManager>();
+        // Optionally initialize anything else, for example, assign button action.
+        if (menuButtonAction == null)
         {
             Debug.LogError("Menu Button Action is not assigned!");
         }
@@ -27,34 +29,47 @@ public class CarInteractor : MonoBehaviour
 
     void Update()
     {
-        if (m_menuButtonAction.action.WasPerformedThisFrame() && m_hoveredCarPart != null)
+        if (menuButtonAction.action.WasPerformedThisFrame())
         {
-            ShowCarUi(m_hoveredCarPart);
+            Debug.Log("Primary button was pressed");
+        }
+        // Check if the hover action is active and the button is pressed
+        if (hoveredCarPart != null && menuButtonAction.action.WasPerformedThisFrame())
+        {
+            // Show the UI when button is pressed
+            Debug.Log("Should show car ui");
+            ShowCarUi(hoveredCarPart);
         }
     }
 
     private void OnHoverEntered(HoverEnterEventArgs args)
     {
+        Debug.Log($"Interactor entered {args.interactableObject.transform.name}");
         if(args.interactableObject.transform.TryGetComponent<CarPart>(out CarPart part))
         {
-            m_hoveredCarPart = part;
+            Debug.Log($"Hover over the part {part.name}");
+            hoveredCarPart = part;
         }
     }
 
     private void OnHoverExited(HoverExitEventArgs args)
     {
+        Debug.Log($"Interactor exited {args.interactableObject.transform.name}");
         if (args.interactableObject.transform.TryGetComponent<CarPart>(out CarPart part))
         {
-            m_hoveredCarPart = null;
+            Debug.Log($"Stop hovering over the part {part.name}");
+            hoveredCarPart = null;
         }
     }
 
+    // Show the UI linked to the hovered car part
     private void ShowCarUi(CarPart carPart)
     {
+        // Assume car part has a reference to a Car UI, or you can find it in the parent
         CarUi carUi = carPart.GetComponentInParent<CarUi>();
         if (carUi != null && carUi.CarMenuUi != null)
         {
-            m_uiManager.CreateUi(carUi.CarMenuUi);
+            uiManager.CreateUi(carUi.CarMenuUi);  // Trigger UI to appear
         }
     }
 }

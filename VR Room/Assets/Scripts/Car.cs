@@ -10,51 +10,49 @@ public class Car : MonoBehaviour
     [SerializeField] private Material m_highlightedMaterial;
     [SerializeField] private CarPartType m_brokenPartsType;
     private List<CarPart> m_parts = new List<CarPart>();
-    private List<CarPart> m_brokenParts = new List<CarPart>();
-    private List<CarPart> m_removedCarParts = new List<CarPart>();
     private void Awake()
     {
+        Debug.Log($"Parts amount = {m_parts.Count}");
         m_parts = GetComponentsInChildren<CarPart>().ToList();
-        foreach (var part in m_parts)
-        {
-            part.Disassembled += (item) => m_removedCarParts.Add(item);
-            part.Assembled += OnAssembled;
-        }
         if(Container.TryGetInstance<LevelManager>(out var manager))
         {
             SetBrokenPartsType(manager.LevelInfo.brokenPartType);
-            m_brokenParts = GetBrokenPartsByType(m_brokenPartsType, m_parts);
         }
-    }
-
-    private void OnAssembled(CarPart part)
-    {
-        if (m_removedCarParts.Contains(part))
-        {
-            m_removedCarParts.Remove(part);
-        }
-        var interactable = part.GetComponent<CarPartInteractable>();
-        interactable.ResetRendererMaterialsToDefault();
-        interactable.SetInteraction();
-        UpdateAssemblyMode();
     }
 
     public void SetBrokenPartsType(CarPartType brokenPartsType)
     {
         m_brokenPartsType = brokenPartsType;
+        Debug.Log("Broken Parts are set");
     }
 
-    private List<CarPart> GetBrokenPartsByType(CarPartType brokenPartsType, List<CarPart> carParts)
+    public void EnableInteractionToAll()
     {
-        List<CarPart> parts = new();
-        foreach (var part in carParts)
+        foreach (var part in m_parts)
         {
-            if (part.GetCarPartType == m_brokenPartsType)
+            if(part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
-                parts.AddRange(part.GetAllDependableParts());
+                EnableInteraction(interactable);
             }
         }
-        return parts;
+    }
+
+    public void DisableInteractionToAll()
+    {
+        foreach (var part in m_parts)
+        {
+            if (part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            {
+                interactable.SetInteraction();
+            }
+        }
+    }
+
+    
+
+    public void EnableInteraction(CarPartInteractable interactable)
+    {
+        interactable.enabled = true;
     }
 
     public void EnterOverviewMode()
@@ -62,57 +60,47 @@ public class Car : MonoBehaviour
         Debug.Log("Entered Overview Mode");
         foreach (var part in m_parts)
         {
-            if(!part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            if(part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
-                return;
+                interactable.ResetRendererMaterialsToDefault();
+                interactable.SetInteraction();
             }
-            interactable.ResetRendererMaterialsToDefault();
-            interactable.SetInteraction();
         }
     }
 
     public void EnterInspectionMode()
     {
+        List<CarPart> parts = new();
         foreach (var part in m_parts)
         {
             if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
                 return;
             }
-            if (!m_brokenParts.Contains(part))
+            if (part.GetCarPartType == m_brokenPartsType)
             {
-                interactable.SetRendererMaterialsTo(m_inactiveMaterial);
+                parts.AddRange(part.GetAllDependableParts());
+                interactable.SetRendererMaterialToSelf(m_highlightedMaterial);
             }
-        }
-    }
-
-    public void ExitInspectionMode()
-    {
-        foreach(var part in m_parts)
-        {
-            if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            else
             {
-                return;
+                if (!parts.Contains(part))
+                {
+                    interactable.SetRendererMaterialsTo(m_inactiveMaterial);
+                }
             }
-            interactable.ResetRendererMaterialsToDefault();
+            interactable.SetInteraction();
         }
     }
 
     public void EnterDisassemblyMode()
     {
+        Debug.Log("Entered Disassembly mode");
         foreach (var part in m_parts)
         {
-            if (!part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
-                return;
-            }
-
-            if(m_brokenParts.Count <= 0)
-            {
-                interactable.SetInteraction(true);
-            }
-            else if (m_brokenParts.Contains(part))
-            {
+                interactable.ResetRendererMaterialsToDefault();
                 interactable.SetInteraction(true);
             }
         }
@@ -122,79 +110,11 @@ public class Car : MonoBehaviour
     {
         foreach (var part in m_parts)
         {
-            if (!part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            if (part.gameObject.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
             {
-                return;
-            }
-
-            if (m_brokenParts.Count <= 0)
-            {
+                interactable.ResetRendererMaterialsToDefault();
                 interactable.SetInteraction();
             }
-            else if (m_brokenParts.Contains(part))
-            {
-                interactable.SetInteraction();
-            }
-        }
-    }
-
-    public void EnterAssemblyMode()
-    {
-        foreach(var part in m_removedCarParts)
-        {
-            if(!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
-            {
-                return;
-            }
-            if(part.CanBeAssembled)
-            {
-                part.gameObject.SetActive(true);
-            }
-            interactable.SetRendererMaterialsTo(m_inactiveMaterial);
-            interactable.SetInteraction(canAssemble : true);
-        }
-    }
-
-    public void ExitAssemblyMode()
-    {
-        foreach (var part in m_removedCarParts)
-        {
-            if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
-            {
-                return;
-            }
-            if (part.CanBeAssembled)
-            {
-                part.gameObject.SetActive(false);
-            }
-            interactable.ResetRendererMaterialsToDefault();
-            interactable.SetInteraction();
-        }
-    }
-
-    public void UpdateAssemblyMode()
-    {
-        foreach (var part in m_removedCarParts)
-        {
-            if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
-            {
-                return;
-            }
-            if (part.CanBeAssembled)
-            {
-                part.gameObject.SetActive(true);
-            }
-            interactable.SetRendererMaterialsTo(m_inactiveMaterial);
-            interactable.SetInteraction(canAssemble: true);
-        }
-    }
-
-    private void OnDestroy()
-    {
-        foreach (var part in m_parts)
-        {
-            part.Disassembled -= (item) => m_removedCarParts.Add(item);
-            part.Assembled -= OnAssembled;
         }
     }
 }

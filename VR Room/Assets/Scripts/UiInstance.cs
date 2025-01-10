@@ -21,16 +21,7 @@ public class UiInstance : MonoBehaviour, IUiInstance
 
     public virtual void UpdateUi()
     {
-        return;
-    }
-    public virtual void ShowUi()
-    {
-        UiObject.SetActive(true);
-    }
-
-    public virtual void CloseUi()
-    {
-        UiObject?.SetActive(false);
+        throw new NotImplementedException();
     }
 
     public virtual void SetPosition(Vector3 position)

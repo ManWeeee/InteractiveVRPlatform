@@ -8,4 +8,5 @@ public interface ICarViewMode
     public void UpdateMode(Car car);
     public void ExitMode(Car car);
 
+    bool CanInteractWithParts {get;}
 }

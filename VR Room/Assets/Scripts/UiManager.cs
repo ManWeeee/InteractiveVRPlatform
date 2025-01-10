@@ -14,6 +14,7 @@ public class UiManager : MonoBehaviour
     [SerializeField] private GameObject m_mainMenu;
 
     private Dictionary<GameObject, UiInstance> m_CreatedUiPrefabs = new();
+    private List<UiInstance> m_loadedUIs = new();
 
     private void Awake()
     {
@@ -23,7 +24,7 @@ public class UiManager : MonoBehaviour
     {
         if(Container.TryGetInstance<SceneLoader>(out var loader))
         {
-            loader.SceneGroupManager.OnSceneGroupLoaded += CloseAllUi;
+            loader.SceneGroupManager.OnSceneGroupLoaded += MakeAllUiInvisible;
         }
     }
 
@@ -35,7 +36,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-/*    public void RegisterUI(UiInstance instance)
+    public void RegisterUI(UiInstance instance)
     {
         if (m_loadedUIs.Contains(instance))
         {
@@ -43,19 +44,32 @@ public class UiManager : MonoBehaviour
         }
         m_loadedUIs.Add(instance);
         instance.DestroyAction += UnregisterUi;
-    }*/
+    }
 
     public void UnregisterUi(UiInstance instance)
     {
+        if (m_loadedUIs.Contains(instance))
+        {
+            m_loadedUIs.Remove(instance);
+        }
         if (m_CreatedUiPrefabs.ContainsValue(instance))
         {
             m_CreatedUiPrefabs.Remove(m_CreatedUiPrefabs.FirstOrDefault(item => item.Value == instance).Key);
         }
-        instance.DestroyAction -= UnregisterUi;
     }
     public void SetUiInFrontOfPlayer(IUiInstance instance)
     {
         instance.SetPosition(Camera.main.transform.position + Camera.main.transform.forward * m_uiOffset);
+    }
+
+    public void ChangeUiVisibility(string uiPrefabName)
+    {
+        var instance = m_loadedUIs.Find(item => item.UiObject.name == uiPrefabName);
+        if (m_mainMenu.gameObject.activeSelf == true && instance != null)
+        {
+            //ChangeUiVisibility(m_mainMenu);
+        }
+        ChangeUiVisibility(instance);
     }
 
     public void ChangeUiVisibility(IUiInstance instance)
@@ -63,14 +77,14 @@ public class UiManager : MonoBehaviour
         instance.UiObject.SetActive(!instance.UiObject.activeSelf);
     }
 
-    
-    private void CloseAllUi()
+    private void MakeAllUiInvisible()
     {
-        foreach (var item in m_CreatedUiPrefabs)
+        foreach (var item in m_loadedUIs)
         {
-            if (item.Value.UiObject.activeSelf == true)
+            if (item.UiObject.activeSelf == true)
             {
-                item.Value.CloseUi();
+                
+                ChangeUiVisibility(item);
             }
         }
     }
@@ -78,34 +92,28 @@ public class UiManager : MonoBehaviour
     public void CreateUi(GameObject uiPrefab)
     {
         var existingInstance = m_CreatedUiPrefabs.TryGetValue(uiPrefab, out UiInstance uiInstance);
-        if(!existingInstance)
+        if(existingInstance)
         {
-            var instance = Instantiate(uiPrefab).GetComponent<UiInstance>();
-            SetUiTarget(instance);
-            m_CreatedUiPrefabs.Add(uiPrefab, instance);
-            instance.DestroyAction += UnregisterUi;
-            instance.ShowUi();
-            SetUiInFrontOfPlayer(instance);
+            ChangeUiVisibility(uiInstance);
+            SetUiInFrontOfPlayer(uiInstance);
             return;
         }
-
-        uiInstance.ShowUi();
-        SetUiInFrontOfPlayer(uiInstance);
-    }
-
-    private void SetUiTarget(UiInstance instance)
-    {
+        
+        var instance = Instantiate(uiPrefab).GetComponent<UiInstance>();
         if (instance.UiObject.TryGetComponent<Billboard>(out Billboard billboard))
         {
             billboard.SetTarget(Camera.main.transform);
         }
+        m_CreatedUiPrefabs.Add(uiPrefab, instance);
+        RegisterUI(instance);
+        SetUiInFrontOfPlayer(instance);
     }
 
     private void OnDestroy()
     {
         if(Container.TryGetInstance<SceneLoader>(out var loader))
         {
-            loader.SceneGroupManager.OnSceneGroupLoaded -= CloseAllUi;
+            loader.SceneGroupManager.OnSceneGroupLoaded -= MakeAllUiInvisible;
         }
     }
 }

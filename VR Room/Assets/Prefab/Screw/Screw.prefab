@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8069253258473650526}
+  - component: {fileID: 4344802580636591747}
   - component: {fileID: 4315113089152791740}
   - component: {fileID: 8342564033524190663}
   m_Layer: 6
@@ -34,6 +35,27 @@ Transform:
   - {fileID: 269569543689248346}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -180, y: 25.600998, z: 0}
+--- !u!135 &4344802580636591747
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689671282624167913}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.11695308
+  m_Center: {x: -0.004737163, y: -0.26578683, z: -0.0000000060579484}
 --- !u!114 &4315113089152791740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +191,6 @@ GameObject:
   - component: {fileID: 5667662520865339102}
   - component: {fileID: 2010753354881304325}
   - component: {fileID: 763458716388198949}
-  - component: {fileID: 5793761739344445636}
   m_Layer: 6
   m_Name: ScrewVisuals
   m_TagString: Untagged
@@ -255,7 +276,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 1620690584e07a94e8d279fff4ada583, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -276,24 +297,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 0}
---- !u!135 &5793761739344445636
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3620716524779168838}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.11695308
-  m_Center: {x: -0.004737163, y: -0.26578683, z: -0.0000000060579484}

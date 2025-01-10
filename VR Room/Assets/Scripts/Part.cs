@@ -34,7 +34,6 @@ public class Part : CarPart
     {
         m_parentParts.Add(parent);
         Disassembled += parent.ReleaseChildren;
-        Assembled += parent.SetChildren;
     }
 
     public void SetChildren(Part partInteractable)
@@ -49,26 +48,18 @@ public class Part : CarPart
 
     public override async Task StartAssemble()
     {
-        if (!CanBeAssembled)
-        {
-            return;
-        }
         await Assemble();
     }
 
 
     private async Task Assemble()
     {
-        if (m_animationHandler)
-        {
-            await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION_NAME);
-        }
-        Assembled?.Invoke(this);
+        await m_animationHandler.PlayAnimationAndWait(ASSEMBLE_ANIMATION_NAME);
     }
 
     public override async Task StartDisassemble()
     {
-        if (HasDependableParts)
+        if (m_dependableParts.Count > 0)
         {
             return;
         }
@@ -77,14 +68,18 @@ public class Part : CarPart
 
     private async Task Disassemble()
     {
+        if (HasDependableParts)
+        {
+            return;
+        }
+
         if (m_animationHandler)
         {
             await m_animationHandler.PlayAnimationAndWait(DISASSEMBLE_ANIMATION_NAME);
         }
 
         Disassembled?.Invoke(this);
-        gameObject.SetActive(false);
-/*        var command = new HideCommand(gameObject);
-        CommandHandler.ExecuteCommand(command);*/
+        var command = new HideCommand(gameObject);
+        CommandHandler.ExecuteCommand(command);
     }
 }

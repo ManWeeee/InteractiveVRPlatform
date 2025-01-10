@@ -554,7 +554,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 3
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -624,7 +624,7 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 1
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 3
+  m_MaxRaycastDistance: 1.5
   m_RayOriginTransform: {fileID: 0}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
@@ -918,14 +918,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiManager: {fileID: 0}
-  m_menuButtonAction:
+  carPartLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  uiManager: {fileID: 0}
+  menuButtonAction:
     m_UseReference: 1
     m_Action:
       m_Name: Menu Button
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: aa165c41-d017-4d09-a864-853c4bf42d9a
+      m_Id: 57a4826c-d9bc-4e15-aa21-91ef48fd0900
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -1568,7 +1571,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 3
   m_AttachTransform: {fileID: 0}
   m_KeepSelectedTargetValid: 1
   m_DisableVisualsWhenBlockedInGroup: 1
@@ -1638,7 +1641,7 @@ MonoBehaviour:
   m_AllowHoverHapticsWhileSelecting: 1
   m_LineType: 0
   m_BlendVisualLinePoints: 1
-  m_MaxRaycastDistance: 3
+  m_MaxRaycastDistance: 1.5
   m_RayOriginTransform: {fileID: 0}
   m_ReferenceFrame: {fileID: 0}
   m_Velocity: 16
@@ -1932,14 +1935,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiManager: {fileID: 0}
-  m_menuButtonAction:
+  carPartLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  uiManager: {fileID: 0}
+  menuButtonAction:
     m_UseReference: 1
     m_Action:
-      m_Name: 
+      m_Name: Menu Button
       m_Type: 0
       m_ExpectedControlType: 
-      m_Id: 426a0c04-b148-48ed-9576-8f15bae1622b
+      m_Id: 222ce026-ffb3-433d-950a-75e8c5ddf401
       m_Processors: 
       m_Interactions: 
       m_SingletonActionBindings: []
@@ -2562,7 +2568,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313711679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2213c36610e3b1c4bbf886810ed9db12, type: 3}
   m_Name: 
@@ -2571,7 +2577,7 @@ MonoBehaviour:
   m_TurnAmount: 45
   m_DebounceTime: 0.5
   m_EnableTurnLeftRight: 1
-  m_EnableTurnAround: 0
+  m_EnableTurnAround: 1
   m_DelayTime: 0
   m_LeftHandSnapTurnAction:
     m_UseReference: 1
@@ -2620,7 +2626,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313711679}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 
@@ -2634,7 +2640,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313711679}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
   m_Name: 
@@ -2673,7 +2679,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313711679}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
   m_Name: 
@@ -2739,7 +2745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a6bf8af6c0432439ee1286b38f64cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_levelInfo: {fileID: 11400000, guid: 29016ebc7c4d02548a5070d0d38d6cd8, type: 2}
+  m_levelInfo: {fileID: 0}
 --- !u!4 &1367457764
 Transform:
   m_ObjectHideFlags: 0
@@ -2762,7 +2768,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6470914648593752940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
   m_Name: 
@@ -3417,8 +3423,8 @@ BoxCollider:
   m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6, y: 0.048710138, z: 4}
-  m_Center: {x: 0, y: -0.007476934, z: 0}
+  m_Size: {x: 6, y: 0.160005, z: 4}
+  m_Center: {x: 0, y: -0.0800025, z: 0}
 --- !u!33 &7496440039732689925
 MeshFilter:
   m_ObjectHideFlags: 0

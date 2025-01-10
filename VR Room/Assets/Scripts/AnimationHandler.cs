@@ -1,4 +1,3 @@
-﻿using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -19,23 +18,11 @@ namespace Assets.Scripts
             m_animator.SetTrigger(animationName);
 
             await WaitForAnimation(m_animator, animationName);
-            return;
         }
 
         private async Task WaitForAnimation(Animator animator, string animationName)
         {
-            var animationState = animator.GetCurrentAnimatorStateInfo(0);
-            if (!animationState.IsName(animationName))
-            {
-                while (!animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
-                {
-                    await Task.Yield();
-                }
-            }
-
-            float animationLength = animationState.length;
-
-            await Task.Delay((int)(animationLength * 1000));
+            await Task.Delay((int)(animator.GetCurrentAnimatorStateInfo(0).length) * 1000);
         }
 
     }

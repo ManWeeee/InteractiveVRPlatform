@@ -59,7 +59,7 @@ namespace Assets.Scripts
         {
             base.OnHoverEntering(args);
             if (args.interactorObject.transform.gameObject.TryGetComponent<InteractionInfo>(
-                    out InteractionInfo interactionInfo) && CanDisassemble)
+                    out InteractionInfo interactionInfo) && CanAssemble || CanDisassemble)
             {
                 OnHoverEnter(interactionInfo.GetHoverMaterials);
                 HoverEntered?.Invoke(args);
@@ -68,14 +68,12 @@ namespace Assets.Scripts
 
         protected override void OnHoverExiting(HoverExitEventArgs args)
         {
-            base.OnHoverExiting(args);
             //TODO: Even if on hover entering nothing changed this part works, doing unecessary opearations
-            if (!CanDisassemble)
+            if(!CanAssemble && !CanDisassemble)
             {
-                Debug.Log("Hover exiting BLOCKED as we are not in Disassembly mode");
                 return;
             }
-            Debug.Log("Hover exiting!! ");
+            base.OnHoverExiting(args);
             OnHoverExit();
             HoverExited?.Invoke(args);
         }
@@ -89,7 +87,6 @@ namespace Assets.Scripts
             }
             else if (CanAssemble)
             {
-                Debug.Log("Start Assembly from Interactable");
                 m_part.StartAssemble();
             }
         }

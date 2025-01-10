@@ -20,7 +20,7 @@ public class ModeSwitcher : MonoBehaviour
 
     public void SwitchToAssembly()
     {
-       m_viewModeManager.SetMode(new AssemblyMode());
+       // m_viewModeManager.SetMode(new AssemlyMode());
     }
 
     public void SwitchToInspection()
