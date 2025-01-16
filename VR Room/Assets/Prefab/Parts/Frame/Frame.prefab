@@ -1849,7 +1849,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_parentParts: []
   m_dependableParts: []
-  m_partInfo: {fileID: 0}
+  m_partInfo: {fileID: 11400000, guid: ed4f3bfe6e351b54c8ea569fa8b51e5b, type: 2}
 --- !u!1 &2956932925974055421
 GameObject:
   m_ObjectHideFlags: 0

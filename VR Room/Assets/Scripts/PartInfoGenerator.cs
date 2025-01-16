@@ -1,4 +1,4 @@
-/*using Assets.Scripts;
+using Assets.Scripts;
 using UnityEditor;
 using UnityEngine;
 
@@ -7,11 +7,11 @@ public class PartInfoGenerator : Editor
     [MenuItem("Tools/Generate and Assign Part Info")]
     public static void GenerateAndAssignPartInfo()
     {
-        string savePath = "Assets/PartInfo/Wheel/";
+        string savePath = "Assets/PartInfo/SteeringKnuckle/";
 
         if (!AssetDatabase.IsValidFolder(savePath))
         {
-            AssetDatabase.CreateFolder("Assets/PartInfo", "Wheel");
+            AssetDatabase.CreateFolder("Assets/PartInfo", "SteeringKnuckle");
         }
 
         Object[] selectedPrefabs = Selection.objects;
@@ -50,4 +50,4 @@ public class PartInfoGenerator : Editor
         AssetDatabase.Refresh();
         Debug.Log("Finished generating and assigning PartInfo.");
     }
-}*/
+}

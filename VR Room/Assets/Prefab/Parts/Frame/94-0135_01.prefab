@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_parentParts: []
   m_dependableParts: []
-  m_partInfo: {fileID: 0}
+  m_partInfo: {fileID: 11400000, guid: aa6b6dab9cf485a49a8ff731c585120b, type: 2}
 --- !u!114 &2596243061621423753
 MonoBehaviour:
   m_ObjectHideFlags: 0
