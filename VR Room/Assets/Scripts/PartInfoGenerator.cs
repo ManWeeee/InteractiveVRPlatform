@@ -7,11 +7,11 @@ public class PartInfoGenerator : Editor
     [MenuItem("Tools/Generate and Assign Part Info")]
     public static void GenerateAndAssignPartInfo()
     {
-        string savePath = "Assets/PartInfo/SteeringKnuckle/";
+        string savePath = "Assets/PartInfo/Nut/";
 
         if (!AssetDatabase.IsValidFolder(savePath))
         {
-            AssetDatabase.CreateFolder("Assets/PartInfo", "SteeringKnuckle");
+            AssetDatabase.CreateFolder("Assets/PartInfo", "Nut");
         }
 
         Object[] selectedPrefabs = Selection.objects;
