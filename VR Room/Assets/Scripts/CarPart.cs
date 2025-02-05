@@ -114,5 +114,4 @@ public class CarPartAnimator
 
     public string AssembleAnimationName => ASSEMBLE_ANIMATION_NAME;
     public string DisassembleAnimationName => DISASSEMBLE_ANIMATION_NAME;
-
 }

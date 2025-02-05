@@ -24,12 +24,11 @@ namespace Assets.Scripts
         private async Task WaitForAnimation(Animator animator, string animationName)
         {
             var animationState = animator.GetCurrentAnimatorStateInfo(0);
-            if (!animationState.IsName(animationName))
+
+            while (!animationState.IsName(animationName))
             {
-                while (!animator.GetCurrentAnimatorStateInfo(0).IsName(animationName))
-                {
-                    await Task.Yield();
-                }
+                await Task.Yield();
+                animationState = animator.GetCurrentAnimatorStateInfo(0);
             }
 
             float animationLength = animationState.length;
