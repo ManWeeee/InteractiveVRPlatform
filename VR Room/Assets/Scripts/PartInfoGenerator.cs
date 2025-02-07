@@ -1,4 +1,4 @@
-using Assets.Scripts;
+/*using Assets.Scripts;
 using UnityEditor;
 using UnityEngine;
 
@@ -50,4 +50,4 @@ public class PartInfoGenerator : Editor
         AssetDatabase.Refresh();
         Debug.Log("Finished generating and assigning PartInfo.");
     }
-}
+}*/

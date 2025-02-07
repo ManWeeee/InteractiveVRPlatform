@@ -1,4 +1,4 @@
-using UnityEditor;
+/*using UnityEditor;
 using UnityEngine;
 
 public class AssignPartMesh : MonoBehaviour
@@ -55,3 +55,4 @@ public class AssignPartMesh : MonoBehaviour
         Debug.Log("Finished assigning meshes to selected objects.");
     }
 }
+*/
