@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15eddb3d98aba7340816174cd8e34945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiOffset: 0.5
+  m_uiOffset: 0.6
   m_menuOpenActionProperty:
     m_UseReference: 1
     m_Action:
@@ -481,7 +481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1087400708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6ce2b7814ede02499ebd90883deb29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_levelInfo: {fileID: 0}
+  m_currentLevelInfo: {fileID: 0}
 --- !u!4 &1087400709
 Transform:
   m_ObjectHideFlags: 0
@@ -546,23 +546,23 @@ MonoBehaviour:
     - Reference:
         asset: {fileID: 102900000, guid: 42028c4d661fc0a4db91609129b02aa2, type: 3}
         guid: 42028c4d661fc0a4db91609129b02aa2
+      LocationName: 
       SceneType: 2
-      Description: 
       PreviewVideoClip: {fileID: 0}
   - m_scenesData:
     - Reference:
         asset: {fileID: 102900000, guid: 3999ad5ad10bc8348a1ffc754fb14430, type: 3}
         guid: 3999ad5ad10bc8348a1ffc754fb14430
+      LocationName: Test Environment
       SceneType: 0
-      Description: Here you will learn how to work with wheels
       PreviewVideoClip: {fileID: 32900000, guid: c675fc381244840f4900887e1b0870d7,
         type: 3}
   - m_scenesData:
     - Reference:
         asset: {fileID: 102900000, guid: 99c9720ab356a0642a771bea13969a05, type: 3}
         guid: 99c9720ab356a0642a771bea13969a05
+      LocationName: Garage
       SceneType: 0
-      Description: Sandbox mode, explore as much as you want
       PreviewVideoClip: {fileID: 32900000, guid: 8cd99a81a5fad4847b8aa48a15272de0,
         type: 3}
 --- !u!4 &1127558579
@@ -677,6 +677,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2098352858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2098352860}
+  - component: {fileID: 2098352861}
+  m_Layer: 0
+  m_Name: LevelLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2098352860
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098352858}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 15.81166, y: 0.784529, z: 8.316897}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2098352861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098352858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0577569451d94c24aab7644552c09873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_levelInfo:
+  - {fileID: 11400000, guid: ce01a2bc94e73b5418fa5661967ae291, type: 2}
+  - {fileID: 11400000, guid: 29016ebc7c4d02548a5070d0d38d6cd8, type: 2}
 --- !u!1 &2110688314
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,3 +808,4 @@ SceneRoots:
   - {fileID: 990757758}
   - {fileID: 1087400709}
   - {fileID: 367395913}
+  - {fileID: 2098352860}

@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carPrefab: {fileID: 8860430961205144117, guid: 33fc650c6d5fd17468e54e6552f9dbf8,
     type: 3}
-  brokenPartType: -1
+  brokenPartType: 0
+  levelDescription: Welcome to the ultimate hands-on experience! Feel free to experiment,
+    explore, and master vehicle mechanics at your own pace.

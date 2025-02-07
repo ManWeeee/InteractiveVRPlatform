@@ -56,7 +56,7 @@ public class UiManager : MonoBehaviour
     }
     public void SetUiInFrontOfPlayer(IUiInstance instance)
     {
-        instance.SetPosition(Camera.main.transform.position + Camera.main.transform.forward * m_uiOffset);
+        instance.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
     }
 
     public void ChangeUiVisibility(IUiInstance instance)
@@ -82,11 +82,11 @@ public class UiManager : MonoBehaviour
         if (!existingInstance)
         {
             var instance = Instantiate(uiPrefab).GetComponent<UiInstance>();
+            SetUiInFrontOfPlayer(instance);
             SetUiTarget(instance);
             m_CreatedUiPrefabs.Add(uiPrefab, instance);
             instance.DestroyAction += UnregisterUi;
             instance.ShowUi();
-            SetUiInFrontOfPlayer(instance);
             return;
         }
 
@@ -100,6 +100,7 @@ public class UiManager : MonoBehaviour
         {
             billboard.SetTarget(Camera.main.transform);
         }
+
     }
 
     private void OnDestroy()
