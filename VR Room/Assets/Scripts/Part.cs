@@ -1,8 +1,22 @@
+using System.Net;
 using System.Threading.Tasks;
 using Assets.Scripts;
+using Unity.VisualScripting;
+using UnityEngine;
 
 public class Part : CarPart
 {
+    private void OnDrawGizmos()
+    {
+        if (m_partInfo && m_partInfo.GetCarPartType == CarPartType.Bolt )
+            return;
+
+        if (m_dependableParts.Count == 0)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 0.01f);
+        }
+    }
     protected override void Awake()
     {
         base.Awake();
@@ -24,7 +38,6 @@ public class Part : CarPart
         }
         await Assemble();
     }
-
 
     private async Task Assemble()
     {

@@ -16,3 +16,4 @@ MonoBehaviour:
   m_assembleSound: {fileID: 0}
   m_partMesh: {fileID: 1410812712141961147, guid: bf3f642e51d48e84fa714bf4891285a6,
     type: 3}
+  m_partType: 4

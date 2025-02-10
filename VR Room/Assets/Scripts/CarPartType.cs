@@ -10,6 +10,8 @@ namespace Assets.Scripts
         None,
         Wheel,
         Brake,
-        Battery
+        Battery,
+        Bolt,
+        Nut
     }
 }
