@@ -14,11 +14,11 @@ public class Car : MonoBehaviour
 
     private void Awake()
     {
-        if (!Container.TryGetInstance<LevelManager>(out var manager))
+        if (!Container.TryGetInstance<LevelInfoHolder>(out var manager))
         {
             Debug.LogError($"Unable to instance of type {manager.GetType()} in {this.GetType()}");
         }
-        m_partManager = new(GetComponentsInChildren<CarPart>().ToList(), manager.LevelInfo.brokenPartType);
+        m_partManager = new(GetComponentsInChildren<CarPart>().ToList(), manager.CurrentLevelInfo.brokenPartType);
         m_stateManager = new(m_partManager, m_inactiveMaterial);
     }
 
@@ -27,7 +27,6 @@ public class Car : MonoBehaviour
 public class CarStateManager
 {
     private Material m_inactiveMaterial;
-    private Material m_highlightedMaterial;
     private CarPartManager m_partManager;
     public CarStateManager(CarPartManager partManager, Material inactive)
     {

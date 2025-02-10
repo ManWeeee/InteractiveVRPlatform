@@ -6,17 +6,25 @@ public class CarFactory : MonoBehaviour
     [SerializeField] private Transform m_spawnPosition;
     private GameObject m_carGameObject;
 
-    private void Awake()
+    private void Start()
     {
-        if(Container.TryGetInstance<LevelManager>(out var manager))
+        if(Container.TryGetInstance<LevelInfoHolder>(out var manager))
         {
-            manager.LevelInfoChanged += OnLevelInfoChanged;
+            TakeLevelInfoFrom(manager);
+            //manager.LevelInfoChanged += OnLevelInfoChanged;
         }
+    }
+
+    private void TakeLevelInfoFrom(LevelInfoHolder manager)
+    {
+        var info = Container.GetInstance<LevelInfoHolder>().CurrentLevelInfo;
+        m_carGameObject = info.carPrefab;
+        CreateInstance(m_spawnPosition.position, m_spawnPosition.rotation);
     }
 
     private void OnLevelInfoChanged()
     {
-        var info = Container.GetInstance<LevelManager>().LevelInfo;
+        var info = Container.GetInstance<LevelInfoHolder>().CurrentLevelInfo;
         m_carGameObject = info.carPrefab;
         CreateInstance(m_spawnPosition.position, m_spawnPosition.rotation);
     }
@@ -27,10 +35,10 @@ public class CarFactory : MonoBehaviour
         return car;
     }
 
-    private void OnDestroy()
+/*    private void OnDestroy()
     {
         if (Container.TryGetInstance<LevelManager>(out var instance)) { 
             instance.LevelInfoChanged -= OnLevelInfoChanged;
         } 
-    }
+    }*/
 }

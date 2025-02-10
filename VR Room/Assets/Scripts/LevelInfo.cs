@@ -8,4 +8,5 @@ public class LevelInfo : ScriptableObject
 {
     public GameObject carPrefab;
     public CarPartType brokenPartType;
+    public string levelDescription;
 }

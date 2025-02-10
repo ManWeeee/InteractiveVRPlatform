@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/Lobby.unity
     guid: 42028c4d661fc0a4db91609129b02aa2
   - enabled: 1
-    path: Assets/Scenes/Game.unity
+    path: Assets/Scenes/Garage.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Level.unity
+    path: Assets/Scenes/TestEnvironment.unity
     guid: 3999ad5ad10bc8348a1ffc754fb14430
   - enabled: 0
     path: Assets/Scenes/Ui.unity

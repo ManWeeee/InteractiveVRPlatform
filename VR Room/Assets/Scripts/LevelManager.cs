@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private LevelInfo m_levelInfo;
+    [SerializeField] private LevelInfo m_currentLevelInfo;
 
-    public Action LevelInfoChanged;
+    //public Action LevelInfoChanged;
 
-    public LevelInfo LevelInfo => m_levelInfo;
+    public LevelInfo LevelInfo => m_currentLevelInfo;
 
     private void Awake()
     {
@@ -18,8 +18,8 @@ public class LevelManager : MonoBehaviour
 
     public void SetLevelInfo(LevelInfo levelInfo)
     {
-        m_levelInfo = levelInfo;
-        LevelInfoChanged?.Invoke();
+        m_currentLevelInfo = levelInfo;
+        //LevelInfoChanged?.Invoke();
     }
 
     private void OnDestroy()

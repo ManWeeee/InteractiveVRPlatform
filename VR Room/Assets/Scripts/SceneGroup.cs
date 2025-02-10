@@ -29,8 +29,8 @@ namespace SceneManagement
     {
         public SceneReference Reference;
         public string Name => Reference.Name;
+        public string LocationName;
         public SceneType SceneType;
-        public string Description;
         public VideoClip PreviewVideoClip;
     }
 

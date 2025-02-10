@@ -6,7 +6,7 @@ using UnityEngine.Video;
 public class ScenePresenter : MonoBehaviour
 {
     [SerializeField] private SceneManipulator m_sceneManipulator;
-    [SerializeField] private TextMeshProUGUI m_description;
+    [SerializeField] private TextMeshProUGUI m_locationName;
     [SerializeField] private VideoPlayer m_videoPlayer;
 
     private SceneData m_currentScene;
@@ -25,7 +25,7 @@ public class ScenePresenter : MonoBehaviour
 
     private void UpdateUi()
     {
-        m_description.text = m_currentScene.Description;
+        m_locationName.text = "Location :" + m_currentScene.LocationName;
     }
 
     private void UpdateAndPlayVideoClip()
