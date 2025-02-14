@@ -13,6 +13,11 @@ namespace SceneManagement
 
         public readonly SceneGroupManager SceneGroupManager = new();
 
+        public SceneGroup this[int index]
+        {
+            get { return m_sceneGroups[index]; }
+        }
+
         public int SceneGroupSize => m_sceneGroups.Length;
 
         private void Awake()

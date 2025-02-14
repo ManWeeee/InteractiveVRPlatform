@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using SceneManagement;
+using UnityEngine.Events;
 
 public class MenuUi : UiInstance
 {
-    [SerializeField] private Button m_undoButton;
-    [SerializeField] private Button m_redoButton;
-    private CommandHandler m_handler;
+    [SerializeField] private GameObject m_modesUiPrefab;
+    [SerializeField] private Button m_modesButton;
+    [SerializeField] private Button m_closeUiButton;
+    [SerializeField] private Button m_returnToLobbyUiButton;
+
     private void Start()
     {
-        m_handler = Container.GetInstance<CommandHandler>();
-        m_undoButton.onClick.AddListener(m_handler.UndoCommand);
-        m_redoButton.onClick.AddListener(m_handler.RedoCommand);
+        if(Container.TryGetInstance<SceneLoader>(out SceneLoader loader))
+        {
+            if(loader.SceneGroupManager.ActiveSceneGroup != loader[0])
+                m_returnToLobbyUiButton.onClick.AddListener(async () => await loader.LoadSceneGroup(0));
+        }
+        m_closeUiButton.onClick.AddListener(m_closeUiButton.GetComponent<UiInstance>().CloseUi);
     }
 }

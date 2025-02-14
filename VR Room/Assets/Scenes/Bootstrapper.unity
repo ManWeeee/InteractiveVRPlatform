@@ -254,21 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiOffset: 0.6
-  m_menuOpenActionProperty:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Menu Open Action Property
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 4781435b-4ae7-45c5-b106-97f927e3a32d
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -5365007425072480488, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
-  m_mainMenu: {fileID: 6024308644588448064, guid: eb4c87208cb264e4fb88921749fffe42,
-    type: 3}
 --- !u!4 &367395913
 Transform:
   m_ObjectHideFlags: 0
@@ -547,7 +532,7 @@ MonoBehaviour:
         asset: {fileID: 102900000, guid: 42028c4d661fc0a4db91609129b02aa2, type: 3}
         guid: 42028c4d661fc0a4db91609129b02aa2
       LocationName: 
-      SceneType: 2
+      SceneType: 0
       PreviewVideoClip: {fileID: 0}
   - m_scenesData:
     - Reference:

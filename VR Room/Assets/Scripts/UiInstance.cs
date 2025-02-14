@@ -17,7 +17,6 @@ public class UiInstance : MonoBehaviour, IUiInstance
     protected virtual void Awake()
     {
         UiObject = this.gameObject;
-        //Container.GetInstance<UiManager>().RegisterUI(this);
     }
 
     public virtual void UpdateUi()

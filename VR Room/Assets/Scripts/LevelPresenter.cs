@@ -16,6 +16,7 @@ public class LevelPresenter : MonoBehaviour
         if (Container.TryGetInstance<LevelInfoHolder>(out LevelInfoHolder holder))
         {
             m_levelInfoHolder = holder;
+            m_index = m_levelInfoHolder.GetLevelInfoIndex(m_levelInfoHolder.CurrentLevelInfo);
             UpdateUi();
         }
     }
@@ -46,6 +47,6 @@ public class LevelPresenter : MonoBehaviour
 
     private void UpdateUi()
     {
-        m_levelDescription.text = "Level : " + m_levelInfoHolder.CurrentLevelInfo.levelDescription;
+        m_levelDescription.text = "Application : " + m_levelInfoHolder.CurrentLevelInfo.levelDescription;
     }
 }

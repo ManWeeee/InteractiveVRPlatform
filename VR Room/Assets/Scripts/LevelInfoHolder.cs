@@ -1,3 +1,4 @@
+using ModestTree;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,6 +17,11 @@ public class LevelInfoHolder : MonoBehaviour
         set { m_currentLevelInfo = value; }
     }
 
+    private LevelInfo this[int index]
+    {
+        get { return m_levelInfo[index]; }
+    }
+
     private void Start()
     {
         Container.Register(this);
@@ -25,5 +31,10 @@ public class LevelInfoHolder : MonoBehaviour
     public LevelInfo GetLevelInfo(int index)
     {
         return m_levelInfo[index];
+    }
+
+    public int GetLevelInfoIndex(LevelInfo levelInfo)
+    {
+        return m_levelInfo.IndexOf(levelInfo);
     }
 }

@@ -15,6 +15,7 @@ namespace SceneManagement
         public Action OnSceneGroupLoaded;
         private SceneGroup m_activeSceneGroup;
 
+        public SceneGroup ActiveSceneGroup => m_activeSceneGroup;
         public async UniTask LoadSceneGroup(SceneGroup group)
         {
             m_activeSceneGroup = group;

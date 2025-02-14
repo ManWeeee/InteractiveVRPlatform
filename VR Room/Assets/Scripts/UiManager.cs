@@ -11,8 +11,7 @@ using UnityEngine.InputSystem;
 public class UiManager : MonoBehaviour
 {
     [SerializeField] private float m_uiOffset;
-    [SerializeField] private InputActionProperty m_menuOpenActionProperty;
-    [SerializeField] private GameObject m_mainMenu;
+    
 
     private Dictionary<GameObject, UiInstance> m_CreatedUiPrefabs = new();
 
@@ -28,13 +27,7 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (m_menuOpenActionProperty.action.WasPerformedThisFrame())
-        {
-            CreateUi(m_mainMenu);
-        }
-    }
+   
 
     /*    public void RegisterUI(UiInstance instance)
         {

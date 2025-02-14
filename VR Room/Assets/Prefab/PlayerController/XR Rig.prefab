@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8440219818913055189}
   - component: {fileID: 1574765822477395077}
   - component: {fileID: 8471475484535735711}
-  - component: {fileID: 233447239524259625}
   - component: {fileID: 8760596658529817774}
   m_Layer: 0
   m_Name: LeftHand Controller
@@ -660,32 +659,6 @@ MonoBehaviour:
   m_OverrideInteractorLineOrigin: 1
   m_LineOriginTransform: {fileID: 0}
   m_LineOriginOffset: 0
---- !u!114 &233447239524259625
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1066204711649365123}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_uiManager: {fileID: 0}
-  m_menuButtonAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Menu Button
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: f9f12068-e066-492b-804b-d918b7a5f9e8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -7661013000225644801, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
 --- !u!114 &8760596658529817774
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -755,7 +728,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 2245702400429248400}
   m_CameraFloorOffsetObject: {fileID: 2988819267015492904}
   m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1176
+  m_CameraYOffset: 1.15
 --- !u!114 &2025998836181069970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,7 +750,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2245702400429248400}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
   m_Name: 
@@ -882,8 +855,7 @@ MonoBehaviour:
       m_Interactions: 
       m_SingletonActionBindings: []
       m_Flags: 0
-    m_Reference: {fileID: -7374733323251553461, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
+    m_Reference: {fileID: 0}
   m_RightHandSnapTurnAction:
     m_UseReference: 1
     m_Action:
@@ -904,7 +876,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2245702400429248400}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
   m_Name: 
@@ -964,6 +936,7 @@ GameObject:
   - component: {fileID: 8577137355034089753}
   - component: {fileID: 534793833862087072}
   - component: {fileID: 4049716221610274812}
+  - component: {fileID: 8421786797739455288}
   m_Layer: 0
   m_Name: RightHand Controller
   m_TagString: Untagged
@@ -1648,6 +1621,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
+--- !u!114 &8421786797739455288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2704533942815931917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f6431e64a3db34983e5b5ba65fb461, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_menuOpenActionProperty:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Menu Open Action Property
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 37d47690-0d2c-466f-8116-ad421ea4a743
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -5365007425072480488, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  m_mainMenu: {fileID: 6024308644588448064, guid: eb4c87208cb264e4fb88921749fffe42,
+    type: 3}
 --- !u!1 &2988819267015492904
 GameObject:
   m_ObjectHideFlags: 0
