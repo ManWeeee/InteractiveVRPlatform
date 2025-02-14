@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9119823422326290966}
   - component: {fileID: 5089821895796780665}
   - component: {fileID: 7705152381121916677}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 2484219833432167829}
   - component: {fileID: 6344359328717307564}
   - component: {fileID: 9003060240215748960}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ModesButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +268,7 @@ GameObject:
   - component: {fileID: 1850585605276627264}
   - component: {fileID: 2394428762804529777}
   - component: {fileID: 7745271702429051725}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ReturnToLobbyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 3060779740998339067}
   - component: {fileID: 1816025265642947776}
   - component: {fileID: 7277246735166419087}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: MenuUi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: 3828174102080814738}
   - component: {fileID: 5159999880900519147}
   - component: {fileID: 3491623244993613989}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
