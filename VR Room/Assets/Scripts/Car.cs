@@ -30,6 +30,7 @@ public class CarStateManager
     private CarPartManager m_partManager;
     public CarStateManager(CarPartManager partManager, Material inactive)
     {
+        //Container.Register(this);
         m_partManager = partManager;
         m_partManager.PartAssembled += UpdateAssemblyMode;
         m_inactiveMaterial = inactive;

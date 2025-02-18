@@ -19,7 +19,7 @@ public class MenuOpener : MonoBehaviour
     {
         if (m_menuOpenActionProperty.action.WasPerformedThisFrame())
         {
-            m_uiManager.CreateUi(m_mainMenu);
+            m_uiManager.OpenUi(m_mainMenu);
         }
     }
 }

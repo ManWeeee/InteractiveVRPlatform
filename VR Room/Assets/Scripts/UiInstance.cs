@@ -3,11 +3,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
+using DG.Tweening;
 using UnityEngine;
 
 public class UiInstance : MonoBehaviour, IUiInstance
 {
-    public Action<UiInstance> DestroyAction;
+    private Transform m_target;
+
+    public Action<GameObject> DestroyAction;
+
     public GameObject UiObject
     {
         get;
@@ -23,6 +27,7 @@ public class UiInstance : MonoBehaviour, IUiInstance
     {
         return;
     }
+
     public virtual void ShowUi()
     {
         UiObject.SetActive(true);
@@ -38,8 +43,18 @@ public class UiInstance : MonoBehaviour, IUiInstance
         UiObject.transform.position = position;
     }
 
+    public virtual void SetTarget(Transform objectTransform)
+    {
+        if (TryGetComponent<Billboard>(out Billboard billboard))
+        {
+            m_target = objectTransform;
+            billboard.SetTarget(m_target);
+        }
+    }
+
+
     private void OnDestroy()
     {
-        DestroyAction?.Invoke(this);
+        DestroyAction?.Invoke(UiObject);
     }
 }

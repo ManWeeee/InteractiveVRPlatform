@@ -1,19 +1,15 @@
-
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Assets.Scripts;
 using SceneManagement;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class UiManager : MonoBehaviour
 {
     [SerializeField] private float m_uiOffset;
-    
+    private IUiInstance m_activeUi;
 
-    private Dictionary<GameObject, UiInstance> m_CreatedUiPrefabs = new();
+    private Dictionary<GameObject, IUiInstance> m_CreatedUiPrefabs = new();
 
     private void Awake()
     {
@@ -27,73 +23,75 @@ public class UiManager : MonoBehaviour
         }
     }
 
-   
-
-    /*    public void RegisterUI(UiInstance instance)
-        {
-            if (m_loadedUIs.Contains(instance))
-            {
-                return;
-            }
-            m_loadedUIs.Add(instance);
-            instance.DestroyAction += UnregisterUi;
-        }*/
-
-    public void UnregisterUi(UiInstance instance)
+    public void RegisterUI(GameObject uiPrefab, IUiInstance instance)
     {
-        if (m_CreatedUiPrefabs.ContainsValue(instance))
+        if (m_CreatedUiPrefabs.ContainsKey(uiPrefab))
         {
-            m_CreatedUiPrefabs.Remove(m_CreatedUiPrefabs.FirstOrDefault(item => item.Value == instance).Key);
+            return;
         }
-        instance.DestroyAction -= UnregisterUi;
-    }
-    public void SetUiInFrontOfPlayer(IUiInstance instance)
-    {
-        instance.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
-    }
-
-    public void ChangeUiVisibility(IUiInstance instance)
-    {
-        instance.UiObject.SetActive(!instance.UiObject.activeSelf);
+        
+        var uiInstance = instance as UiInstance;
+        m_CreatedUiPrefabs.Add(uiPrefab, uiInstance);
+        uiInstance.DestroyAction += UnregisterUi;
     }
 
+    public void UnregisterUi(GameObject key)
+    {
+        if (m_activeUi == m_CreatedUiPrefabs[key])
+        {
+            m_activeUi = null;
+        }
+        if (m_CreatedUiPrefabs.ContainsKey(key))
+        {
+            var uiInstance = m_CreatedUiPrefabs[key] as UiInstance;
+            if (uiInstance != null)
+            {
+                uiInstance.DestroyAction -= UnregisterUi;
+            }
+
+            m_CreatedUiPrefabs.Remove(key);
+        }
+    }
 
     private void CloseAllUi()
     {
         foreach (var item in m_CreatedUiPrefabs)
         {
-            if (item.Value.UiObject.activeSelf == true)
+            if (item.Key != null && item.Value.UiObject != null && item.Value.UiObject.activeSelf)
             {
                 item.Value.CloseUi();
             }
         }
     }
 
-    public void CreateUi(GameObject uiPrefab)
+    public void OpenUi(GameObject uiPrefab)
     {
-        var existingInstance = m_CreatedUiPrefabs.TryGetValue(uiPrefab, out UiInstance uiInstance);
+        var existingInstance = m_CreatedUiPrefabs.TryGetValue(uiPrefab, out IUiInstance ui);
         if (!existingInstance)
         {
-            var instance = Instantiate(uiPrefab).GetComponent<UiInstance>();
-            SetUiInFrontOfPlayer(instance);
-            SetUiTarget(instance);
-            m_CreatedUiPrefabs.Add(uiPrefab, instance);
-            instance.DestroyAction += UnregisterUi;
-            instance.ShowUi();
-            return;
+            var instance = CreateUi(uiPrefab);
+            RegisterUI(instance.gameObject, instance);
+            /*          m_CreatedUiPrefabs.Add(uiPrefab, instance);
+                      instance.DestroyAction += UnregisterUi;*/
+            m_activeUi = instance;
+        }
+        else
+        {
+            m_activeUi = ui;
         }
 
-        uiInstance.ShowUi();
-        SetUiInFrontOfPlayer(uiInstance);
+        CloseAllUi();
+        m_activeUi.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
+        m_activeUi.ShowUi();
     }
 
-    private void SetUiTarget(UiInstance instance)
+    public UiInstance CreateUi(GameObject uiPrefab)
     {
-        if (instance.UiObject.TryGetComponent<Billboard>(out Billboard billboard))
-        {
-            billboard.SetTarget(Camera.main.transform);
-        }
-
+        var instance = Instantiate(uiPrefab).GetComponent<UiInstance>();
+        //m_CreatedUiPrefabs.Add(uiPrefab, instance);
+        instance.SetTarget(Camera.main.transform);
+        instance.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
+        return instance;
     }
 
     private void OnDestroy()

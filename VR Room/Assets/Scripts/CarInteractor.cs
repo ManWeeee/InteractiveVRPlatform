@@ -52,7 +52,7 @@ public class CarInteractor : MonoBehaviour
         CarUi carUi = carPart.GetComponentInParent<CarUi>();
         if (carUi != null && carUi.CarMenuUi != null)
         {
-            m_uiManager.CreateUi(carUi.CarMenuUi);
+            m_uiManager.OpenUi(carUi.CarMenuUi);
         }
     }
 }

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Accessibility;
 using UnityEngine.InputSystem;
 
 namespace Assets.Scripts
@@ -10,6 +11,12 @@ namespace Assets.Scripts
 
         public abstract void UpdateUi();
 
-        public void SetPosition(Vector3 position);
+        public abstract void ShowUi();
+
+        public abstract void CloseUi();
+
+        public abstract void SetPosition(Vector3 position);
+
+        public abstract void SetTarget(Transform objectTransform);
     }
 }
