@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelPresenter : MonoBehaviour
 {
     [SerializeField] private LevelInfoHolder m_levelInfoHolder;
     [SerializeField] private TextMeshProUGUI m_levelDescription;
+    [SerializeField] private Button m_previousIndexButton;
+    [SerializeField] private Button m_nextIndexButton;
 
     private int m_index = 0;
 
@@ -17,6 +20,8 @@ public class LevelPresenter : MonoBehaviour
         {
             m_levelInfoHolder = holder;
             m_index = m_levelInfoHolder.GetLevelInfoIndex(m_levelInfoHolder.CurrentLevelInfo);
+            m_previousIndexButton.onClick.AddListener(PreviousIndex);
+            m_nextIndexButton.onClick.AddListener(NextIndex);
             UpdateUi();
         }
     }
@@ -29,7 +34,7 @@ public class LevelPresenter : MonoBehaviour
             m_index = m_levelInfoHolder.LevelCount - 1;
         }
 
-        m_levelInfoHolder.CurrentLevelInfo = m_levelInfoHolder.GetLevelInfo(m_index);
+        m_levelInfoHolder.LoadNewLevelInfo(m_levelInfoHolder.GetLevelInfo(m_index));
         UpdateUi();
     }
 
@@ -41,7 +46,7 @@ public class LevelPresenter : MonoBehaviour
             m_index = 0;
         }
 
-        m_levelInfoHolder.CurrentLevelInfo = m_levelInfoHolder.GetLevelInfo(m_index);
+        m_levelInfoHolder.LoadNewLevelInfo(m_levelInfoHolder.GetLevelInfo(m_index));
         UpdateUi();
     }
 

@@ -8,19 +8,21 @@ using UnityEngine.XR.Management;
 public class LevelInfoHolder : MonoBehaviour
 {
     [SerializeField] private LevelInfo[] m_levelInfo;
+    [SerializeField]
     private LevelInfo m_currentLevelInfo;
 
     public int LevelCount => m_levelInfo.Length;
+    public Action<LevelInfo> LevelInfoChanged;
     public LevelInfo CurrentLevelInfo
     {
         get { return m_currentLevelInfo; }
         set { m_currentLevelInfo = value; }
     }
 
-    private LevelInfo this[int index]
+/*    private LevelInfo this[int index]
     {
         get { return m_levelInfo[index]; }
-    }
+    }*/
 
     private void Start()
     {
@@ -36,5 +38,11 @@ public class LevelInfoHolder : MonoBehaviour
     public int GetLevelInfoIndex(LevelInfo levelInfo)
     {
         return m_levelInfo.IndexOf(levelInfo);
+    }
+
+    public void LoadNewLevelInfo(LevelInfo info)
+    {
+        m_currentLevelInfo = info;
+        LevelInfoChanged?.Invoke(m_currentLevelInfo);
     }
 }

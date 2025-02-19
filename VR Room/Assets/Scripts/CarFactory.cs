@@ -9,29 +9,26 @@ public class CarFactory : MonoBehaviour
     private GameObject m_currentCar;
 
     private SceneLoader m_sceneLoader;
+    private LevelInfoHolder m_holder;
 
-    private void Start()
+    private void Awake()
     {
-        if (Container.TryGetInstance<SceneLoader>(out SceneLoader loader))
+        if(Container.TryGetInstance<LevelInfoHolder>(out var holder))
         {
-            m_sceneLoader = loader;
-            m_sceneLoader.SceneGroupManager.OnSceneGroupLoaded += CreateInstance;
-        }
-        if(Container.TryGetInstance<LevelInfoHolder>(out var manager))
-        {
-            TakeLevelInfoFrom(manager);
-            //manager.LevelInfoChanged += OnLevelInfoChanged;
+            m_holder = holder;
+            m_holder.LevelInfoChanged += OnLevelInfoChanged;
+            OnLevelInfoChanged(m_holder.CurrentLevelInfo);
         }
     }
 
-    private void TakeLevelInfoFrom(LevelInfoHolder manager)
+    private void TakeLevelInfo(LevelInfo info)
     {
-        m_levelInfo = manager.CurrentLevelInfo;
+        m_levelInfo = info;
     }
 
-    private void OnLevelInfoChanged()
+    private void OnLevelInfoChanged(LevelInfo info)
     {
-        var info = Container.GetInstance<LevelInfoHolder>().CurrentLevelInfo;
+        TakeLevelInfo(info);
         CreateInstance();
     }
 
@@ -42,11 +39,15 @@ public class CarFactory : MonoBehaviour
     }*/
     public void CreateInstance()
     {
+        if (m_currentCar) 
+        { 
+            Destroy(m_currentCar);
+        }
         m_currentCar = Instantiate(m_levelInfo.carPrefab, transform.position, transform.rotation);
     }
 
     public void OnDestroy()
     {
-        m_sceneLoader.SceneGroupManager.OnSceneGroupLoaded -= CreateInstance;
+        m_holder.LevelInfoChanged -= OnLevelInfoChanged;
     }
 }

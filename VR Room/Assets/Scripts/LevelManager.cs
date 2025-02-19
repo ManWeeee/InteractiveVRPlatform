@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
 
     //public Action LevelInfoChanged;
 
-    public LevelInfo LevelInfo => m_currentLevelInfo;
+    //public LevelInfo LevelInfo => m_currentLevelInfo;
 
     private void Awake()
     {

@@ -2524,7 +2524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 857a76aacff98264cb138091ce47a7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_loader: {fileID: 0}
+  m_sceneLoader: {fileID: 0}
 --- !u!114 &1047052505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2573,6 +2573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_levelInfoHolder: {fileID: 0}
   m_levelDescription: {fileID: 1698027250}
+  m_previousIndexButton: {fileID: 1706777341}
+  m_nextIndexButton: {fileID: 1328069279}
 --- !u!1 &1065869246
 GameObject:
   m_ObjectHideFlags: 0
