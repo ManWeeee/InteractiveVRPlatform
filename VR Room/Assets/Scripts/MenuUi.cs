@@ -5,6 +5,7 @@ using DG.Tweening;
 using SceneManagement;
 using UnityEngine.Events;
 using System;
+using Cysharp.Threading.Tasks.Triggers;
 
 public class MenuUi : UiInstance
 {
@@ -16,10 +17,11 @@ public class MenuUi : UiInstance
     [SerializeField] private Button m_returnToLobbyUiButton;
     [SerializeField] private Button m_exitGameButton;
 
-    private UnityAction SceneLoadMethod;
+    private UnityAction SceneLoadMethod = () => { };
 
     private void Start()
     {
+        //base.Start();
         if(Container.TryGetInstance<SceneLoader>(out SceneLoader loader))
         {
             if (loader.SceneGroupManager.ActiveSceneGroup != loader[0])
@@ -47,8 +49,9 @@ public class MenuUi : UiInstance
     {
         Container.GetInstance<UiManager>().OpenUi(uiPrefab);
     }
-    private void OnDestroy()
+    private new void OnDestroy()
     {
+        base.OnDestroy();
         m_returnToLobbyUiButton.onClick?.RemoveListener(SceneLoadMethod);
         m_modesButton.onClick.RemoveListener(ModeButtonPressed);
         m_closeUiButton.onClick.RemoveListener(this.CloseUi);

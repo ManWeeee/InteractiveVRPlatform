@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Accessibility;
@@ -18,5 +19,11 @@ namespace Assets.Scripts
         public abstract void SetPosition(Vector3 position);
 
         public abstract void SetTarget(Transform objectTransform);
+
+        public abstract UniTask FadeIn(float duration = 0.5f);
+
+        public abstract UniTask FadeOut(float duration = 0.5f);
+
+        public abstract UniTask FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float targetAlpha, float duration);
     }
 }

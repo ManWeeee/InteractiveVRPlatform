@@ -18,8 +18,13 @@ public class Car : MonoBehaviour
         {
             Debug.LogError($"Unable to instance of type {manager.GetType()} in {this.GetType()}");
         }
-        m_partManager = new(GetComponentsInChildren<CarPart>().ToList(), manager.CurrentLevelInfo.brokenPartType);
+        m_partManager = new(GetAllCarParts(), manager.CurrentLevelInfo.brokenPartType);
         m_stateManager = new(m_partManager, m_inactiveMaterial);
+    }
+
+    private List<CarPart> GetAllCarParts()
+    {
+        return GetComponentsInChildren<CarPart>().ToList();
     }
 
 }
@@ -194,6 +199,16 @@ public class CarPartManager
         }
         SetBrokenPartsType(brokenPartType);
         m_brokenParts = GetBrokenPartsByType(m_brokenPartsType, m_parts);
+    }
+
+    private void RestoreToDefault()
+    {
+        foreach (var part in m_removedCarParts)
+        {
+            part.StartAssemble();
+        }
+        m_brokenParts.Clear();
+        m_removedCarParts.Clear();
     }
 
     private void OnAssembled(CarPart part)

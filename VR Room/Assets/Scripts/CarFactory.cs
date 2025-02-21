@@ -8,7 +8,6 @@ public class CarFactory : MonoBehaviour
     private LevelInfo m_levelInfo;
     private GameObject m_currentCar;
 
-    private SceneLoader m_sceneLoader;
     private LevelInfoHolder m_holder;
 
     private void Awake()

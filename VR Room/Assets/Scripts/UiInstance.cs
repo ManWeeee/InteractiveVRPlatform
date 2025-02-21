@@ -3,12 +3,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Assets.Scripts;
+using Cysharp.Threading.Tasks;
 using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class UiInstance : MonoBehaviour, IUiInstance
 {
     private Transform m_target;
+    private CanvasGroup m_canvasGroup;
 
     public Action<GameObject> DestroyAction;
 
@@ -21,6 +24,7 @@ public class UiInstance : MonoBehaviour, IUiInstance
     protected virtual void Awake()
     {
         UiObject = this.gameObject;
+        m_canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public virtual void UpdateUi()
@@ -30,12 +34,12 @@ public class UiInstance : MonoBehaviour, IUiInstance
 
     public virtual void ShowUi()
     {
-        UiObject.SetActive(true);
+        FadeIn();
     }
 
     public virtual void CloseUi()
     {
-        UiObject?.SetActive(false);
+        FadeOut();
     }
 
     public virtual void SetPosition(Vector3 position)
@@ -52,8 +56,54 @@ public class UiInstance : MonoBehaviour, IUiInstance
         }
     }
 
+    public async UniTask FadeIn(float duration = 0.5f)
+    {
+        if (m_canvasGroup == null)
+        {
+            Debug.LogWarning("CanvasGroup is missing!");
+            return;
+        }
 
-    private void OnDestroy()
+        gameObject.SetActive(true); // Ensure UI is active before fading in
+        m_canvasGroup.interactable = true;
+        m_canvasGroup.blocksRaycasts = true;
+
+        await FadeCanvasGroup(m_canvasGroup, 0f, 1f, duration);
+    }
+
+    public async UniTask FadeOut(float duration = 0.5f)
+    {
+        if (m_canvasGroup == null)
+        {
+            Debug.LogWarning("CanvasGroup is missing!");
+            gameObject.SetActive(false);
+            return;
+        }
+
+        m_canvasGroup.interactable = false;
+        m_canvasGroup.blocksRaycasts = false;
+
+        await FadeCanvasGroup(m_canvasGroup, 1f, 0f, duration);
+        gameObject.SetActive(false); // Disable UI after fading out
+    }
+
+    public async UniTask FadeCanvasGroup(CanvasGroup canvasGroup, float startAlpha, float targetAlpha, float duration)
+    {
+        float elapsedTime = 0f;
+        canvasGroup.alpha = startAlpha;
+
+        while (elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            canvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / duration);
+            await UniTask.Yield(PlayerLoopTiming.Update); // Non-blocking async wait
+        }
+
+        canvasGroup.alpha = targetAlpha;
+    }
+
+
+    protected void OnDestroy()
     {
         DestroyAction?.Invoke(UiObject);
     }
