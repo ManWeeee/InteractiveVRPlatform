@@ -42,7 +42,10 @@ public class CarFactory : MonoBehaviour
         { 
             Destroy(m_currentCar);
         }
-        m_currentCar = Instantiate(m_levelInfo.carPrefab, transform.position, transform.rotation);
+        if (m_holder.CurrentLevelInfo != null)
+        {
+            m_currentCar = Instantiate(m_levelInfo.carPrefab, transform.position, transform.rotation);
+        }
     }
 
     public void OnDestroy()

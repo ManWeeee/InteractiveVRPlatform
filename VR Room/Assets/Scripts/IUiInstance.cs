@@ -8,7 +8,7 @@ namespace Assets.Scripts
 {
     public interface IUiInstance
     {
-        public GameObject UiObject { get; }
+        public GameObject PrefabUiObject { get; }
 
         public abstract void UpdateUi();
 
@@ -19,6 +19,8 @@ namespace Assets.Scripts
         public abstract void SetPosition(Vector3 position);
 
         public abstract void SetTarget(Transform objectTransform);
+
+        public abstract void SetPrefab(GameObject prefab);
 
         public abstract UniTask FadeIn(float duration = 0.5f);
 

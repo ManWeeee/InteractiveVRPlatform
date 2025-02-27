@@ -10,11 +10,8 @@ public class ModeSwitcher : MonoBehaviour
 
     private void Start()
     {
-        Container.ResolveWhenAvailable<CarViewModeManager>(manager =>
-        {
-            m_viewModeManager = manager;
-            Debug.Log("CarViewModeManager resolved!");
-        });
+        Container.TryGetInstance<CarViewModeManager>(out m_viewModeManager);
+        Debug.Log($"View mode manager is {m_viewModeManager.gameObject.name}");
     }
 
     public void SwitchToOverview()

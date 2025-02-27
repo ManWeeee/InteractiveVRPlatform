@@ -15,7 +15,7 @@ public class UiInstance : MonoBehaviour, IUiInstance
 
     public Action<GameObject> DestroyAction;
 
-    public GameObject UiObject
+    public GameObject PrefabUiObject
     {
         get;
         private set;
@@ -23,7 +23,6 @@ public class UiInstance : MonoBehaviour, IUiInstance
 
     protected virtual void Awake()
     {
-        UiObject = this.gameObject;
         m_canvasGroup = GetComponent<CanvasGroup>();
     }
 
@@ -44,7 +43,12 @@ public class UiInstance : MonoBehaviour, IUiInstance
 
     public virtual void SetPosition(Vector3 position)
     {
-        UiObject.transform.position = position;
+        gameObject.transform.position = position;
+    }
+
+    public virtual void SetPrefab(GameObject prefab)
+    {
+        PrefabUiObject = prefab;
     }
 
     public virtual void SetTarget(Transform objectTransform)
@@ -105,6 +109,6 @@ public class UiInstance : MonoBehaviour, IUiInstance
 
     protected void OnDestroy()
     {
-        DestroyAction?.Invoke(UiObject);
+        DestroyAction?.Invoke(gameObject);
     }
 }

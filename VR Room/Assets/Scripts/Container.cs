@@ -10,8 +10,6 @@ public static class Container
 {
     private static readonly Dictionary<Type, object> DependenciesDictionary = new();
 
-    private static readonly Dictionary<Type, List<Action<object>>> WaitingCallbacks = new();
-
     public static void Register<T>(T instance) where T : class
     {
         Type type = typeof(T);
@@ -22,15 +20,6 @@ public static class Container
 
         DependenciesDictionary[type] = instance;
         Debug.Log($"Registered instance of type {type}");
-
-        if (WaitingCallbacks.TryGetValue(type, out var callbacks))
-        {
-            foreach (var callback in callbacks)
-            {
-                callback(instance);
-            }
-            WaitingCallbacks.Remove(type); // Remove after notifying
-        }
     }
 
     public static void Unregister<T>() where T : class
@@ -67,29 +56,5 @@ public static class Container
         }
         instance = null;
         return false;
-    }
-
-    public static void ResolveWhenAvailable<T>(Action<T> callback) where T : class
-    {
-        Type type = typeof(T);
-
-        if (DependenciesDictionary.TryGetValue(type, out var instance))
-        {
-            callback(instance as T);
-            return;
-        }
-
-        if (!WaitingCallbacks.ContainsKey(type))
-        {
-            WaitingCallbacks[type] = new List<Action<object>>();
-        }
-
-        void WrappedCallback(object obj)
-        {
-            callback((T)obj);
-            WaitingCallbacks[type].Remove(WrappedCallback);
-        }
-
-        WaitingCallbacks[type].Add(WrappedCallback);
     }
 }

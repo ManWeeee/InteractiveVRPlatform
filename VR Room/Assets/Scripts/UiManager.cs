@@ -5,7 +5,9 @@ using Assets.Scripts;
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 using SceneManagement;
+using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class UiManager : MonoBehaviour
 {
@@ -27,13 +29,10 @@ public class UiManager : MonoBehaviour
 
     public void RegisterUI(GameObject uiPrefab, IUiInstance instance)
     {
-        if (!m_CreatedUiPrefabs.ContainsKey(uiPrefab))
-        {
-            m_CreatedUiPrefabs.Add(uiPrefab, instance);
-            var Instance = instance as UiInstance;
-            Instance.DestroyAction += UnregisterUi;
-            NumberOfCreatedUI = m_CreatedUiPrefabs.Count;
-        }
+        m_CreatedUiPrefabs.Add(uiPrefab, instance);
+        var Instance = instance as UiInstance;
+        Instance.DestroyAction += UnregisterUi;
+        NumberOfCreatedUI = m_CreatedUiPrefabs.Count;
     }
 
     public void UnregisterUi(GameObject key)
@@ -58,29 +57,15 @@ public class UiManager : MonoBehaviour
         Debug.Log($"Unregistered {key} from list");
     }
 
-/*    private void CleanupDestroyedUi()
-    {
-        var destroyedKeys = m_CreatedUiPrefabs
-            .Where(kvp => kvp.Value == null || kvp.Key == null) // Check if instance or key is destroyed
-            .Select(kvp => kvp.Key)
-            .ToList();
-
-        foreach (var key in destroyedKeys)
-        {
-            m_CreatedUiPrefabs.Remove(key);
-        }
-    }*/
-
     private UniTask CloseAllUi()
     {
-
         foreach (var item in m_CreatedUiPrefabs)
         {
             if(item.Value == m_activeUi)
             {
                 continue;
             }
-            if (item.Key != null && item.Value.UiObject != null && item.Value.UiObject.activeSelf)
+            else
             {
                 item.Value.CloseUi();
             }
@@ -90,40 +75,47 @@ public class UiManager : MonoBehaviour
 
     public async void OpenUi(GameObject uiPrefab)
     {
-        var existingInstance = m_CreatedUiPrefabs.TryGetValue(uiPrefab, out IUiInstance ui);
-        if (m_activeUi != null && m_activeUi == ui)
+        bool existingInstance = false;
+        IUiInstance ui = null;
+        foreach (var item in m_CreatedUiPrefabs)
         {
-            m_activeUi.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
-            return;
+            if(item.Value.PrefabUiObject == uiPrefab)
+            {
+                existingInstance = true;
+                ui = item.Value;
+                Debug.Log($"Retrieved instance of {uiPrefab}: {ui.GetType()}");
+                break;
+            }
         }
         if (!existingInstance)
         {
+            Debug.Log($"Created new instance of {uiPrefab}");
             var instance = CreateUi(uiPrefab);
             m_activeUi = instance;
         }
         else
         {
             m_activeUi = ui;
+            Debug.Log($"Already have an instance of {uiPrefab}, retrieved {ui.GetType()}");
+            if (m_activeUi != null && m_activeUi == ui && (m_activeUi as UiInstance).gameObject.activeSelf)
+            {
+                m_activeUi.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
+                return;
+            }
         }
+        
         m_activeUi.ShowUi();
         m_activeUi.SetPosition(Camera.main.transform.position + (Camera.main.transform.forward) * m_uiOffset);
         await CloseAllUi();
     }
 
-    public UiInstance CreateUi(GameObject uiPrefab)
+    public IUiInstance CreateUi(GameObject uiPrefab)
     {
         var obj = Instantiate(uiPrefab);
-        var instance = obj.GetComponent<UiInstance>();
-        RegisterUI(uiPrefab, instance);
+        var instance = obj.GetComponent<IUiInstance>();
+        RegisterUI(obj, instance);
         instance.SetTarget(Camera.main.transform);
+        instance.SetPrefab(uiPrefab);
         return instance;
-    }
-
-    private void OnDestroy()
-    {
-       /* if (Container.TryGetInstance<SceneLoader>(out var loader))
-        {
-            loader.SceneGroupManager.OnSceneGroupLoaded -= CloseAllUi;
-        }*/
     }
 }
