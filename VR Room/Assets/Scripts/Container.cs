@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,7 +14,6 @@ public static class Container
         {
             Debug.LogWarning($"Type {type} is already registered. Overwriting the instance.");
         }
-
         DependenciesDictionary[type] = instance;
         Debug.Log($"Registered instance of type {type}");
     }

@@ -23,10 +23,6 @@ public class UiManager : MonoBehaviour
         Container.Register(this);
     }
 
-    private void Start()
-    {
-    }
-
     public void RegisterUI(GameObject uiPrefab, IUiInstance instance)
     {
         m_CreatedUiPrefabs.Add(uiPrefab, instance);

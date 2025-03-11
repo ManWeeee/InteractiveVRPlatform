@@ -1,13 +1,18 @@
 using Assets.Scripts;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Car : MonoBehaviour
 {
     [SerializeField] private CarStateManager m_stateManager;
     [SerializeField] private Material m_inactiveMaterial;
+
+    private LevelInfoHolder m_levelInfoHolder;
 
     private CarPartManager m_partManager;
     public CarStateManager StateManager => m_stateManager;
@@ -18,13 +23,43 @@ public class Car : MonoBehaviour
         {
             Debug.LogError($"Unable to instance of type {manager.GetType()} in {this.GetType()}");
         }
-        m_partManager = new(GetAllCarParts(), manager.CurrentLevelInfo.brokenPartType);
-        m_stateManager = new(m_partManager, m_inactiveMaterial);
+        m_levelInfoHolder = manager;
+        m_levelInfoHolder.LevelInfoChanged += SetCar;
+        SetCar(m_levelInfoHolder.CurrentLevelInfo);
+/*        m_partManager = new(GetAllCarParts(), manager.CurrentLevelInfo.brokenPartType);
+        m_stateManager = new(m_partManager, m_inactiveMaterial);*/
     }
 
     private List<CarPart> GetAllCarParts()
     {
         return GetComponentsInChildren<CarPart>().ToList();
+    }
+
+    private async void SetCar(LevelInfo info)
+    {
+        List<CarPart> tmp = new();
+        if (info == null)
+        {
+            Debug.LogError($"{this.name} was unnable to set the car due to lack of LevelInfo");
+            return;
+        }
+        if(m_partManager != null)
+        {
+            await m_partManager.RestoreToDefault();
+            tmp = m_partManager.AllParts;
+        }
+        if (tmp.Count == 0)
+        {
+            tmp = GetAllCarParts();
+        }
+        m_partManager = new(tmp, info.brokenPartType);
+        m_stateManager = new(m_partManager, m_inactiveMaterial);
+        Debug.Log("SetCar");
+    }
+
+    private void OnDestroy()
+    {
+        m_levelInfoHolder.LevelInfoChanged -= SetCar;
     }
 
 }
@@ -72,7 +107,7 @@ public class CarStateManager
     {
         foreach (var part in m_partManager.AllParts)
         {
-            if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable))
+            if (!part.TryGetComponent<CarPartInteractable>(out CarPartInteractable interactable)) 
             {
                 continue;
             }
@@ -183,6 +218,7 @@ public class CarPartManager
     private List<CarPart> m_parts = new();
     private List<CarPart> m_brokenParts = new();
     private List<CarPart> m_removedCarParts = new();
+
     public Action PartAssembled;
     public List<CarPart> AllParts => m_parts;
     public List<CarPart> BrokenParts => m_brokenParts;
@@ -201,14 +237,37 @@ public class CarPartManager
         m_brokenParts = GetBrokenPartsByType(m_brokenPartsType, m_parts);
     }
 
-    private void RestoreToDefault()
+    /* public void RestoreToDefault()
+     {
+         foreach (var part in m_removedCarParts)
+         {
+             part.StartAssemble();
+         }
+         m_brokenParts.Clear();
+         m_removedCarParts.Clear();
+     }*/
+
+    public async UniTask RestoreToDefault()
     {
-        foreach (var part in m_removedCarParts)
+        List<UniTask> tasks = new();
+        Debug.Log("Restore to default started");
+        for (int i = m_removedCarParts.Count - 1; i >= 0; i--)
         {
-            part.StartAssemble();
+            m_removedCarParts[i].gameObject.SetActive(true);
+            tasks.Add(m_removedCarParts[i].Assemble());
         }
+
+/*        foreach (var part in m_removedCarParts)
+        {
+            part.gameObject.SetActive(true);
+            tasks.Add(part.Assemble());
+        }*/
+
+        await UniTask.WhenAll(tasks);
+
         m_brokenParts.Clear();
         m_removedCarParts.Clear();
+        Debug.Log("Restore to default finished work");
     }
 
     private void OnAssembled(CarPart part)

@@ -15,10 +15,16 @@ public class CarViewModeManager : MonoBehaviour
         Container.Register(this);
     }
 
-    private void Start()
+   /* private void Start()
     {
         car = GetComponent<Car>();
         SetMode(new OverviewMode());
+    }*/
+    private void OnEnable()
+    {
+        car = GetComponent<Car>();
+        SetMode(new OverviewMode());
+        Debug.Log("CarViewModeManager ON_ENABLE");
     }
 
     public void SetMode(ICarViewMode newMode)

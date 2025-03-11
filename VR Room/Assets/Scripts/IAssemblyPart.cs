@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -7,8 +8,8 @@ namespace Assets.Scripts
 {
     public interface IAssemblyPart
     {
-        public Task StartAssemble();
+        public UniTask StartAssemble();
 
-        public Task StartDisassemble();
+        public UniTask StartDisassemble();
     }
 }

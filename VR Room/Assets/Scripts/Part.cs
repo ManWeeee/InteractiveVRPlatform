@@ -1,6 +1,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using Assets.Scripts;
+using Cysharp.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -30,7 +31,7 @@ public class Part : CarPart
         }
     }
 
-    public override async Task StartAssemble()
+    public override async UniTask StartAssemble()
     {
         if (!CanBeAssembled)
         {
@@ -39,7 +40,7 @@ public class Part : CarPart
         await Assemble();
     }
 
-    private async Task Assemble()
+    public override async UniTask Assemble()
     {
         if (m_animator.AnimationHandler)
         {
@@ -48,7 +49,7 @@ public class Part : CarPart
         Assembled?.Invoke(this);
     }
 
-    public override async Task StartDisassemble()
+    public override async UniTask StartDisassemble()
     {
         if (HasDependableParts)
         {
@@ -57,7 +58,7 @@ public class Part : CarPart
         await Disassemble();
     }
 
-    private async Task Disassemble()
+    private async UniTask Disassemble()
     {
         if (m_animator.AnimationHandler)
         {

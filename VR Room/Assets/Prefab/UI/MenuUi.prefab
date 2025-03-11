@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 3414009981067739858}
   - component: {fileID: 6832750821667709005}
   - component: {fileID: 1510041986678867889}
+  - component: {fileID: 90833019051263902}
   m_Layer: 5
   m_Name: LevelChangeMenuButton
   m_TagString: Untagged
@@ -391,6 +392,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &90833019051263902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048282555590308943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &3758046660006659537
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +418,7 @@ GameObject:
   - component: {fileID: 2484219833432167829}
   - component: {fileID: 6344359328717307564}
   - component: {fileID: 9003060240215748960}
+  - component: {fileID: 4785252792188061233}
   m_Layer: 5
   m_Name: ModesButton
   m_TagString: Untagged
@@ -512,6 +528,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4785252792188061233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3758046660006659537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &5990507196166297246
 GameObject:
   m_ObjectHideFlags: 0
@@ -524,6 +554,7 @@ GameObject:
   - component: {fileID: 1850585605276627264}
   - component: {fileID: 2394428762804529777}
   - component: {fileID: 7745271702429051725}
+  - component: {fileID: 5669226117921816471}
   m_Layer: 5
   m_Name: ReturnToLobbyButton
   m_TagString: Untagged
@@ -632,6 +663,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5669226117921816471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5990507196166297246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &6024308644588448064
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,7 +798,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &2190246047263140276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -815,6 +860,7 @@ GameObject:
   - component: {fileID: 5769074224564108866}
   - component: {fileID: 6482780191903113667}
   - component: {fileID: 1261100286391802651}
+  - component: {fileID: 5553760802857765595}
   m_Layer: 5
   m_Name: ExitGameButton
   m_TagString: Untagged
@@ -924,6 +970,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5553760802857765595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8257258743766565433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &8480515544706016198
 GameObject:
   m_ObjectHideFlags: 0
@@ -1151,6 +1211,7 @@ GameObject:
   - component: {fileID: 18023669358675998}
   - component: {fileID: 8501574089489469798}
   - component: {fileID: 6029229210087423702}
+  - component: {fileID: 3746986622514505795}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -1258,16 +1319,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8501574089489469798}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7277246735166419087}
-        m_TargetAssemblyTypeName: UiInstance, Assembly-CSharp
-        m_MethodName: CloseUi
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &3746986622514505795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9176059398526586205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}

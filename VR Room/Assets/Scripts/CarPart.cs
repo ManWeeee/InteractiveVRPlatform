@@ -1,4 +1,5 @@
 using Assets.Scripts;
+using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -83,9 +84,11 @@ namespace Assets.Scripts
             m_dependableParts.Remove(partInteractable);
         }
 
-        public abstract Task StartAssemble();
+        public abstract UniTask StartAssemble();
 
-        public abstract Task StartDisassemble();
+        public abstract UniTask Assemble();
+
+        public abstract UniTask StartDisassemble();
     }
 }
 

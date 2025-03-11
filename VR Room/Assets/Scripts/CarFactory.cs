@@ -15,9 +15,13 @@ public class CarFactory : MonoBehaviour
         if(Container.TryGetInstance<LevelInfoHolder>(out var holder))
         {
             m_holder = holder;
-            m_holder.LevelInfoChanged += OnLevelInfoChanged;
-            OnLevelInfoChanged(m_holder.CurrentLevelInfo);
+            TakeLevelInfo(m_holder.CurrentLevelInfo);
+            CreateInstance();
+            /*m_holder.LevelInfoChanged += OnLevelInfoChanged;
+            OnLevelInfoChanged(m_holder.CurrentLevelInfo);*/
+            return;
         }
+        Debug.LogError($"{this.name} was unnable to create a anything because there is no LevelInfoHolder in Container");
     }
 
     private void TakeLevelInfo(LevelInfo info)
@@ -50,6 +54,9 @@ public class CarFactory : MonoBehaviour
 
     public void OnDestroy()
     {
-        m_holder.LevelInfoChanged -= OnLevelInfoChanged;
+        if (m_holder != null)
+        {
+            m_holder.LevelInfoChanged -= OnLevelInfoChanged;
+        }
     }
 }
