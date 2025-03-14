@@ -22,6 +22,7 @@ public class LevelPresenter : MonoBehaviour
             m_index = m_levelInfoHolder.GetLevelInfoIndex(m_levelInfoHolder.CurrentLevelInfo);
             m_previousIndexButton.onClick.AddListener(PreviousIndex);
             m_nextIndexButton.onClick.AddListener(NextIndex);
+            m_levelInfoHolder.LevelInfoChanged += OnLevelInfoChanged;
             UpdateUi();
         }
     }
@@ -47,6 +48,11 @@ public class LevelPresenter : MonoBehaviour
         }
 
         m_levelInfoHolder.LoadNewLevelInfo(m_levelInfoHolder.GetLevelInfo(m_index));
+        UpdateUi();
+    }
+
+    private void OnLevelInfoChanged(LevelInfo info)
+    {
         UpdateUi();
     }
 

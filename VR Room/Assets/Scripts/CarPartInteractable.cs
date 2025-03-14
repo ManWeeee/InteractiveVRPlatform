@@ -17,8 +17,8 @@ namespace Assets.Scripts
         public Action<HoverEnterEventArgs> HoverEntered;
         public Action<HoverExitEventArgs> HoverExited;
 
-        public bool CanDisassemble { get; set; }
-        public bool CanAssemble { get; set; }
+        public bool CanBeDisassembled { get; set; }
+        public bool CanBeAssembled { get; set; }
 
         protected override void Awake()
         {
@@ -59,9 +59,9 @@ namespace Assets.Scripts
         protected override void OnHoverEntering(HoverEnterEventArgs args)
         {
             base.OnHoverEntering(args);
-            //TODO: Store materials inside of CarPartInteractable, instead of InteractionInfo on Interactor
-            if (args.interactorObject.transform.gameObject.TryGetComponent<InteractionInfo>(
-                    out InteractionInfo interactionInfo) && CanDisassemble)
+            var interactor = args.interactorObject as ToolInteractor;
+            if (interactor.gameObject.TryGetComponent<InteractionInfo>(
+                    out InteractionInfo interactionInfo) && interactor.CarPartTypeToInteract.Contains(m_part.PartInfo.GetCarPartType) && CanBeDisassembled)
             {
                 OnHoverEnter(interactionInfo.GetHoverMaterials);
                 HoverEntered?.Invoke(args);
@@ -71,7 +71,7 @@ namespace Assets.Scripts
         protected override void OnHoverExiting(HoverExitEventArgs args)
         {
             base.OnHoverExiting(args);
-            if (!CanDisassemble)
+            if (!CanBeDisassembled)
             {
                 Debug.Log("Hover exiting BLOCKED as we are not in Disassembly mode");
                 return;
@@ -80,24 +80,61 @@ namespace Assets.Scripts
             OnHoverExit();
             HoverExited?.Invoke(args);
         }
-
-        protected override void OnSelectExiting(SelectExitEventArgs args)
+        public void OnActivate(ActivateEventArgs args)
         {
-            base.OnSelectExiting(args);
+            OnActivated(args);
+        }
+        protected override void OnActivated(ActivateEventArgs args)
+        {
+            base.OnActivated(args);
+            var interactor = args.interactorObject as ToolInteractor;
 
-            if (CanDisassemble && !m_part.HasDependableParts)
+            if (interactor != null && !interactor.CarPartTypeToInteract.Contains(m_part.PartInfo.GetCarPartType))
+            {
+                Debug.Log($"{interactor.name} was unnable to interact with {this.name}");
+                return;
+            }
+
+            if (CanBeDisassembled && !m_part.HasDependableParts)
             {
                 OnHoverExit();
                 SetInteraction();
                 m_part.StartDisassemble();
             }
-            else if (CanAssemble && m_part.CanBeAssembled)
+            else if (CanBeAssembled && m_part.CanBeAssembled)
             {
                 OnHoverExit();
                 SetInteraction();
                 m_part.StartAssemble();
             }
         }
+
+        /*protected override void OnSelectExiting(SelectExitEventArgs args)
+        {
+            base.OnSelectExiting(args);
+            var interactor = args.interactorObject as ToolInteractor;
+
+            if (interactor != null && !interactor.CarPartTypeToInteract.Contains(m_part.PartInfo.GetCarPartType))
+            {
+                Debug.Log($"{interactor.name} was unnable to interact with {this.name}");
+                return;
+            }
+
+            if (CanBeDisassembled && !m_part.HasDependableParts)
+            {
+                OnHoverExit();
+                SetInteraction();
+                m_part.StartDisassemble();
+                Debug.Log($"{interactor.name} is now interacting with {this.name} -- DISASSEMBLE");
+            }
+            else if (CanBeAssembled && m_part.CanBeAssembled)
+            {
+                OnHoverExit();
+                SetInteraction();
+                m_part.StartAssemble();
+                Debug.Log($"{interactor.name} is now interacting with {this.name} -- ASSEMBLE");
+            }
+        }*/
 
         public void OnHoverEnter(HoverMaterials materials)
         {
@@ -148,8 +185,8 @@ namespace Assets.Scripts
 
         public void SetInteraction(bool canDisassemble = false, bool canAssemble = false)
         {
-            CanDisassemble = canDisassemble;
-            CanAssemble = canAssemble;
+            CanBeDisassembled = canDisassemble;
+            CanBeAssembled = canAssemble;
         }
     }
 }
