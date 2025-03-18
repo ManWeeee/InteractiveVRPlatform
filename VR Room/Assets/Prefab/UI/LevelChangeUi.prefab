@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7158482567664826689}
   - component: {fileID: 8990765422476717334}
   - component: {fileID: 7071288456695191702}
+  - component: {fileID: 8653870807964496923}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -132,6 +133,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8653870807964496923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56593443581516726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &2038094291222281117
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +293,7 @@ GameObject:
   - component: {fileID: 7966389502145818088}
   - component: {fileID: 3241128560574935778}
   - component: {fileID: 8109817940391710118}
+  - component: {fileID: 4326740061440204488}
   m_Layer: 5
   m_Name: NextButton
   m_TagString: Untagged
@@ -386,6 +402,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4326740061440204488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5975241194148919635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &6408977442468182748
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,7 +517,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &1015570737598681623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,6 +607,7 @@ GameObject:
   - component: {fileID: 6341249928818070419}
   - component: {fileID: 4072420456161636762}
   - component: {fileID: 6122727841673477391}
+  - component: {fileID: 6262378027640572500}
   m_Layer: 5
   m_Name: PreviousButton
   m_TagString: Untagged
@@ -685,6 +716,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6262378027640572500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7219674586705243667}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &8908529452764277558
 GameObject:
   m_ObjectHideFlags: 0

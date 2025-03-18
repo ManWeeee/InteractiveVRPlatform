@@ -5,19 +5,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ToolInteractor : XRDirectInteractor
 {
-    private XRGrabInteractable m_grabInteractable;
-    //private XRBaseController m_baseController;
     [SerializeField]
     private List<CarPartType> m_carPartTypeToInteract;
+    private XRGrabInteractable m_grabInteractable; 
 
     public List<CarPartType> CarPartTypeToInteract => m_carPartTypeToInteract;
 
     protected override void Awake()
     {
         base.Awake();
-        m_grabInteractable = GetComponent<XRGrabInteractable>();
-        /*m_baseController = GetComponent<XRBaseController>();
-        m_baseController.enabled = false;*/
+        m_grabInteractable = GetComponentInParent<XRGrabInteractable>();
         if (m_grabInteractable)
         {
             m_grabInteractable.selectEntered.AddListener(OnGrabbed);
@@ -28,20 +25,27 @@ public class ToolInteractor : XRDirectInteractor
         enabled = false;
     }
 
-    private void OnGrabbed(SelectEnterEventArgs args)
-    {
-        Debug.Log($"{gameObject.name} was grabbed");
-
-        enabled = true;  // Enable interactor when grabbed
-    }
-
     private void Interact(ActivateEventArgs args)
     {
         Debug.Log("activate the controller");
-        if(interactablesHovered.Count > 0)
+        if (interactablesHovered.Count > 0)
         {
-            (interactablesHovered[0] as CarPartInteractable).OnActivate(args);
+            foreach (var interactable in interactablesHovered)
+            {
+                var tmp = (interactable as CarPartInteractable);
+                if (m_carPartTypeToInteract.Contains(tmp.CarPartType))
+                {
+                    tmp.OnActivate(args);
+                    break;
+                }
+            }
         }
+    }
+
+    private void OnGrabbed(SelectEnterEventArgs args)
+    {
+        Debug.Log($"{gameObject.name} was grabbed");
+        enabled = true;
     }
 
     private void OnReleased(SelectExitEventArgs args)
@@ -51,8 +55,9 @@ public class ToolInteractor : XRDirectInteractor
         enabled = false;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         if (m_grabInteractable)
         {
             m_grabInteractable.selectEntered.RemoveListener(OnGrabbed);

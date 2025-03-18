@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 8101467740304189817}
   - component: {fileID: 1011336219212303908}
   - component: {fileID: 8643716398011476440}
+  - component: {fileID: 2218679998588992194}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -329,6 +330,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &2218679998588992194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2033988910233274573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &2542651894839919014
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,6 +357,7 @@ GameObject:
   - component: {fileID: 6259713913695095038}
   - component: {fileID: 2354364155573739207}
   - component: {fileID: 6729691507905286211}
+  - component: {fileID: 4178249227669295900}
   m_Layer: 5
   m_Name: InspectionButton
   m_TagString: Untagged
@@ -483,6 +499,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &4178249227669295900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2542651894839919014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &3425066325822440718
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +794,7 @@ GameObject:
   - component: {fileID: 6623044228889701980}
   - component: {fileID: 159969551873299345}
   - component: {fileID: 2582026845486578166}
+  - component: {fileID: 4788391215917203390}
   m_Layer: 5
   m_Name: AssemblyButton
   m_TagString: Untagged
@@ -905,6 +936,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &4788391215917203390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5170376862749611224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &6292363658077972529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1052,6 +1097,7 @@ GameObject:
   - component: {fileID: 7211823990325959911}
   - component: {fileID: 668103492357022441}
   - component: {fileID: 7704189163556893659}
+  - component: {fileID: 6497335181225167512}
   m_Layer: 5
   m_Name: OverviewButton
   m_TagString: Untagged
@@ -1193,6 +1239,20 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &6497335181225167512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6519451044684918954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}
 --- !u!1 &7836416225792919162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,6 +1505,7 @@ GameObject:
   - component: {fileID: 3218105188315751670}
   - component: {fileID: 3668314691631324387}
   - component: {fileID: 4145347433552167098}
+  - component: {fileID: 7710611456483129333}
   m_Layer: 5
   m_Name: DisassemblyButton
   m_TagString: Untagged
@@ -1586,3 +1647,17 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7710611456483129333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852807721593282678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f05531f7dac98a49b1b568345022f7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_uiButtonPressedSound: {fileID: 8300000, guid: 1a71421b11a9ae6408b6df26d49f5aa0,
+    type: 3}

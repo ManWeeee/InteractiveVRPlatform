@@ -7,17 +7,17 @@ using UnityEngine;
 
 public class Part : CarPart
 {
-    private void OnDrawGizmos()
-    {
-        if (m_partInfo && m_partInfo.GetCarPartType == CarPartType.Bolt )
-            return;
+    //private void OnDrawGizmos()
+    //{
+    //    if (m_partInfo && m_partInfo.GetCarPartType == CarPartType.Bolt )
+    //        return;
 
-        if (m_dependableParts.Count == 0)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, 0.01f);
-        }
-    }
+    //    if (m_dependableParts.Count == 0)
+    //    {
+    //        Gizmos.color = Color.red;
+    //        Gizmos.DrawWireSphere(transform.position, 0.01f);
+    //    }
+    //}
     protected override void Awake()
     {
         base.Awake();

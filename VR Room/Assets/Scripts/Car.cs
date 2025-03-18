@@ -3,9 +3,8 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 public class Car : MonoBehaviour
 {
@@ -26,8 +25,6 @@ public class Car : MonoBehaviour
         m_levelInfoHolder = manager;
         m_levelInfoHolder.LevelInfoChanged += SetCar;
         SetCar(m_levelInfoHolder.CurrentLevelInfo);
-/*        m_partManager = new(GetAllCarParts(), manager.CurrentLevelInfo.brokenPartType);
-        m_stateManager = new(m_partManager, m_inactiveMaterial);*/
     }
 
     private List<CarPart> GetAllCarParts()
@@ -61,7 +58,6 @@ public class Car : MonoBehaviour
     {
         m_levelInfoHolder.LevelInfoChanged -= SetCar;
     }
-
 }
 
 public class CarStateManager
@@ -224,28 +220,21 @@ public class CarPartManager
     public List<CarPart> BrokenParts => m_brokenParts;
     public List<CarPart> RemovedParts => m_removedCarParts;
 
+    private Action<CarPart> m_disassembledHandler;
+
     public CarPartManager(List<CarPart> parts, CarPartType brokenPartType = CarPartType.None)
     {
         m_parts = parts;
+        m_disassembledHandler = (item) => m_removedCarParts.Add(item);
         Debug.Log($"Number of collected parts = {m_parts.Count}");
         foreach (var part in m_parts)
         {
-            part.Disassembled += (item) => m_removedCarParts.Add(item);
+            part.Disassembled += m_disassembledHandler;
             part.Assembled += OnAssembled;
         }
         SetBrokenPartsType(brokenPartType);
         m_brokenParts = GetBrokenPartsByType(m_brokenPartsType, m_parts);
     }
-
-    /* public void RestoreToDefault()
-     {
-         foreach (var part in m_removedCarParts)
-         {
-             part.StartAssemble();
-         }
-         m_brokenParts.Clear();
-         m_removedCarParts.Clear();
-     }*/
 
     public async UniTask RestoreToDefault()
     {
@@ -301,7 +290,7 @@ public class CarPartManager
     {
         foreach (var part in m_parts)
         {
-            part.Disassembled -= (item) => m_removedCarParts.Add(item);
+            part.Disassembled -= m_disassembledHandler;
             part.Assembled -= OnAssembled;
         }
     }
