@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rightMaterial: {fileID: 2100000, guid: ba1891c48423980448744bcd3b5639d5, type: 2}
   m_wrongMaterial: {fileID: 2100000, guid: 6b6f5aaa7979eea48ace5d004354d9b6, type: 2}
+  m_wrongToolMaterial: {fileID: -6993389246593441445, guid: 004a97f809c2c7c40b973eabe880a410,
+    type: 3}

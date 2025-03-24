@@ -9,9 +9,11 @@ namespace Assets.Scripts
     {
         [SerializeField] private Material m_rightMaterial;
         [SerializeField] private Material m_wrongMaterial;
+        [SerializeField] private Material m_wrongToolMaterial;
 
         public Material ReadonlyRightMaterial => m_rightMaterial;
         public Material ReadonlyWrongMaterial => m_wrongMaterial;
+        public Material ReadonlyWrongToolMaterial => m_wrongToolMaterial;
 
     }
 }
