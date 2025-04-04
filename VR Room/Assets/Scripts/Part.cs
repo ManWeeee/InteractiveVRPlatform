@@ -70,4 +70,10 @@ public class Part : CarPart
         /*        var command = new HideCommand(gameObject);
                 CommandHandler.ExecuteCommand(command);*/
     }
+
+    public override TutorialStep GetTutorialStep()
+    {
+        Debug.Log("GetTutorialStep");
+        return new TutorialStep();
+    }
 }

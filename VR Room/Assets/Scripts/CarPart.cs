@@ -3,13 +3,12 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using UnityEngine;
 
 
 namespace Assets.Scripts
 {
-    public abstract class CarPart : MonoBehaviour, IAssemblyPart
+    public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider
     {
         [SerializeField] protected List<CarPart> m_parentParts;
         [SerializeField] protected List<CarPart> m_dependableParts;
@@ -89,6 +88,8 @@ namespace Assets.Scripts
         public abstract UniTask Assemble();
 
         public abstract UniTask StartDisassemble();
+
+        public abstract TutorialStep GetTutorialStep();
     }
 }
 
