@@ -1,11 +1,7 @@
-using Assets.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
 using SceneManagement;
 using UnityEngine.Events;
-using System;
-using Cysharp.Threading.Tasks.Triggers;
 
 public class MenuUi : UiInstance
 {
