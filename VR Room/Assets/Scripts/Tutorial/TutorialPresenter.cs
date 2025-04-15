@@ -9,7 +9,7 @@ namespace Tutorials {
         [SerializeField]
         private TutorialManager m_tutorialManager;
         [SerializeField]
-        private TutorialStep m_tutorialStep;
+        private TutorialStepGroup m_tutorialStep;
         [SerializeField]
         private TextMeshProUGUI m_tutorialText;
 
@@ -23,16 +23,19 @@ namespace Tutorials {
             }
         }
 
+        public void Update() {
+            UpdateUi();
+        }
+
         public override void UpdateUi() {
             if(m_tutorialStep == null) {
                 return;
             }
-            m_tutorialText.text = m_tutorialStep.Description;
+            m_tutorialText.text = m_tutorialStep.ToString();
         }
 
         private void OnTutorialStepChanged() {
             m_tutorialStep = m_tutorialManager.CurrentStep;
-            UpdateUi();
         }
     }
 }

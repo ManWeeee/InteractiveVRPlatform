@@ -7,11 +7,11 @@ using Tutorials;
 using UnityEngine;
 
 public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider {
-    [SerializeField] protected List<CarPart> m_parentParts;
-    [SerializeField] protected List<CarPart> m_dependableParts;
-    [SerializeField] protected PartInfo m_partInfo;
+    [SerializeField] private List<CarPart> m_parentParts;
+    [SerializeField] private List<CarPart> m_dependableParts;
+    [SerializeField] private PartInfo m_partInfo;
 
-    protected CarPartAnimator m_animator;
+    private CarPartAnimator m_animator;
 
     public List<CarPart> ReadOnlyParentPartsList => m_parentParts;
     public bool HasDependableParts => m_dependableParts.Count > 0;
@@ -74,13 +74,46 @@ public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider 
         m_dependableParts.Remove(partInteractable);
     }
 
-    public abstract UniTask StartAssemble();
+    public virtual async UniTask StartAssemble() {
+        if(!CanBeAssembled) {
+            return;
+        }
+        await Assemble();
+    }
 
-    public abstract UniTask Assemble();
+    public virtual async UniTask Assemble() {
+        if(m_animator.AnimationHandler) {
+            await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.AssembleAnimationName);
+        }
+        disassembled = false;
+        Assembled?.Invoke(this);
+    }
 
-    public abstract UniTask StartDisassemble();
+    public virtual async UniTask StartDisassemble() {
+        if(HasDependableParts) {
+            return;
+        }
+        await Disassemble();
+    }
 
-    public abstract TutorialStep GetTutorialStep();
+    private async UniTask Disassemble() {
+        if(m_animator.AnimationHandler) {
+            await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.DisassembleAnimationName);
+        }
+
+        Disassembled?.Invoke(this);
+        disassembled = true;
+        gameObject.SetActive(false);
+        /*        var command = new HideCommand(gameObject);
+                CommandHandler.ExecuteCommand(command);*/
+    }
+
+    public virtual TutorialStep GetTutorialStep() {
+        if(disassembled) {
+            return new TutorialStep($"Assemble {gameObject.name}", new AssembledCondition(this));
+        }
+        return new TutorialStep($"Disassemble {gameObject.name}", new DisassembledCondition(this));
+    }
 }
 
 public class CarPartAnimator

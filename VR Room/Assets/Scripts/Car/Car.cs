@@ -9,24 +9,34 @@ public class Car : MonoBehaviour {
     [SerializeField] private Material m_inactiveMaterial;
 
     private LevelInfoHolder m_levelInfoHolder;
+    private TutorialManager m_tutorialManager;
 
     private CarPartManager m_partManager;
     public CarStateManager StateManager => m_stateManager;
 
     private void Awake() {
-        if(!Container.TryGetInstance<LevelInfoHolder>(out var manager)) {
-            Debug.LogError($"Unable to instance of type {manager.GetType()} in {this.GetType()}");
+        if(!Container.TryGetInstance<LevelInfoHolder>(out m_levelInfoHolder)) {
+            Debug.LogError($"Unable to instance of type {m_levelInfoHolder.GetType()} in {this.GetType()}");
+            return;
         }
-        m_levelInfoHolder = manager;
-        m_levelInfoHolder.LevelInfoChanged += SetCar;
-        SetCar(m_levelInfoHolder.CurrentLevelInfo);
+        if(!Container.TryGetInstance<TutorialManager>(out m_tutorialManager)) {
+            Debug.LogError($"Unable to instance of type {m_tutorialManager.GetType()} in {this.GetType()}");
+            return;
+        }
+        m_levelInfoHolder.LevelInfoChanged += OnLevelInfoChanged;
+        OnLevelInfoChanged(m_levelInfoHolder.CurrentLevelInfo);
+    }
+
+    private async void OnLevelInfoChanged(LevelInfo info) {
+        await SetCar(info);
+        SetTutorial();
     }
 
     private List<CarPart> GetAllCarParts() {
         return GetComponentsInChildren<CarPart>().ToList();
     }
 
-    private async void SetCar(LevelInfo info) {
+    private async UniTask SetCar(LevelInfo info) {
         List<CarPart> tmp = new();
         if(info == null) {
             Debug.LogError($"{this.name} was unnable to set the car due to lack of LevelInfo");
@@ -40,20 +50,17 @@ public class Car : MonoBehaviour {
             tmp = GetAllCarParts();
         }
         m_partManager = new(tmp, info.brokenPartType);
-        m_stateManager = new(m_partManager, m_inactiveMaterial);
-        //TODO: do it elsewhere
-        if(Container.TryGetInstance<TutorialManager>(out TutorialManager tutorialManager)) {
-            Debug.Log("Starting tutorial");
-            List<TutorialStep> providers = m_partManager.BrokenParts
-                .Select(part => part.GetComponent<ITutorialProvider>().GetTutorialStep())
-                .ToList();
-            tutorialManager.StartTutorial(providers);
-        }
-        
+        m_stateManager = new(m_partManager, m_inactiveMaterial);   
+    }
+
+    private void SetTutorial() {
+        var providers = m_partManager.BrokenParts.ToList<ITutorialProvider>();
+        providers.Reverse();
+        m_tutorialManager.SetTutorial(providers);
     }
 
     private void OnDestroy() {
-        m_levelInfoHolder.LevelInfoChanged -= SetCar;
+        m_levelInfoHolder.LevelInfoChanged -= OnLevelInfoChanged;
     }
 }
 
