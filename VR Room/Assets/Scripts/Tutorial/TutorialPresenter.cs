@@ -36,6 +36,8 @@ namespace Tutorials {
 
         private void OnTutorialStepChanged() {
             m_tutorialStep = m_tutorialManager.CurrentStep;
+            Debug.Log($"{m_tutorialStep} is a current step");
+            UpdateUi();
         }
     }
 }

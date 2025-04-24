@@ -8,6 +8,8 @@ namespace Tutorials {
         private Dictionary<TutorialStep, TutorialStepGroup> m_steps = new ();
         [SerializeField]
         private TutorialStepGroup m_currentStep = null;
+        private List<TutorialStepGroup> m_orderedSteps = new();
+        private int m_currentIndex = -1;
 
         public TutorialStepGroup CurrentStep => m_currentStep;
         public bool IsTutorialComplete => m_currentStep == null;
@@ -24,14 +26,19 @@ namespace Tutorials {
 
         public void SetTutorial(IEnumerable<ITutorialProvider> providers) {
             m_steps.Clear();
+            m_orderedSteps.Clear();
             foreach(var provider in providers) {
                 var step = provider.GetTutorialStep();
-                if(m_steps.ContainsKey(step)){
+                if(m_steps.ContainsKey(step)) {
                     m_steps[step].AddStep(step);
                     continue;
                 }
-                m_steps.Add(step, new TutorialStepGroup(step));
+
+                var group = new TutorialStepGroup(step);
+                m_steps.Add(step, group);
+                m_orderedSteps.Add(group); // Keep order
             }
+            m_currentIndex = -1;
             StartTutorial();
         }
 
@@ -45,13 +52,18 @@ namespace Tutorials {
         }
 
         private void NextStep() {
-            m_currentStep = (m_steps.Count > 0) ? m_steps.First().Value : null;
-            foreach(var step in m_steps) {
-                Debug.Log(step.Key);
+            m_currentIndex++;
+            if(m_currentIndex >= m_orderedSteps.Count) {
+                m_currentStep = null;
+                Debug.Log("There are no more steps in the tutorial");
+                return;
             }
-            if(m_currentStep != null) {
-                TutorialStepChanged?.Invoke();
-            }
+
+            m_currentStep = m_orderedSteps[m_currentIndex];
+
+            Debug.Log($"Switched to step: {m_currentStep}");
+
+            TutorialStepChanged?.Invoke();
         }
     }
     public class TutorialStepGroup {
@@ -64,9 +76,12 @@ namespace Tutorials {
             tutorialSteps.Add(step);
         }
 
+
         public int Completed { get; private set; }
 
         public int Count => tutorialSteps.Count;
+
+        public TutorialStep TutorialStepType => tutorialSteps[0];
 
         public bool IsCompleted() {
             var completed = 0;
