@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Tutorials {
     public class TutorialManager : MonoBehaviour {
         [SerializeField]
-        private Dictionary<TutorialStep, TutorialStepGroup> m_steps = new ();
+        private Dictionary<TutorialStep, TutorialStepGroup> m_steps = new();
         [SerializeField]
         private TutorialStepGroup m_currentStep = null;
         private List<TutorialStepGroup> m_orderedSteps = new();

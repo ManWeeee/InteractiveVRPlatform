@@ -19,15 +19,18 @@ public class LevelInfoHolder : MonoBehaviour
         set { m_currentLevelInfo = value; }
     }
 
-/*    private LevelInfo this[int index]
+    /*    private LevelInfo this[int index]
+        {
+            get { return m_levelInfo[index]; }
+        }*/
+    private void Awake()
     {
-        get { return m_levelInfo[index]; }
-    }*/
+        Container.Register(this);
+    }
 
     private void Start()
     {
-        Container.Register(this);
-        m_currentLevelInfo = m_levelInfo[0];
+        LoadNewLevelInfo(m_levelInfo[0]);
     }
 
     public LevelInfo GetLevelInfo(int index)
