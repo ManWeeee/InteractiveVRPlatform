@@ -10,7 +10,8 @@ public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider 
     [SerializeField] private List<CarPart> m_dependableParts;
     [SerializeField] private PartInfo m_partInfo;
 
-    private CarPartAnimator m_animator;
+    //private CarPartAnimator m_animator;
+    public CarPartAnimator CarPartAnimator { get; private set; }
 
     public List<CarPart> ReadOnlyParentPartsList => m_parentParts;
     public bool HasDependableParts => m_dependableParts.Count > 0;
@@ -30,7 +31,7 @@ public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider 
     public Action<CarPart> Assembled;
 
     protected virtual void Awake() {
-        m_animator = new(GetComponentInChildren<AnimationHandler>());
+        CarPartAnimator = new(GetComponentInChildren<AnimationHandler>());
         if(m_partInfo != null) {
             GetComponentInChildren<MeshFilter>().mesh = m_partInfo.PartMesh;
         }
@@ -81,9 +82,9 @@ public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider 
     }
 
     public virtual async UniTask Assemble() {
-        if(m_animator.AnimationHandler) {
-            await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.AssembleAnimationName);
-        }
+        //if(m_animator.AnimationHandler) {
+        //    await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.AssembleAnimationName);
+        //}
         disassembled = false;
         Assembled?.Invoke(this);
     }
@@ -95,10 +96,10 @@ public abstract class CarPart : MonoBehaviour, IAssemblyPart, ITutorialProvider 
         await Disassemble();
     }
 
-    private async UniTask Disassemble() {
-        if(m_animator.AnimationHandler) {
+    public async UniTask Disassemble() {
+        /*if(m_animator.AnimationHandler) {
             await m_animator.AnimationHandler.PlayAnimationAndWait(m_animator.DisassembleAnimationName);
-        }
+        }*/
 
         Disassembled?.Invoke(this);
         disassembled = true;

@@ -945,20 +945,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiManager: {fileID: 0}
-  m_menuButtonAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Menu Button
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: f9f12068-e066-492b-804b-d918b7a5f9e8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -7661013000225644801, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
 --- !u!1 &83606871
 GameObject:
   m_ObjectHideFlags: 0
@@ -2072,20 +2058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951aa6cf8772ad546afbbae6c4d25838, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_uiManager: {fileID: 0}
-  m_menuButtonAction:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Menu Button
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: f9f12068-e066-492b-804b-d918b7a5f9e8
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -7661013000225644801, guid: c348712bda248c246b8c49b3db54643f,
-      type: 3}
 --- !u!1001 &646463819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3029,6 +3001,7 @@ GameObject:
   - component: {fileID: 1333372231}
   - component: {fileID: 1333372230}
   - component: {fileID: 1333372232}
+  - component: {fileID: 1333372234}
   m_Layer: 0
   m_Name: Interactor
   m_TagString: Untagged
@@ -3162,7 +3135,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
-  m_carPartTypeToInteract: 01000000
+  strategy: {fileID: 0}
+  supportedTypes: 
 --- !u!114 &1333372232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3176,6 +3150,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
+--- !u!54 &1333372234
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333372228}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1383483120
 GameObject:
   m_ObjectHideFlags: 0
@@ -3304,6 +3305,7 @@ GameObject:
   - component: {fileID: 1611868239}
   - component: {fileID: 1611868238}
   - component: {fileID: 1611868240}
+  - component: {fileID: 1611868242}
   m_Layer: 0
   m_Name: Interactor
   m_TagString: Untagged
@@ -3437,7 +3439,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
-  m_carPartTypeToInteract: 05000000
+  strategy: {fileID: 11400000, guid: ae5edebdc3a18ea42939e9703a21499f, type: 2}
+  supportedTypes: 05000000
 --- !u!114 &1611868240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3451,6 +3454,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
+--- !u!54 &1611868242
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611868236}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1659891038
 GameObject:
   m_ObjectHideFlags: 0
@@ -3737,6 +3767,7 @@ GameObject:
   - component: {fileID: 1977390011}
   - component: {fileID: 1977390010}
   - component: {fileID: 1977390012}
+  - component: {fileID: 1977390014}
   m_Layer: 0
   m_Name: Interactor
   m_TagString: Untagged
@@ -3870,7 +3901,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
-  m_carPartTypeToInteract: 0400000005000000
+  strategy: {fileID: 0}
+  supportedTypes: 
 --- !u!114 &1977390012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3884,6 +3916,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_materials: {fileID: 11400000, guid: c0bbed338dfdeb146a5585e60d9cf54c, type: 2}
+--- !u!54 &1977390014
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977390008}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1984477658
 GameObject:
   m_ObjectHideFlags: 0

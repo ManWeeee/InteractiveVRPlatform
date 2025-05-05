@@ -5,6 +5,7 @@ using UnityEngine;
 public class AnimationHandler : MonoBehaviour {
     [SerializeField]
     private Animator m_animator;
+    public Animator Animator => m_animator;
 
     private void Start() {
         m_animator = GetComponent<Animator>();
@@ -28,5 +29,14 @@ public class AnimationHandler : MonoBehaviour {
 
         await Task.Delay((int)(animationLength * 1000));
     }
+
+/*    public void PlayFromStart() {
+        m_animator.speed = 0f; // пауза
+        m_animator.Play(stateName, 0, 0f);
+    }
+
+    public void SetProgress(float t) {
+        animator.Play(stateName, 0, Mathf.Clamp01(t));
+    }*/
 
 }

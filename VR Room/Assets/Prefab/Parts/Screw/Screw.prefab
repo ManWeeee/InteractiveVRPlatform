@@ -49,6 +49,7 @@ MonoBehaviour:
   m_parentParts: []
   m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: 18e81834a2015cc49bd09557507a3450, type: 2}
+  disassembled: 0
 --- !u!114 &8342564033524190663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +154,7 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
+  isFixed: 0
 --- !u!1 &3620716524779168838
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class CarPartInteractable : XRSimpleInteractable {
     [SerializeField]
     private bool isFixed = false;
 
+    public CarPart CarPart => m_part;
     public bool CanBeDisassembled { get; set; }
     public bool CanBeAssembled { get; set; }
 
@@ -63,7 +63,7 @@ public class CarPartInteractable : XRSimpleInteractable {
         if(!CanBeDisassembled) {
             return;
         }
-        if(interactor.CarPartTypeToInteract.Contains(m_part.PartInfo.GetCarPartType)) {
+        if(interactor.SupportedTypes.Contains(m_part.PartInfo.GetCarPartType)) {
             Material targetMaterial = m_part.HasDependableParts ? info.GetHoverMaterials.ReadonlyWrongMaterial : info.GetHoverMaterials.ReadonlyRightMaterial;
             ChangeMaterial(targetMaterial);
         }
@@ -91,13 +91,13 @@ public class CarPartInteractable : XRSimpleInteractable {
     public void OnActivate(ActivateEventArgs args) {
         if(CanBeDisassembled && !m_part.HasDependableParts && !isFixed) {
             ResetMaterials();
-            SetInteraction();
-            m_part.StartDisassemble();
+            //SetInteraction();
+            //m_part.StartDisassemble();
         }
         else if(CanBeAssembled && m_part.CanBeAssembled && !isFixed) {
             ResetMaterials();
-            SetInteraction();
-            m_part.StartAssemble();
+            //SetInteraction();
+            //m_part.StartAssemble();
         }
     }
 
@@ -130,5 +130,22 @@ public class CarPartInteractable : XRSimpleInteractable {
     public void SetInteraction(bool canDisassemble = false, bool canAssemble = false) {
         CanBeDisassembled = canDisassemble;
         CanBeAssembled = canAssemble;
+    }
+
+    public void UpdateProgress(float value) {
+        if(m_part.CarPartAnimator.AnimationHandler.Animator == null)
+            return;
+
+        string animStateName;
+        if(m_part.disassembled) {
+            animStateName = m_part.CarPartAnimator.AssembleAnimationName;
+        }
+        else {
+            animStateName = m_part.CarPartAnimator.DisassembleAnimationName;
+        }
+
+        m_part.CarPartAnimator.AnimationHandler.Animator.Play(animStateName, 0, value);
+
+        m_part.CarPartAnimator.AnimationHandler.Animator.speed = 0f;
     }
 }
