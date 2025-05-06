@@ -3,7 +3,7 @@
 [CreateAssetMenu(menuName = "Disassembly Strategies/Twist Strategy")]
 public class TwistStrategySO : DisassemblyStrategySO {
     [SerializeField] private float requiredAngle = 180f;
-    [SerializeField] private bool clockwiseToAssemble = true;
+
 
     private float accumulatedAngle;
     private CarPartInteractable target;
@@ -18,15 +18,12 @@ public class TwistStrategySO : DisassemblyStrategySO {
     }
 
     public override void ProcessDelta(float angleDegrees) {
-        Debug.Log("Calculating rotation delta");
+        bool isCorrectDirection = isDisassembling
+            ? angleDegrees < 0
+            : angleDegrees > 0;
 
-        bool isCorrectDirection =
-            (isDisassembling && angleDegrees < 0 && !clockwiseToAssemble) ||
-            (isDisassembling && angleDegrees > 0 && clockwiseToAssemble) ||
-            (!isDisassembling && angleDegrees > 0 && clockwiseToAssemble) ||
-            (!isDisassembling && angleDegrees < 0 && !clockwiseToAssemble);
-
-        if(!isCorrectDirection) return;
+        if(!isCorrectDirection)
+            return;
 
         accumulatedAngle += Mathf.Abs(angleDegrees);
         float progress = Mathf.Clamp01(accumulatedAngle / requiredAngle);

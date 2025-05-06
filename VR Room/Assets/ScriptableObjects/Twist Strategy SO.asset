@@ -13,4 +13,3 @@ MonoBehaviour:
   m_Name: Twist Strategy SO
   m_EditorClassIdentifier: 
   requiredAngle: 360
-  clockwiseToAssemble: 1
