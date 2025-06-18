@@ -49,6 +49,7 @@ MonoBehaviour:
   m_parentParts: []
   m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: 496c85662dca0ca40a6aa4d944ec2883, type: 2}
+  disassembled: 0
 --- !u!114 &6057157696142951488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 599876250753852002}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ebae3e1d4abbb2449927a6ac955f8ecb, type: 3}
   m_Name: 
@@ -67,7 +68,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -153,6 +154,7 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
+  isFixed: 0
 --- !u!1 &4717918281420082324
 GameObject:
   m_ObjectHideFlags: 0

@@ -50,7 +50,8 @@ public class CarPartInteractable : XRSimpleInteractable {
             part.GetComponent<CarPartInteractable>().HoverExited += OnHoverExiting;
         }
     }
-    // TODO: change hover enter so that when we use wrong tool it highlighted not red but some other color
+    
+
     protected override void OnHoverEntering(HoverEnterEventArgs args) {
         var interactor = args.interactorObject as ToolInteractor;
         var info = interactor.GetComponentInParent<InteractionInfo>();

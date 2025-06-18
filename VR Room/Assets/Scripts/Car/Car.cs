@@ -10,7 +10,6 @@ public class Car : MonoBehaviour {
 
     private LevelInfoHolder m_levelInfoHolder;
     private TutorialManager m_tutorialManager;
-
     private CarPartManager m_partManager;
     public CarStateManager StateManager => m_stateManager;
 
@@ -176,7 +175,6 @@ public class CarStateManager {
         m_partManager.PartAssembled -= UpdateAssemblyMode;
     }
 }
-
 public class CarPartManager {
     private CarPartType m_brokenPartsType;
     private List<CarPart> m_parts = new();
@@ -240,6 +238,7 @@ public class CarPartManager {
         foreach(var part in carParts) {
             if(part.PartInfo && part.PartInfo.GetCarPartType == m_brokenPartsType) {
                 parts.AddRange(part.GetAllDependableParts());
+                Debug.Log($"Found broken {part.name} {part.GetHashCode()}");
                 //TODO: changed it to get only one broken detail of a type;
                 return parts;
             }

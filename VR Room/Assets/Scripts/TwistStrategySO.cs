@@ -36,9 +36,9 @@ public class TwistStrategySO : DisassemblyStrategySO {
 
     public override void Finish() {
         if(isDisassembling)
-            target.CarPart.Disassemble();
+            target.CarPart.StartDisassemble();
         else
-            target.CarPart.Assemble();
+            target.CarPart.StartAssemble();
     }
 
     public override void Cancel() {

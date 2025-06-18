@@ -1910,8 +1910,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
-  strategy: {fileID: 0}
-  supportedTypes: 01000000
+  strategy: {fileID: 11400000, guid: 26d855e3ef4e2c44284fea64fad5b57e, type: 2}
+  supportedTypes: 0100000002000000
 --- !u!114 &1333372232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2267,7 +2267,7 @@ MonoBehaviour:
     m_Bits: 1
   m_PhysicsTriggerInteraction: 1
   strategy: {fileID: 11400000, guid: ae5edebdc3a18ea42939e9703a21499f, type: 2}
-  supportedTypes: 05000000
+  supportedTypes: 0500000004000000
 --- !u!114 &1611868240
 MonoBehaviour:
   m_ObjectHideFlags: 0

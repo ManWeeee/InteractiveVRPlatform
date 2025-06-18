@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(CarPartInteractable))]
+/*[RequireComponent(typeof(CarPartInteractable))]
 public class PartTwistWithAnimation : MonoBehaviour {
     [Header("Twist Settings")]
     public Vector3 twistAxis = Vector3.up;
@@ -122,3 +122,4 @@ public class PartTwistWithAnimation : MonoBehaviour {
         Debug.Log("We unlocked tool");
     }
 }
+*/

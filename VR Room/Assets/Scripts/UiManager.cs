@@ -10,8 +10,7 @@ public class UiManager : MonoBehaviour
 
     private Dictionary<GameObject, IUiInstance> m_CreatedUiPrefabs = new();
 
-    [SerializeField]
-    public int NumberOfCreatedUI = 0;
+    private int NumberOfCreatedUI = 0;
     private void Awake()
     {
         Container.Register(this);
