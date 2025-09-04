@@ -254,7 +254,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_uiOffset: 0.6
-  NumberOfCreatedUI: 0
 --- !u!4 &367395913
 Transform:
   m_ObjectHideFlags: 0
@@ -469,7 +468,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &990757757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +488,50 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 990757756}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1024625627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024625629}
+  - component: {fileID: 1024625628}
+  m_Layer: 0
+  m_Name: TutorialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1024625628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024625627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869612842e2b6c147aac34001005187e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1024625629
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024625627}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -552,6 +595,20 @@ MonoBehaviour:
       SceneType: 0
       PreviewVideoClip: {fileID: 32900000, guid: 8cd99a81a5fad4847b8aa48a15272de0,
         type: 3}
+  - m_scenesData:
+    - Reference:
+        asset: {fileID: 102900000, guid: bb0fd339098ba7945ba8e133f1290606, type: 3}
+        guid: bb0fd339098ba7945ba8e133f1290606
+      LocationName: Test Environment
+      SceneType: 0
+      PreviewVideoClip: {fileID: 0}
+  - m_scenesData:
+    - Reference:
+        asset: {fileID: 102900000, guid: 2ceb3688464f8ed47bc2d902b4dd6d73, type: 3}
+        guid: 2ceb3688464f8ed47bc2d902b4dd6d73
+      LocationName: Test Environment
+      SceneType: 0
+      PreviewVideoClip: {fileID: 0}
 --- !u!4 &1127558579
 Transform:
   m_ObjectHideFlags: 0
@@ -877,7 +934,7 @@ Transform:
   m_GameObject: {fileID: 2098352858}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.81166, y: 0.784529, z: 8.316897}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -897,7 +954,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_levelInfo:
   - {fileID: 11400000, guid: ce01a2bc94e73b5418fa5661967ae291, type: 2}
+  - {fileID: 11400000, guid: bccc524963cf0484095eef6c4aa79ff0, type: 2}
   - {fileID: 11400000, guid: 29016ebc7c4d02548a5070d0d38d6cd8, type: 2}
+  - {fileID: 11400000, guid: 13e3b50ffc9697540a31f7b6f180d3b1, type: 2}
   m_currentLevelInfo: {fileID: 0}
 --- !u!1 &2110688314
 GameObject:
@@ -986,3 +1045,4 @@ SceneRoots:
   - {fileID: 1920658057}
   - {fileID: 767793694}
   - {fileID: 1618925111}
+  - {fileID: 1024625629}

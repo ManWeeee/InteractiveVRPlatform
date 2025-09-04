@@ -169,6 +169,7 @@ MonoBehaviour:
   m_parentParts: []
   m_dependableParts: []
   m_partInfo: {fileID: 11400000, guid: 1efbc026a38d80e4f9ed46d45484f5fd, type: 2}
+  disassembled: 0
 --- !u!114 &2416009208199929777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,7 +188,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 2
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_FocusMode: 1
@@ -273,6 +274,7 @@ MonoBehaviour:
       m_Calls: []
   m_part: {fileID: 0}
   m_renderers: []
+  isFixed: 0
 --- !u!135 &5129543777364430950
 SphereCollider:
   m_ObjectHideFlags: 0

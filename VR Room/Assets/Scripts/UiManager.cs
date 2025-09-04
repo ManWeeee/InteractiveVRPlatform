@@ -1,13 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Assets.Scripts;
 using Cysharp.Threading.Tasks;
-using Newtonsoft.Json;
-using SceneManagement;
-using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 public class UiManager : MonoBehaviour
 {
@@ -16,8 +10,7 @@ public class UiManager : MonoBehaviour
 
     private Dictionary<GameObject, IUiInstance> m_CreatedUiPrefabs = new();
 
-    [SerializeField]
-    public int NumberOfCreatedUI = 0;
+    private int NumberOfCreatedUI = 0;
     private void Awake()
     {
         Container.Register(this);

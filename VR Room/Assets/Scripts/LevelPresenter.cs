@@ -29,11 +29,15 @@ public class LevelPresenter : MonoBehaviour
     
     public void NextIndex()
     {
+        if(m_index + 1 > m_levelInfoHolder.LevelCount - 1) {
+            return;
+        }
         m_index++;
-        if (m_index > m_levelInfoHolder.LevelCount - 1)
+        Debug.Log($"Index is {m_index}");
+/*        if (m_index > m_levelInfoHolder.LevelCount - 1)
         {
             m_index = m_levelInfoHolder.LevelCount - 1;
-        }
+        }*/
 
         m_levelInfoHolder.LoadNewLevelInfo(m_levelInfoHolder.GetLevelInfo(m_index));
         UpdateUi();

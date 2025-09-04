@@ -7,11 +7,10 @@ using UnityEngine.XR.Management;
 
 public class LevelInfoHolder : MonoBehaviour
 {
-    [SerializeField] private LevelInfo[] m_levelInfo;
-    [SerializeField]
-    private LevelInfo m_currentLevelInfo;
+    [SerializeField] private List<LevelInfo> m_levelInfo;
+    [SerializeField] private LevelInfo m_currentLevelInfo;
 
-    public int LevelCount => m_levelInfo.Length;
+    public int LevelCount => m_levelInfo.Count;
     public Action<LevelInfo> LevelInfoChanged;
     public LevelInfo CurrentLevelInfo
     {
@@ -19,15 +18,18 @@ public class LevelInfoHolder : MonoBehaviour
         set { m_currentLevelInfo = value; }
     }
 
-/*    private LevelInfo this[int index]
+    /*    private LevelInfo this[int index]
+        {
+            get { return m_levelInfo[index]; }
+        }*/
+    private void Awake()
     {
-        get { return m_levelInfo[index]; }
-    }*/
+        Container.Register(this);
+        LoadNewLevelInfo(m_levelInfo[0]);
+    }
 
     private void Start()
     {
-        Container.Register(this);
-        m_currentLevelInfo = m_levelInfo[0];
     }
 
     public LevelInfo GetLevelInfo(int index)
